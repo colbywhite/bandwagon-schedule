@@ -2,39 +2,8 @@ import type {NextPage} from 'next';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
-import Box from '@mui/material/Box';
-import Image from 'next/image';
-import nextLogo from '../public/nextjs.svg';
-import githubLogo from '../public/github.png';
-import Link from '@mui/material/Link';
-
-function Header() {
-  return (
-    <Box component="header" className="flex flex-row justify-between">
-      <div className="h-10 w-10 pointer-events-none relative">
-        <Image src={nextLogo} alt="Next.js logo" layout="fill"/>
-      </div>
-      <Typography variant="h6" component="p">Next.js Template</Typography>
-    </Box>
-  );
-}
-
-function Footer() {
-  return (
-    <Box component="footer" className="flex flex-row justify-between">
-      <Typography variant="subtitle2" component="p">
-        Created by{' '}
-        <Link href="https://github.com/colbywhite">Colby M. White</Link>
-      </Typography>
-      <Link href="https://github.com/colbywhite/nextjs-template">
-        <div className="h-5 w-5 pointer-events-none relative">
-          <Image src={githubLogo} alt="GitHub logo" layout="fill"/>
-        </div>
-      </Link>
-    </Box>
-  );
-}
-
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const Home: NextPage = () => {
   return (
