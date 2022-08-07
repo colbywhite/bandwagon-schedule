@@ -24,8 +24,8 @@ export const theme = createTheme({
 function MyApp({Component, pageProps}: AppProps) {
   return <>
     <Head>
-      <title>Next.js template</title>
-      <meta name="description" content="A starting template for Next.js projects"/>
+      <title>Bandwagon Schedules</title>
+      <meta name="description" content="This is a set of sports schedule for the bandwagon, i.e. the games that are worth watching."/>
       <link rel="icon" href="/favicon.ico"/>
     </Head>
     <ThemeProvider theme={theme}>

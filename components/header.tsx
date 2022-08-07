@@ -1,15 +1,14 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Image from 'next/image';
-import nextLogo from '../public/nextjs.svg';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 export default function Header() {
   return (
     <Box component="header" className="flex flex-row justify-between">
       <div className="h-10 w-10 pointer-events-none relative">
-        <Image src={nextLogo} alt="Next.js logo" layout="fill"/>
+        <CalendarMonthIcon />
       </div>
-      <Typography variant="h6" component="p">Next.js Template</Typography>
+      <Typography variant="h6" component="p">Bandwagon Schedules</Typography>
     </Box>
   );
 }
