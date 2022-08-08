@@ -1,4 +1,4 @@
-import type {Game, Schedule} from './types';
+import type {Game, Schedule, TeamRecord} from './types';
 import teams from './basketballTeams';
 import {DateTime} from 'luxon';
 
@@ -10,6 +10,13 @@ const networks = [
   'TNT'
 ];
 const augSeventh = DateTime.fromISO('2022-08-07T19:00:00', {zone: newYorkZone});
+const record: TeamRecord = {
+  wins: 111,
+  losses: 100,
+  ties: 100,
+  conference: 'East',
+  conferenceRank: 100
+};
 
 function indexArray(count: number): number[] {
   return Array.from(Array(count).keys());
@@ -19,10 +26,10 @@ function buildGames(date: DateTime): Game[] {
   return indexArray(5)
     .map(index => ({
       id: index,
-      home: teams[index % teams.length],
-      away: teams[(index + 1) % teams.length],
+      home: {...teams[index % teams.length], record: record, powerRank: 100},
+      away: {...teams[(index + 1) % teams.length], record: record, powerRank: 100},
       network: networks[index % networks.length],
-      gameTime: date.set({hour: 18 + index}).toJSDate()
+      gameTime: date.set({hour: 18 + index}).toJSDate(),
     }));
 }
 

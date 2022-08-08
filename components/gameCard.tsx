@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import type {Game, Team} from '../pages/lib/types';
+import type {Game, Team, TeamRecord} from '../pages/lib/types';
 import {DateTime} from 'luxon';
 
 interface GameProps {
@@ -17,6 +17,9 @@ function formatTime(date: Date) {
 }
 
 function TeamInfo({team}: TeamProps) {
+  const recordToString = (record: TeamRecord) => record.ties
+    ? `${record.wins}-${record.losses}-${record.ties}`
+    : `${record.wins}-${record.losses}`;
   return (
     <div className="flex flex-row gap-4 items-center">
       <div className="h-[50px] w-[50px]">
@@ -25,8 +28,10 @@ function TeamInfo({team}: TeamProps) {
       </div>
       <div className="flex flex-col gap-0">
         <Typography className="mb-1" variant="h5" component="p">{team.shortName}</Typography>
-        <Typography variant="caption" component="p">100-100, 100 in West</Typography>
-        <Typography variant="caption" component="p">Rank: 100</Typography>
+        <Typography variant="caption" component="p">
+          {recordToString(team.record)}, {team.record.conferenceRank} in {team.record.conference}
+        </Typography>
+        <Typography variant="caption" component="p">Power Rank: {team.powerRank}</Typography>
       </div>
     </div>
   );
