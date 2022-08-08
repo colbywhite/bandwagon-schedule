@@ -7,7 +7,7 @@ import githubLogo from '../public/github.png';
 export default function Footer() {
   return (
     <Box component="footer" className="flex flex-row justify-between">
-      <Typography variant="subtitle2" component="p">
+      <Typography variant="caption" component="p">
         Created by{' '}
         <Link href="https://github.com/colbywhite">Colby M. White</Link>
       </Typography>

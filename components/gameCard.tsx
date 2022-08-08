@@ -24,9 +24,9 @@ function TeamInfo({team}: TeamProps) {
              alt={team.shortName} width="50" height="50"/>
       </div>
       <div className="flex flex-col gap-0">
-        <Typography className="my-1" variant="h5" component="p">{team.shortName}</Typography>
-        <Typography variant="subtitle2" component="p">100-100, 100 in West</Typography>
-        <Typography variant="subtitle2" component="p">Rank: 100</Typography>
+        <Typography className="mb-1" variant="h5" component="p">{team.shortName}</Typography>
+        <Typography variant="caption" component="p">100-100, 100 in West</Typography>
+        <Typography variant="caption" component="p">Rank: 100</Typography>
       </div>
     </div>
   );
@@ -43,7 +43,7 @@ export default function GameCard({game}: GameProps) {
         <div className="h-fit w-fit max-h-[50px] max-w-[50px]">
           <img src={`/network-logos/${game.network.toLowerCase()}.png`} alt={`${game.network} logo`}/>
         </div>
-        <Typography variant="subtitle2">{formatTime(game.gameTime)}</Typography>
+        <Typography variant="caption">{formatTime(game.gameTime)}</Typography>
       </div>
     </div>
   );
