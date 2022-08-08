@@ -23,10 +23,10 @@ function TeamInfo({team}: TeamProps) {
         <img src={`/basketball-logos/${team.abbreviation.toLowerCase()}.png`}
              alt={team.shortName} width="50" height="50"/>
       </div>
-      <div className="flex flex-col gap-1">
-        <Typography variant="body1">{team.shortName}</Typography>
-        <Typography variant="subtitle2">100-100, 100 in West</Typography>
-        <Typography variant="subtitle2">Rank: 100</Typography>
+      <div className="flex flex-col gap-0">
+        <Typography className="my-1" variant="h5" component="p">{team.shortName}</Typography>
+        <Typography variant="subtitle2" component="p">100-100, 100 in West</Typography>
+        <Typography variant="subtitle2" component="p">Rank: 100</Typography>
       </div>
     </div>
   );
