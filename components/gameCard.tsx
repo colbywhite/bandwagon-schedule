@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import type {Game, Team} from '../pages/lib/types';
+import {DateTime} from 'luxon';
 
 interface GameProps {
   game: Game;
@@ -7,6 +8,12 @@ interface GameProps {
 
 interface TeamProps {
   team: Team;
+}
+
+function formatTime(date: Date) {
+  const dateTime = DateTime.fromJSDate(date);
+  const timeZone = dateTime.toFormat('ZZZZZ').split(' ')[0];
+  return dateTime.toFormat(`h:mm a '${timeZone}'`);
 }
 
 function TeamInfo({team}: TeamProps) {
@@ -36,7 +43,7 @@ export default function GameCard({game}: GameProps) {
         <div className="h-fit w-fit max-h-[50px] max-w-[50px]">
           <img src={`/network-logos/${game.network.toLowerCase()}.png`} alt={`${game.network} logo`}/>
         </div>
-        <Typography variant="subtitle2">12:30pm Central</Typography>
+        <Typography variant="subtitle2">{formatTime(game.gameTime)}</Typography>
       </div>
     </div>
   );

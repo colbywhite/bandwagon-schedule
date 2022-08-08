@@ -9,6 +9,7 @@ export interface Game {
   home: Team;
   away: Team;
   network: string;
+  gameTime: Date
 }
 
 export interface Schedule {
