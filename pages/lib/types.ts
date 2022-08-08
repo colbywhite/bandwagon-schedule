@@ -9,9 +9,7 @@ export interface Game {
   home: Team;
   away: Team;
   network: string;
-  gameTime: Date
+  gameTime: Date;
 }
 
-export interface Schedule {
-  games: Game[];
-}
+export type Schedule = Record<string, Game[]>
