@@ -20,6 +20,12 @@ export interface Game {
   away: Team;
   network: string;
   gameTime: Date;
+  competitionDescription: string;
+  location: {
+    arena: string;
+    city: string;
+    subdivision: string;
+  };
 }
 
 export type Schedule = Record<string, Game[]>

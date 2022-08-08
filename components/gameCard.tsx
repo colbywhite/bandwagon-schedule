@@ -39,16 +39,22 @@ function TeamInfo({team}: TeamProps) {
 
 export default function GameCard({game}: GameProps) {
   return (
-    <div className="border-2 border-400 p-1 flex flex-row gap-1 justify-around items-center">
-      <div className="flex flex-col gap-1 grow border-r-2 border-r-400">
-        <TeamInfo team={game.away}/>
-        <TeamInfo team={game.home}/>
-      </div>
-      <div className="flex flex-col basis-1/4 gap-1 items-center text-center">
-        <div className="h-fit w-fit max-h-[50px] max-w-[50px]">
-          <img src={`/network-logos/${game.network.toLowerCase()}.png`} alt={`${game.network} logo`}/>
+    <div className="border-2 border-400 p-1 flex flex-col gap-3">
+      <div className="flex flex-row gap-1 justify-around items-center">
+        <div className="flex flex-col gap-1 grow border-r-2 border-r-400">
+          <TeamInfo team={game.away}/>
+          <TeamInfo team={game.home}/>
         </div>
-        <Typography variant="caption">{formatTime(game.gameTime)}</Typography>
+        <div className="flex flex-col basis-1/4 gap-1 items-center text-center">
+          <div className="h-fit w-fit max-h-[50px] max-w-[50px]">
+            <img src={`/network-logos/${game.network.toLowerCase()}.png`} alt={`${game.network} logo`}/>
+          </div>
+          <Typography variant="caption">{formatTime(game.gameTime)}</Typography>
+        </div>
+      </div>
+      <div className="text-center">
+        <Typography variant="caption" component="p">{game.competitionDescription}</Typography>
+        <Typography variant="caption" component="p">{game.location.arena}, {game.location.city}, {game.location.subdivision}</Typography>
       </div>
     </div>
   );

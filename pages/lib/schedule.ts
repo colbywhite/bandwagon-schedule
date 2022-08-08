@@ -30,6 +30,12 @@ function buildGames(date: DateTime): Game[] {
       away: {...teams[(index + 1) % teams.length], record: record, powerRank: 100},
       network: networks[index % networks.length],
       gameTime: date.set({hour: 18 + index}).toJSDate(),
+      competitionDescription: 'NBA Regular Season',
+      location: {
+        arena: 'Madison Square Garden',
+        city: 'New York',
+        subdivision: 'NY'
+      }
     }));
 }
 
