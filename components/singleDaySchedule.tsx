@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import type {DateTime} from 'luxon';
-import type {Game} from '../pages/lib/types';
+import type {Game} from '../lib/types';
 import GameCard from './gameCard';
 
 interface GamesProps {

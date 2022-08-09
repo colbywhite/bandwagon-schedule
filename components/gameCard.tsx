@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import type {Game, Team, TeamRecord} from '../pages/lib/types';
+import type {Game, Team, TeamRecord} from '../lib/types';
 import {DateTime} from 'luxon';
 
 interface GameProps {

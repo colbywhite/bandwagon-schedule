@@ -1,8 +1,8 @@
 import type {GetStaticProps, InferGetStaticPropsType, NextPage} from 'next';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import type {Schedule} from './lib/types';
-import getSchedule from './lib/schedule';
+import type {Schedule} from '../lib/types';
+import getSchedule from '../lib/schedule';
 import {DateTime} from 'luxon';
 import SingleDaySchedule from '../components/singleDaySchedule';
 
