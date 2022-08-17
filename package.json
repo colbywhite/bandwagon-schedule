@@ -1,5 +1,5 @@
 {
-  "name": "bandwagon-schedule",
+  "name": "powerschedules",
   "private": true,
   "scripts": {
     "prepreview": "next build",

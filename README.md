@@ -1,3 +1,3 @@
-# bandwagon-schedule
+# Power Schedules
 
-This is a set of sports schedule for the bandwagon, i.e. the games that are worth watching.
+A view of sport schedules based on power rankings.

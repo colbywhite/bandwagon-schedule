@@ -9,7 +9,7 @@ export default function Header() {
       <div className="h-10 w-10 pointer-events-none relative">
         <CalendarMonthIcon className="m-auto block" fontSize="large"/>
       </div>
-      <Typography variant="h6" component="p">Bandwagon Schedules</Typography>
+      <Typography variant="h6" component="p">Power Schedules</Typography>
     </Box>
   );
 }

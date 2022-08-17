@@ -11,7 +11,7 @@ export default function Footer() {
         Created by{' '}
         <Link href="https://github.com/colbywhite">Colby M. White</Link>
       </Typography>
-      <Link href="https://github.com/colbywhite/bandwagon-schedule">
+      <Link href="https://github.com/colbywhite/powerschedules">
         <div className="h-5 w-5 pointer-events-none relative">
           <Image src={githubLogo} alt="GitHub logo" layout="fill"/>
         </div>
