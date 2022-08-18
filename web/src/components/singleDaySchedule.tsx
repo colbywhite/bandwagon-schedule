@@ -1,0 +1,22 @@
+import type {DateTime} from 'luxon';
+import type {Game} from 'types/index';
+import GameCard from './gameCard';
+
+interface GamesProps {
+  games: Game[];
+}
+
+interface DayProps {
+  date: DateTime;
+}
+
+export default function SingleDaySchedule({date, games}: DayProps & GamesProps) {
+  return (
+    <section className="flex flex-col gap-3">
+      <h4>{date.toFormat('cccc, LLL d')}</h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-between">
+        {games.map(game => (<GameCard game={game} key={game.id}/>))}
+      </div>
+    </section>
+  );
+}
