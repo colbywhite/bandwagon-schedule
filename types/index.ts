@@ -28,4 +28,4 @@ export interface Game {
   };
 }
 
-export type Schedule = Record<string, Game[]>
+export type Schedule = Record<string, Game[]>;

@@ -1,26 +1,23 @@
-import type {APIGatewayEvent, Context} from 'aws-lambda';
-import {DateTime} from 'luxon';
-import superjson from 'superjson';
-import type {Game, Schedule, TeamRecord} from 'types/index';
+import type { APIGatewayEvent, Context } from "aws-lambda";
+import { DateTime } from "luxon";
+import superjson from "superjson";
+import type { Game, Schedule, TeamRecord } from "types/index";
 
-import {logger} from 'src/lib/logger';
+import { logger } from "src/lib/logger";
 
-import teams from './basketballTeams';
+import teams from "./basketballTeams";
 
-const newYorkZone = 'America/New_York';
-const networks = [
-  'ABC',
-  'ESPN',
-  'NBATV',
-  'TNT'
-];
-const augSeventh = DateTime.fromISO('2022-08-07T19:00:00', {zone: newYorkZone});
+const newYorkZone = "America/New_York";
+const networks = ["ABC", "ESPN", "NBATV", "TNT"];
+const augSeventh = DateTime.fromISO("2022-08-07T19:00:00", {
+  zone: newYorkZone,
+});
 const record: TeamRecord = {
   wins: 111,
   losses: 100,
   ties: 100,
-  conference: 'East',
-  conferenceRank: 100
+  conference: "East",
+  conferenceRank: 100,
 };
 
 function indexArray(count: number): number[] {
@@ -28,31 +25,33 @@ function indexArray(count: number): number[] {
 }
 
 function buildGames(date: DateTime): Game[] {
-  return indexArray(5)
-    .map(index => ({
-      id: index,
-      home: {...teams[index % teams.length], record: record, powerRank: 100},
-      away: {...teams[(index + 1) % teams.length], record: record, powerRank: 100},
-      network: networks[index % networks.length],
-      gameTime: date.set({hour: 18 + index}).toJSDate(),
-      competitionDescription: 'NBA Regular Season',
-      location: {
-        arena: 'Madison Square Garden',
-        city: 'New York',
-        subdivision: 'NY'
-      }
-    }));
+  return indexArray(5).map((index) => ({
+    id: index,
+    home: { ...teams[index % teams.length], record: record, powerRank: 100 },
+    away: {
+      ...teams[(index + 1) % teams.length],
+      record: record,
+      powerRank: 100,
+    },
+    network: networks[index % networks.length],
+    gameTime: date.set({ hour: 18 + index }).toJSDate(),
+    competitionDescription: "NBA Regular Season",
+    location: {
+      arena: "Madison Square Garden",
+      city: "New York",
+      subdivision: "NY",
+    },
+  }));
 }
 
 function getSchedule(): Schedule {
   const reduceFunc = (schedule: Schedule, date: DateTime) => {
-    return {...schedule, [date.toISODate()]: buildGames(date)};
+    return { ...schedule, [date.toISODate()]: buildGames(date) };
   };
   return indexArray(3)
-    .map(index => augSeventh.plus({days: index}))
+    .map((index) => augSeventh.plus({ days: index }))
     .reduce(reduceFunc, {} as Schedule);
 }
-
 
 /**
  * The handler function is your code that processes http request events.
@@ -65,14 +64,14 @@ function getSchedule(): Schedule {
  * in the RedwoodJS documentation for more information.
  */
 export const handler = async (_: APIGatewayEvent, __: Context) => {
-  logger.info('Invoked schedule function');
+  logger.info("Invoked schedule function");
   const schedule = await getSchedule();
 
   return {
     statusCode: 200,
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: superjson.stringify(schedule)
+    body: superjson.stringify(schedule),
   };
 };

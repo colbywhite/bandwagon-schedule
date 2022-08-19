@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "start": "rw dev",
-    "test": "rw test"
+    "test": "rw test",
+    "lint": "./node_modules/.bin/prettier"
   },
   "workspaces": {
     "packages": [
