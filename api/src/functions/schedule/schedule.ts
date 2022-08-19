@@ -1,9 +1,11 @@
 import type {APIGatewayEvent, Context} from 'aws-lambda';
-import {logger} from 'src/lib/logger';
+import {DateTime} from 'luxon';
 import superjson from 'superjson';
 import type {Game, Schedule, TeamRecord} from 'types/index';
+
+import {logger} from 'src/lib/logger';
+
 import teams from './basketballTeams';
-import {DateTime} from 'luxon';
 
 const newYorkZone = 'America/New_York';
 const networks = [
@@ -61,14 +63,8 @@ function getSchedule(): Schedule {
  *
  * @see {@link https://redwoodjs.com/docs/serverless-functions#security-considerations|Serverless Function Considerations}
  * in the RedwoodJS documentation for more information.
- *
- * @typedef { import('aws-lambda').APIGatewayEvent } APIGatewayEvent
- * @typedef { import('aws-lambda').Context } Context
- * @param { APIGatewayEvent } event - an object which contains information from the invoker.
- * @param { Context } context - contains information about the invocation,
- * function, and execution environment.
  */
-export const handler = async (event: APIGatewayEvent, context: Context) => {
+export const handler = async (_: APIGatewayEvent, __: Context) => {
   logger.info('Invoked schedule function');
   const schedule = await getSchedule();
 

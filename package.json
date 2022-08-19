@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "start": "rw dev",
+    "test": "rw test"
+  },
   "workspaces": {
     "packages": [
       "api",

@@ -1,19 +1,27 @@
+import {useEffect, useState} from 'react';
+
 import {DateTime} from 'luxon';
+import superjson from 'superjson';
+import type {Schedule} from 'types/index';
+
+import Footer from 'src/components/footer';
 import Header from 'src/components/header';
 import SingleDaySchedule from 'src/components/singleDaySchedule';
-import Footer from 'src/components/footer';
-import {useEffect, useState} from 'react';
-import type {Schedule} from 'types/index';
-import superjson from 'superjson';
 
 const HomePage = () => {
-  const [schedule, setSchedule] = useState({} as Schedule)
+  const [schedule, setSchedule] = useState({} as Schedule);
   useEffect(() => {
-    fetch('/.redwood/functions/schedule')
-      .then(response => response.text() as Promise<string>)
+    const abort = new AbortController();
+    fetch('/.redwood/functions/schedule', {signal: abort.signal})
+      .then(response => response.text())
       .then(body => superjson.parse<Schedule>(body))
       .then(setSchedule)
-  }, [])
+      .catch(error => {
+        if (error.name === 'AbortError') return;
+        throw error;
+      });
+    return () => abort.abort();
+  }, []);
   return (
     <div className="w-full flex flex-col justify-around gap-1.5 p-2 md:p-3 lg:p-4">
       <Header/>

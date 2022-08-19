@@ -1,3 +1,5 @@
+import superjson from 'superjson';
+
 import { mockHttpEvent } from '@redwoodjs/testing/api'
 
 import { handler } from './schedule'
@@ -6,18 +8,14 @@ import { handler } from './schedule'
 //    https://redwoodjs.com/docs/testing#testing-functions
 
 describe('schedule function', () => {
-  it('Should respond with 200', async () => {
-    const httpEvent = mockHttpEvent({
-      queryStringParameters: {
-        id: '42', // Add parameters here
-      },
-    })
+  it('should respond with 200', async () => {
+    const httpEvent = mockHttpEvent({queryStringParameters: {}});
 
     const response = await handler(httpEvent, null)
-    const { data } = JSON.parse(response.body)
-
     expect(response.statusCode).toBe(200)
-    expect(data).toBe('schedule function')
+    const data = superjson.parse(response.body)
+    const dates = Object.keys(data)
+    expect(dates).toEqual(['2022-08-07', '2022-08-08', '2022-08-09']);
   })
 
   // You can also use scenarios to test your api functions
