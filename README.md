@@ -1,4 +1,4 @@
-# todo-app by [Colby M. White]
+# powerschedules.net by [Colby M. White]
 
 This is my preferred starting template for a `redwood` project with what I consider a sane set of starting settings.
 
