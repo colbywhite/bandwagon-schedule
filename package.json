@@ -3,7 +3,9 @@
   "scripts": {
     "start": "rw dev",
     "test": "rw test",
-    "lint": "./node_modules/.bin/prettier"
+    "lint:check": "prettier -c .",
+    "lint:write": "prettier -w .",
+    "postinstall": "husky install"
   },
   "workspaces": {
     "packages": [
@@ -14,6 +16,9 @@
   },
   "devDependencies": {
     "@redwoodjs/core": "2.2.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13"
   },
   "eslintConfig": {
@@ -31,5 +36,8 @@
   "dependencies": {
     "luxon": "^3.0.1",
     "superjson": "^1.9.1"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
