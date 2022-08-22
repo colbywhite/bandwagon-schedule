@@ -7376,6 +7376,8 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 2.2.0
     "@redwoodjs/graphql-server": 2.2.0
+    axios: ^0.27.2
+    cheerio: ^1.0.0-rc.12
   languageName: unknown
   linkType: soft
 
@@ -7851,6 +7853,16 @@ __metadata:
   version: 4.4.3
   resolution: "axe-core@npm:4.4.3"
   checksum: 01ed3d23b86f48c595e7a077ca472b35b53e6b76e93996e91d8447f0ab68d7a5318534af6cb5e60ffd575f75ac742570192dc3de7223493bbeee9acaf2f6c520
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.27.2":
+  version: 0.27.2
+  resolution: "axios@npm:0.27.2"
+  dependencies:
+    follow-redirects: ^1.14.9
+    form-data: ^4.0.0
+  checksum: 76d673d2a90629944b44d6f345f01e58e9174690f635115d5ffd4aca495d99bcd8f95c590d5ccb473513f5ebc1d1a6e8934580d0c57cdd0498c3a101313ef771
   languageName: node
   linkType: hard
 
@@ -9125,7 +9137,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:1.0.0-rc.12":
+"cheerio@npm:1.0.0-rc.12, cheerio@npm:^1.0.0-rc.12":
   version: 1.0.0-rc.12
   resolution: "cheerio@npm:1.0.0-rc.12"
   dependencies:
@@ -12793,7 +12805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9":
   version: 1.15.1
   resolution: "follow-redirects@npm:1.15.1"
   peerDependenciesMeta:
@@ -12881,6 +12893,17 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: 1ccc3ae064a080a799923f754d49fcebdd90515a8924f0f54de557540b50e7f1fe48ba5f2bd0435a5664aa2d49729107e6aaf2155a9abf52339474c5638b4485
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: cb6f3ac49180be03ff07ba3ff125f9eba2ff0b277fb33c7fc47569fc5e616882c5b1c69b9904c4c4187e97dd0419dd03b134174756f296dec62041e6527e2c6e
   languageName: node
   linkType: hard
 

@@ -1,0 +1,659 @@
+[
+  {
+    "optaId": 2284913,
+    "slug": "usavsmar-06-01-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 596,
+      "fullName": "U.S. Men's National Team",
+      "slug": "us-men-s-national-team",
+      "shortName": "United States",
+      "abbreviation": "USA",
+      "backgroundColor": "#202844",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_d7b55db6-b7e6-43a6-8c06-f0d130d7fff4",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1634308540/assets/flags/united-states-480px.png",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 1057,
+      "fullName": "Morocco",
+      "slug": "morocco",
+      "shortName": "Morocco",
+      "abbreviation": "MAR",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_f7b90d41-cd91-4b60-b923-9136f59506d6",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1648837097/assets/flags/Morocco-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "15489",
+      "backgroundImageSlug": "",
+      "name": "TQL Stadium",
+      "city": "Cincinnati, OH"
+    },
+    "season": {
+      "slug": "usl-championship-2021",
+      "optaId": 2021,
+      "competitionId": 88,
+      "name": "Season 2021/2022"
+    },
+    "competition": {
+      "optaId": 88,
+      "name": "International Friendly",
+      "slug": "international-friendly",
+      "shortName": "Friendly",
+      "matchType": "",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "Intl Friendly",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "ESPN2",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "UniMás",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "TUDN",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-06-01T23:30:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2287127,
+    "slug": "skcvsoma-06-22-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 421,
+      "fullName": "Sporting Kansas City",
+      "slug": "sporting-kansas-city",
+      "shortName": "Kansas City",
+      "abbreviation": "SKC",
+      "backgroundColor": "#0C2340",
+      "logoBWSlug": "webcomp_3eee8541-16f1-4dfc-a366-b6b4d19e4a30",
+      "logoColorSlug": "webcomp_5227c7e9-ad7e-402d-a910-160052addcf4",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970745/assets/logos/421-sporting-kc-logo_pyhxo8.png",
+      "crestColorSlug": "webcomp_164c77dc-f6f3-47a3-bac4-002202ba0a11"
+    },
+    "away": {
+      "optaId": 16497,
+      "fullName": "Union Omaha",
+      "slug": "union-omaha",
+      "shortName": "Omaha",
+      "abbreviation": "OMA",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_2bd9acf7-81dc-4746-8764-bb562022c7c3",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645721/assets/competitions/united-soccer-league/union-omaha-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "7329",
+      "backgroundImageSlug": "",
+      "name": "Children's Mercy Park",
+      "city": "Kansas City, KS"
+    },
+    "season": {
+      "slug": "us-open-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 557,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 557,
+      "name": "US Open Cup",
+      "slug": "u-s-open-cup",
+      "shortName": "U.S. Open Cup",
+      "matchType": "Cup",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-06-23T00:30:00.0000000Z",
+    "firstPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://www.sportingkc.com/tickets/",
+      "openInNewTab": false,
+      "isVisible": false
+    },
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2261199,
+    "slug": "cinvsorl-06-24-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 11504,
+      "fullName": "FC Cincinnati",
+      "slug": "fc-cincinnati",
+      "shortName": "Cincinnati",
+      "abbreviation": "CIN",
+      "backgroundColor": "#003087",
+      "logoBWSlug": "webcomp_093edcd5-74d9-4da2-93f8-d464f7169dd4",
+      "logoColorSlug": "webcomp_553d2bce-a8cd-4cce-ada2-b6e07c74dc28",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
+      "crestColorSlug": "webcomp_41e2f018-d1fe-482e-bd36-9d2a02da24a0"
+    },
+    "away": {
+      "optaId": 6900,
+      "fullName": "Orlando City",
+      "slug": "orlando-city-sc",
+      "shortName": "Orlando",
+      "abbreviation": "ORL",
+      "backgroundColor": "#61259E",
+      "logoBWSlug": "webcomp_3e90d4f0-6195-43d7-9d77-da4c1d7e3f65",
+      "logoColorSlug": "webcomp_9499966a-5150-4e9e-9df8-e3254b265584",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970757/assets/logos/6900-orlando-logo_tfcjmq.png",
+      "crestColorSlug": "webcomp_93928d77-288d-4606-8c86-6920962f1e71"
+    },
+    "venue": {
+      "venueOptaId": "15489",
+      "backgroundImageSlug": "",
+      "name": "TQL Stadium",
+      "city": "Cincinnati, OH"
+    },
+    "season": {
+      "slug": "us-major-league-soccer-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 98,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 98,
+      "name": "MLS Regular Season",
+      "slug": "mls-regular-season",
+      "shortName": "Regular Season",
+      "matchType": "Regular",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "Streaming",
+        "broadcasterName": "MLS LIVE on ESPN+",
+        "broadcasterStreamingURL": "https://plus.espn.com/soccer",
+        "broadcasterType": "US Streaming"
+      },
+      {
+        "broadcasterTypeLabel": "Streaming",
+        "broadcasterName": "MLS LIVE on DAZN",
+        "broadcasterStreamingURL": "https://www.dazn.com/en-CA/l/major-league-soccer/",
+        "broadcasterType": "Canada Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-06-24T23:30:00.0000000Z",
+    "firstPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://seatgeek.com/orlando-city-sc-at-fc-cincinnati-tickets/mls/2022-06-24-7-30-pm/5604704?aid=12189&pid=integration&utm_medium=partnership&utm_source=mls&utm_campaign=integration&rid=3",
+      "openInNewTab": true,
+      "isVisible": false
+    },
+    "tags": [
+      {
+        "type": "tag",
+        "_translationId": "585bc0ba-cd79-4321-8246-4eff9093d9c0",
+        "_entityId": "771e3aa2-0134-46e7-8aae-bfb2967a627d",
+        "selfUrl": "https://dapi.mlssoccer.com/v2/content/en-us/tags/seatgeek-deeplink-added",
+        "title": "seatgeek-deeplink-added",
+        "slug": "seatgeek-deeplink-added",
+        "neutralSlug": "seatgeek-deeplink-added",
+        "externalSourceReference": {},
+        "fields": {}
+      }
+    ],
+    "matchKickOffTime": "2022-06-24T23:38:00.0000000Z",
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "STAR 64",
+        "broadcasterName": "STAR 64",
+        "broadcasterStreamingURL": "https://star64.tv/",
+        "broadcasterType": "Linear TV"
+      },
+      {
+        "broadcasterTypeLabel": "FCC TV ",
+        "broadcasterName": "FCC TV ",
+        "broadcasterStreamingURL": "https://www.fccincinnati.com/schedule/tv-and-streaming",
+        "broadcasterType": "Streaming"
+      },
+      {
+        "broadcasterTypeLabel": "ESPN 1530",
+        "broadcasterName": "ESPN 1530",
+        "broadcasterStreamingURL": "https://espn1530.iheart.com/",
+        "broadcasterType": "Radio"
+      }
+    ],
+    "awayClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "ORL TV",
+        "broadcasterName": "Fox 35 Plus",
+        "broadcasterType": "Linear TV"
+      },
+      {
+        "broadcasterTypeLabel": "ORL Streaming",
+        "broadcasterName": "LionNation TV",
+        "broadcasterType": "Streaming"
+      },
+      {
+        "broadcasterTypeLabel": "ORL Radio",
+        "broadcasterName": "96.9 The Game",
+        "broadcasterType": "Radio"
+      },
+      {
+        "broadcasterTypeLabel": "ORL Radio",
+        "broadcasterName": "Acción 97.9",
+        "broadcasterType": "Radio"
+      }
+    ],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": "2:3444021"
+  },
+  {
+    "optaId": 2284267,
+    "slug": "forvstor-06-04-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 15377,
+      "fullName": "Forge FC",
+      "slug": "forge",
+      "shortName": "Forge FC",
+      "abbreviation": "FOR",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_401fddc4-a328-41c8-aad0-34a5d80a9a3c",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1652403623/assets/competitions/canadian-premier-league/forge-fc-480-b.png",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 2077,
+      "fullName": "Toronto FC",
+      "slug": "toronto-fc",
+      "shortName": "Toronto",
+      "abbreviation": "TOR",
+      "backgroundColor": "#AE132A",
+      "logoBWSlug": "webcomp_658b7bba-a482-488b-81cd-aafa5f3fd812",
+      "logoColorSlug": "webcomp_29911d2a-d905-4574-95ce-8e6c3cf19521",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970755/assets/logos/2077-toronto-fc-logo_gx1gtb.png",
+      "crestColorSlug": "webcomp_43678e7c-dc6e-4aeb-b751-9c0ba4274906"
+    },
+    "venue": {
+      "venueOptaId": "10581",
+      "backgroundImageSlug": "",
+      "name": "Tim Hortons Field",
+      "city": "Hamilton"
+    },
+    "season": {
+      "slug": "canadian-championship-2020",
+      "optaId": 2020,
+      "competitionId": 552,
+      "name": "Season 2020/2021"
+    },
+    "competition": {
+      "optaId": 552,
+      "name": "Canadian Championship",
+      "slug": "canadian-championship",
+      "shortName": "Canadian Champ",
+      "matchType": "Cup",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-06-04T23:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2285701,
+    "slug": "nycvsatl-09-14-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "away": {
+      "optaId": 1284,
+      "fullName": "Atlas",
+      "slug": "atlas",
+      "shortName": "Atlas",
+      "abbreviation": "ATL",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_7bdbeaa7-864d-4b42-a5cc-f569450962ac",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1631671178/assets/competitions/liga-mx/atlas-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "8046",
+      "backgroundImageSlug": "",
+      "name": "Yankee Stadium",
+      "city": "New York"
+    },
+    "season": {
+      "slug": "campeones-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 957,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 957,
+      "name": "Campeones Cup",
+      "slug": "campeones-cup",
+      "shortName": "Campeones Cup",
+      "matchType": "",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-09-14T23:30:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2262771,
+    "slug": "guavsnyc-02-15-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9722,
+      "fullName": "Santos de Guápiles",
+      "slug": "santos-de-guapiles",
+      "shortName": "Santos",
+      "abbreviation": "SAN",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_cff0aa9d-8565-40c7-bf3b-60f86ff756d2",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1640192110/assets/competitions/concacaf-champions-league/santos_480x480-2022.png",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "venue": {
+      "venueOptaId": "7484",
+      "backgroundImageSlug": "",
+      "name": "Estadio Nacional de Costa Rica",
+      "city": "San Jose"
+    },
+    "season": {
+      "slug": "concacaf-champions-league-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 549,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 549,
+      "name": "Concacaf Champions League",
+      "slug": "concacaf-champions-league",
+      "shortName": "CCL",
+      "matchType": "1st Leg",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "FS2",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "TUDN",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "",
+        "broadcasterName": "OneSoccer",
+        "broadcasterStreamingURL": "https://onesoccer.ca/",
+        "broadcasterType": "Canada Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-16T01:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2223816,
+    "slug": "nycvspum-08-11-2021",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "away": {
+      "optaId": 1297,
+      "fullName": "Pumas UNAM",
+      "slug": "pumas-unam",
+      "shortName": "Pumas",
+      "abbreviation": "PUM",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_b5218cb4-eb58-4455-ab53-14d4379caff7",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1631670068/assets/competitions/liga-mx/pumas-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "8046",
+      "backgroundImageSlug": "",
+      "name": "Yankee Stadium",
+      "city": "New York"
+    },
+    "season": {
+      "slug": "leagues-cup-season-2021-2022",
+      "optaId": 2021,
+      "competitionId": 1045,
+      "name": "Season 2021/2022"
+    },
+    "competition": {
+      "optaId": 1045,
+      "name": "Leagues Cup",
+      "slug": "leagues-cup",
+      "shortName": "Leagues Cup",
+      "matchType": "Cup Short",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "Streaming",
+        "broadcasterName": "TUDN.com",
+        "broadcasterStreamingURL": "https://www.tudn.com/futbol/partidos-de-futbol-para-hoy-en-vivo",
+        "broadcasterType": "US Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2021-08-12T02:58:00.0000000Z",
+    "firstPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://www.ticketmaster.com/2021-leagues-cup-new-york-city-bronx-new-york-08-11-2021/event/1D005AD515F52D91",
+      "openInNewTab": true,
+      "isVisible": false
+    },
+    "tags": [],
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "NYCFC.com/Radio",
+        "broadcasterName": "NYCFC.com/Radio",
+        "broadcasterStreamingURL": "/radio",
+        "broadcasterType": "Radio"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2278411,
+    "slug": "semi-final-1-winnervssemi-final-2-winner-12-18-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 1936,
+      "fullName": "Finalist 1",
+      "slug": "finalist-1-x6409",
+      "shortName": "Finalist 1",
+      "abbreviation": "F1",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 1937,
+      "fullName": "Finalist 2",
+      "slug": "finalist-2-x1723",
+      "shortName": "Finalist 2",
+      "abbreviation": "F2",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "16315",
+      "backgroundImageSlug": "",
+      "name": "Lusail Iconic Stadium",
+      "city": "Lusail"
+    },
+    "season": {
+      "slug": "world-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 4,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 4,
+      "name": "World Cup",
+      "slug": "fifa-world-cup",
+      "shortName": "World Cup",
+      "matchType": "",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-12-18T15:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  }
+]
