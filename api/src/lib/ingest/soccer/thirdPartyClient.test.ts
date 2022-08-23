@@ -1,44 +1,23 @@
-import {
-  getMLSSchedule,
-  getMLSStandings,
-  getRankings,
-} from "src/lib/ingest/soccer/thirdPartyClient";
+import thirdPartyClient from "src/lib/ingest/soccer/thirdPartyClient";
 import path from "path";
-import {
-  FixtureLoader,
-  restWithBody,
-  restWithJson,
-  setupTestsWithServer,
-} from "src/lib/test.utils";
+import { setupTestsWithMockHelper } from "src/lib/test.utils";
 
 describe("ingest/soccer/thirdPartyClient", () => {
-  const server = setupTestsWithServer();
-  const fixtures = new FixtureLoader(path.join(__dirname, "fixtures"));
+  const helper = setupTestsWithMockHelper(path.join(__dirname, "fixtures"));
 
   describe("getRankings", () => {
-    const url =
-      "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php";
-
     it("should return parsed rankings", async () => {
-      server.use(restWithBody(url, fixtures.readData("powerrankings.html")));
-      const rankings = await getRankings();
-      const expectedRankings = fixtures.readJsonData("powerrankings.json");
+      helper.mockRankings("defaultRankings.html");
+      const rankings = await thirdPartyClient.getRankings();
+      const expectedRankings = helper.readJsonFixture("powerrankings.json");
       expect(rankings).toEqual(expectedRankings);
     });
   });
 
   describe("getMLSSchedule", () => {
-    const url = "https://sportapi.mlssoccer.com/api/matches";
-
     it("should return only valid games", async () => {
-      server.use(
-        restWithJson(
-          url,
-          fixtures.readJsonData("scheduleWithInvalidGames.json")
-        )
-      );
-
-      const schedule = await getMLSSchedule();
+      helper.mockSchedule("scheduleWithInvalidGames.json");
+      const schedule = await thirdPartyClient.getMLSSchedule();
       const slugs = schedule.map((g) => g.slug);
       const expectedSlugs = [
         "skcvsoma-06-22-2022",
@@ -53,7 +32,6 @@ describe("ingest/soccer/thirdPartyClient", () => {
   });
 
   describe("getMLSStandings", () => {
-    const url = "https://sportapi.mlssoccer.com/api/standings/live";
     type FilteredTeamRecordStats = {
       total_draws: number;
       total_wins: number;
@@ -62,9 +40,9 @@ describe("ingest/soccer/thirdPartyClient", () => {
     type TeamRecords = Record<string, FilteredTeamRecordStats>;
 
     it("should return standings", async () => {
-      server.use(restWithJson(url, fixtures.readJsonData("standings.json")));
+      helper.mockStandings("defaultStanding.json");
 
-      const standings = await getMLSStandings();
+      const standings = await thirdPartyClient.getMLSStandings();
       const teamRecords = standings.reduce((teams, entry) => {
         return {
           ...teams,
@@ -75,9 +53,7 @@ describe("ingest/soccer/thirdPartyClient", () => {
           },
         };
       }, {} as TeamRecords);
-      const expectedTeamRecords = fixtures.readJsonData(
-        "filteredStandings.json"
-      );
+      const expectedTeamRecords = helper.readJsonFixture("filteredStandings.json");
       expect(teamRecords).toEqual(expectedTeamRecords);
     });
   });

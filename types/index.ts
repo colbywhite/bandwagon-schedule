@@ -2,8 +2,9 @@ export interface Team {
   shortName: string;
   fullName: string;
   abbreviation: string;
-  record: TeamRecord;
-  powerRank: number;
+  record?: TeamRecord;
+  powerRank?: number;
+  sport: Sport;
 }
 
 export interface TeamRecord {
@@ -14,18 +15,26 @@ export interface TeamRecord {
   conferenceRank: number;
 }
 
-export interface Game {
-  id: number;
-  home: Team;
-  away: Team;
-  network: string;
-  gameTime: Date;
-  competitionDescription: string;
-  location: {
-    arena: string;
-    city: string;
-    subdivision: string;
-  };
+export interface Venue {
+  name: string;
+  city: string;
 }
 
-export type Schedule = Record<string, Game[]>;
+export interface Game {
+  id: number | string;
+  home: Team;
+  away: Team;
+  network?: string;
+  gameTime: Date;
+  competition: string;
+  venue: Venue;
+}
+
+export interface Schedule {
+  games: Game[];
+  teams: Team[];
+  teamSchedules: Map<string, Game[]>;
+  gamesByDate: Record<string, Game[]>;
+}
+
+export type Sport = "soccer";

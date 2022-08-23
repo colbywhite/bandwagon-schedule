@@ -16,6 +16,8 @@ export interface RawMLSGame {
 export interface RawMLSVenue {
   name: string;
   city: string;
+  backgroundImageSlug: string;
+  venueOptaId: string;
 }
 
 export interface RawMLSCompetition {
@@ -27,13 +29,21 @@ export interface RawMLSCompetition {
 }
 
 export interface RawMLSTeam {
-  abbreviation: string;
+  optaId: number;
+  fullName: string;
+  slug: string;
   shortName: string;
+  abbreviation: string;
+  backgroundColor: string;
+  logoBWSlug: string;
+  logoColorSlug: string;
+  crestColorSlug: string;
 }
 
 export interface Broadcaster {
   broadcasterTypeLabel: "Streaming" | "National TV" | "US TV" | "TV";
   broadcasterName: string;
+  broadcasterStreamingURL: string;
   broadcasterType: "US Streaming" | "Canada Streaming" | "US TV" | "Canada TV";
 }
 

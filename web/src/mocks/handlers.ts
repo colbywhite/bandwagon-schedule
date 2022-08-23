@@ -2,6 +2,7 @@ import { DateTime } from "luxon";
 import { rest } from "msw";
 import superjson from "superjson";
 import type { Schedule } from "types/index";
+import { Game } from "types/index";
 
 const augSeventh: DateTime = DateTime.fromISO("2022-08-07T19:00:00", {
   zone: "America/New_York",
@@ -9,7 +10,7 @@ const augSeventh: DateTime = DateTime.fromISO("2022-08-07T19:00:00", {
 export default rest.get(
   "/.redwood/functions/schedule",
   async (req, res, ctx) => {
-    const schedule: Schedule = {
+    const schedule: Record<string, Game[]> = {
       [augSeventh.toISODate()]: [
         {
           id: 0,
@@ -25,6 +26,7 @@ export default rest.get(
               conferenceRank: 100,
             },
             powerRank: 100,
+            sport: "soccer",
           },
           home: {
             shortName: "Hawks",
@@ -38,14 +40,14 @@ export default rest.get(
               conferenceRank: 100,
             },
             powerRank: 100,
+            sport: "soccer",
           },
           network: "ABC",
           gameTime: augSeventh.toJSDate(),
-          competitionDescription: "NBA Regular Season",
-          location: {
-            arena: "Madison Square Garden",
-            city: "New York",
-            subdivision: "NY",
+          competition: "NBA Regular Season",
+          venue: {
+            name: "Madison Square Garden",
+            city: "New York, NY",
           },
         },
       ],

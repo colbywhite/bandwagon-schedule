@@ -61,10 +61,9 @@ export default function GameCard({ game }: GameProps) {
         </div>
       </div>
       <div className="text-center">
-        <p>{game.competitionDescription}</p>
+        <p>{game.competition}</p>
         <p>
-          {game.location.arena}, {game.location.city},{" "}
-          {game.location.subdivision}
+          {game.venue.name}, {game.venue.city}
         </p>
       </div>
     </div>

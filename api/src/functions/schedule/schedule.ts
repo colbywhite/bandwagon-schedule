@@ -27,19 +27,24 @@ function indexArray(count: number): number[] {
 function buildGames(date: DateTime): Game[] {
   return indexArray(5).map((index) => ({
     id: index,
-    home: { ...teams[index % teams.length], record: record, powerRank: 100 },
+    home: {
+      ...teams[index % teams.length],
+      record: record,
+      powerRank: 100,
+      sport: "soccer",
+    },
     away: {
       ...teams[(index + 1) % teams.length],
       record: record,
       powerRank: 100,
+      sport: "soccer",
     },
     network: networks[index % networks.length],
     gameTime: date.set({ hour: 18 + index }).toJSDate(),
-    competitionDescription: "NBA Regular Season",
-    location: {
-      arena: "Madison Square Garden",
-      city: "New York",
-      subdivision: "NY",
+    competition: "NBA Regular Season",
+    venue: {
+      name: "Madison Square Garden",
+      city: "New York, NY",
     },
   }));
 }

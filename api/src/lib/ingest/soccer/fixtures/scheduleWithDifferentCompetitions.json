@@ -1,0 +1,404 @@
+[
+  {
+    "optaId": 2262771,
+    "slug": "guavsnyc-02-15-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9722,
+      "fullName": "Santos de Guápiles",
+      "slug": "santos-de-guapiles",
+      "shortName": "Santos",
+      "abbreviation": "SAN",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_cff0aa9d-8565-40c7-bf3b-60f86ff756d2",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1640192110/assets/competitions/concacaf-champions-league/santos_480x480-2022.png",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "venue": {
+      "venueOptaId": "7484",
+      "backgroundImageSlug": "",
+      "name": "Estadio Nacional de Costa Rica",
+      "city": "San Jose"
+    },
+    "season": {
+      "slug": "concacaf-champions-league-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 549,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 549,
+      "name": "Concacaf Champions League",
+      "slug": "concacaf-champions-league",
+      "shortName": "CCL",
+      "matchType": "1st Leg",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "FS2",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "TUDN",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "",
+        "broadcasterName": "OneSoccer",
+        "broadcasterStreamingURL": "https://onesoccer.ca/",
+        "broadcasterType": "Canada Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-16T01:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2259025,
+    "slug": "phivsmin-02-26-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 5513,
+      "fullName": "Philadelphia Union",
+      "slug": "philadelphia-union",
+      "shortName": "Philadelphia",
+      "abbreviation": "PHI",
+      "backgroundColor": "#041c2c",
+      "logoBWSlug": "webcomp_5033df5a-f2dd-4d54-a023-970ab81ec759",
+      "logoColorSlug": "webcomp_b69fdee0-e31b-4e72-b095-d8ae3e277b98",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970756/assets/logos/5513-philadelphia-logo_ea33hb.png",
+      "crestColorSlug": "webcomp_d0a30390-f72f-4a8d-aca1-520c6dcc3b1b"
+    },
+    "away": {
+      "optaId": 6977,
+      "fullName": "Minnesota United",
+      "slug": "minnesota-united-fc",
+      "shortName": "Minnesota",
+      "abbreviation": "MIN",
+      "backgroundColor": "#737B82",
+      "logoBWSlug": "webcomp_73d6b760-8b5f-44fb-9ed8-19435b008968",
+      "logoColorSlug": "webcomp_a1c50cc7-da2a-49d9-a255-474b2782fd6a",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970757/assets/logos/6977-minnesota-logo_tzjlhe.png",
+      "crestColorSlug": "webcomp_858d4cc5-5d2c-4d30-a173-50bac6381c30"
+    },
+    "venue": {
+      "venueOptaId": "6548",
+      "backgroundImageSlug": "",
+      "name": "Subaru Park",
+      "city": "Chester"
+    },
+    "season": {
+      "slug": "us-major-league-soccer-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 98,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 98,
+      "name": "MLS Regular Season",
+      "slug": "mls-regular-season",
+      "shortName": "Regular Season",
+      "matchType": "Regular",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "Streaming",
+        "broadcasterName": "MLS LIVE on ESPN+",
+        "broadcasterStreamingURL": "https://plus.espn.com/soccer",
+        "broadcasterType": "US Streaming"
+      },
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TSN4",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-26T18:00:00.0000000Z",
+    "thirdPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://seatgeek.com/minnesota-united-fc-at-philadelphia-union-tickets/mls/2022-02-26-3-30-am/5575381?aid=12189&pid=integration&utm_medium=partnership&utm_source=mls&utm_campaign=integration&rid=4",
+      "openInNewTab": true,
+      "isVisible": false
+    },
+    "tags": [
+      {
+        "type": "tag",
+        "_translationId": "585bc0ba-cd79-4321-8246-4eff9093d9c0",
+        "_entityId": "771e3aa2-0134-46e7-8aae-bfb2967a627d",
+        "selfUrl": "https://dapi.mlssoccer.com/v2/content/en-us/tags/seatgeek-deeplink-added",
+        "title": "seatgeek-deeplink-added",
+        "slug": "seatgeek-deeplink-added",
+        "neutralSlug": "seatgeek-deeplink-added",
+        "externalSourceReference": {},
+        "fields": {}
+      }
+    ],
+    "matchKickOffTime": "2022-02-26T18:08:00.0000000Z",
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "PHI TV",
+        "broadcasterName": "PHL17",
+        "broadcasterType": "Linear TV"
+      },
+      {
+        "broadcasterTypeLabel": "PHI Streaming",
+        "broadcasterName": "PhiladelphiaUnion.com",
+        "broadcasterStreamingURL": "https://www.philadelphiaunion.com/stream/watch",
+        "broadcasterType": "Streaming"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": "2:2825046"
+  },
+  {
+    "optaId": 2283952,
+    "slug": "cinvspit-04-19-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 11504,
+      "fullName": "FC Cincinnati",
+      "slug": "fc-cincinnati",
+      "shortName": "Cincinnati",
+      "abbreviation": "CIN",
+      "backgroundColor": "#003087",
+      "logoBWSlug": "webcomp_093edcd5-74d9-4da2-93f8-d464f7169dd4",
+      "logoColorSlug": "webcomp_553d2bce-a8cd-4cce-ada2-b6e07c74dc28",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
+      "crestColorSlug": "webcomp_41e2f018-d1fe-482e-bd36-9d2a02da24a0"
+    },
+    "away": {
+      "optaId": 9908,
+      "fullName": "Pittsburgh Riverhounds SC",
+      "slug": "pittsburgh-riverhounds",
+      "shortName": "Pittsburgh",
+      "abbreviation": "PIT",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_798c98f5-d95c-4dbc-862c-67f75046dc45",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645275/assets/competitions/united-soccer-league/pittsburgh-riverhounds-sc-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "15489",
+      "backgroundImageSlug": "",
+      "name": "TQL Stadium",
+      "city": "Cincinnati, OH"
+    },
+    "season": {
+      "slug": "us-open-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 557,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 557,
+      "name": "US Open Cup",
+      "slug": "u-s-open-cup",
+      "shortName": "U.S. Open Cup",
+      "matchType": "Cup",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-04-19T23:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "ESPN+",
+        "broadcasterName": "ESPN+",
+        "broadcasterType": "Streaming"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2281811,
+    "slug": "vanvsval-05-11-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 1708,
+      "fullName": "Vancouver Whitecaps FC",
+      "slug": "vancouver-whitecaps-fc",
+      "shortName": "Vancouver",
+      "abbreviation": "VAN",
+      "backgroundColor": "#002244",
+      "logoBWSlug": "webcomp_32b98038-9825-4376-9484-c46a4443394f",
+      "logoColorSlug": "webcomp_cb5dfcb6-1002-4510-b279-0c108d8401d9",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970751/assets/logos/1708-vancouver-logo_znac8n.png",
+      "crestColorSlug": "webcomp_47dd04e2-186b-4ef0-a2e7-b2e5050e265e"
+    },
+    "away": {
+      "optaId": 15378,
+      "fullName": "Valour FC",
+      "slug": "valour-fc",
+      "shortName": "Valour",
+      "abbreviation": "VAL",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_ba08223b-b495-426c-b91e-3e1a36e7da57",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1650580449/assets/competitions/canadian-premier-league/valour-fc480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "7740",
+      "backgroundImageSlug": "",
+      "name": "BC Place",
+      "city": "Vancouver"
+    },
+    "season": {
+      "slug": "canadian-championship-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 552,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 552,
+      "name": "Canadian Championship",
+      "slug": "canadian-championship",
+      "shortName": "Canadian Champ",
+      "matchType": "Cup",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-05-12T02:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "OneSoccer",
+        "broadcasterName": "OneSoccer",
+        "broadcasterStreamingURL": "https://onesoccer.ca/",
+        "broadcasterType": "Streaming"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2285701,
+    "slug": "nycvsatl-09-14-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "away": {
+      "optaId": 1284,
+      "fullName": "Atlas",
+      "slug": "atlas",
+      "shortName": "Atlas",
+      "abbreviation": "ATL",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_7bdbeaa7-864d-4b42-a5cc-f569450962ac",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1631671178/assets/competitions/liga-mx/atlas-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "8046",
+      "backgroundImageSlug": "",
+      "name": "Yankee Stadium",
+      "city": "New York"
+    },
+    "season": {
+      "slug": "campeones-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 957,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 957,
+      "name": "Campeones Cup",
+      "slug": "campeones-cup",
+      "shortName": "Campeones Cup",
+      "matchType": "",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-09-14T23:30:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  }
+]

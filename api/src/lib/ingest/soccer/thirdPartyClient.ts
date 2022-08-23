@@ -18,7 +18,7 @@ const ABBREVIATION_MAP: Record<string, string> = {
 };
 const CURRENT_SEASON = 2022;
 
-export function getRankings(): Promise<string[]> {
+function getRankings(): Promise<string[]> {
   const source =
     "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php";
   return axios
@@ -59,7 +59,7 @@ function isValidCompetition({ competition }: RawMLSGame): boolean {
   return VALID_COMPETITIONS.includes(competition.optaId);
 }
 
-export function getMLSSchedule(): Promise<RawMLSSchedule> {
+function getMLSSchedule(): Promise<RawMLSSchedule> {
   const SCHEDULE_URL =
     "https://sportapi.mlssoccer.com/api/matches?culture=en-us" +
     `&dateFrom=${CURRENT_SEASON}-01-01&dateTo=${CURRENT_SEASON}-12-31` +
@@ -70,9 +70,15 @@ export function getMLSSchedule(): Promise<RawMLSSchedule> {
     .then((schedule) => schedule.filter(isValidCompetition));
 }
 
-export function getMLSStandings(): Promise<RawMLSStandings> {
+function getMLSStandings(): Promise<RawMLSStandings> {
   const STANDINGS_URL =
     "https://sportapi.mlssoccer.com/api/standings/live" +
     `?isLive=false&seasonId=${CURRENT_SEASON}&competitionId=${MLS_SEASON_ID}`;
   return axios.get(STANDINGS_URL).then(({ data }) => data);
 }
+
+export default {
+  getRankings,
+  getMLSSchedule,
+  getMLSStandings,
+};

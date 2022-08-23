@@ -4,16 +4,15 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import type { JSONValue } from "superjson/src/types";
 import path from "path";
-import type { PathOrFileDescriptor } from "fs";
 import fs from "fs";
 
 type Body = Parameters<RestContext["body"]>[0];
 
-export function restWithBody(url: Path, body: Body) {
+function restWithBody(url: Path, body: Body) {
   return restWith(url, (ctx) => ctx.body(body));
 }
 
-export function restWithJson(url: Path, json: JSONValue) {
+function restWithJson(url: Path, json: JSONValue) {
   return restWith(url, (ctx) => ctx.json(json));
 }
 
@@ -24,24 +23,64 @@ function restWith<T>(
   return rest.get(url, async (_, res, ctx) => res(contextHandler(ctx)));
 }
 
-export class FixtureLoader {
-  public constructor(private dir: string) {}
+class MockHelper {
+  public constructor(
+    private dir: string,
+    private server: ReturnType<typeof setupServer>
+  ) {}
 
-  public readJsonData(name: string): JSONValue {
-    return JSON.parse(this.readData(name).toString());
+  public mockAll(
+    scheduleFixture: string,
+    rankingsFixture: string = "defaultRankings.html",
+    standingsFixture: string = "defaultStanding.json"
+  ) {
+    this.mockSchedule(scheduleFixture);
+    this.mockRankings(rankingsFixture);
+    this.mockStandings(standingsFixture);
   }
 
-  public readData(name: string): Buffer {
+  public mockStandings(standingsFixture: string) {
+    this.server.use(
+      restWithJson(
+        "https://sportapi.mlssoccer.com/api/standings/live",
+        this.readJsonFixture(standingsFixture)
+      )
+    );
+  }
+
+  public mockRankings(rankingsFixture: string) {
+    this.server.use(
+      restWithBody(
+        "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php",
+        this.readTextFixture(rankingsFixture)
+      )
+    );
+  }
+
+  public mockSchedule(scheduleFixture: string) {
+    this.server.use(
+      restWithJson(
+        "https://sportapi.mlssoccer.com/api/matches",
+        this.readJsonFixture(scheduleFixture)
+      )
+    );
+  }
+
+  public readJsonFixture(name: string): JSONValue {
+    return JSON.parse(this.readTextFixture(name).toString());
+  }
+
+  public readTextFixture(name: string): Buffer {
     return fs.readFileSync(path.join(this.dir, name));
   }
 }
 
-export function setupTestsWithServer() {
+export function setupTestsWithMockHelper(fixtureDir: string) {
   const server = setupServer();
   beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
 
   afterEach(() => server.resetHandlers());
 
   afterAll(() => server.close());
-  return server;
+  return new MockHelper(fixtureDir, server);
 }
