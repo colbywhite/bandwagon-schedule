@@ -1,7 +1,9 @@
 import getSchedule from "src/lib/ingest/soccer";
 import { setupTestsWithMockHelper } from "src/lib/test.utils";
 import path from "path";
-import { Team } from "types/index";
+import type { Game, Team } from "types/index";
+
+const gamesToIds = (games: Game[]) => games.map((g) => g.id);
 
 describe("ingest/soccer", () => {
   const server = setupTestsWithMockHelper(path.join(__dirname, "fixtures"));
@@ -88,21 +90,34 @@ describe("ingest/soccer", () => {
   });
 
   describe("Schedule#gamesByDate", () => {
-    it("should sort games by Date", async () => {
+    it("should group games by Date", async () => {
       server.mockAll("scheduleFromApr19ToApr20.json");
       const { gamesByDate } = await getSchedule();
       const apr19games = gamesByDate["2022-04-19T00:00:00.000-04:00"];
-      const apr19Ids = apr19games.map((g) => g.id);
-      expect(apr19Ids).toEqual([
+      expect(gamesToIds(apr19games)).toEqual([
         "2022-04-19.pittsburgh-cincinnati.us-open-cup",
       ]);
 
       const apr20games = gamesByDate["2022-04-20T00:00:00.000-04:00"];
-      const apr20Ids = apr20games.map((g) => g.id);
-      expect(apr20Ids).toEqual([
+      expect(gamesToIds(apr20games)).toEqual([
         "2022-04-20.fc-motown-rny-fc.us-open-cup",
         "2022-04-20.charlotte-greenville.us-open-cup",
       ]);
+    });
+  });
+
+  describe("Schedule#gamesByTeams", () => {
+    it("should group by teams", async () => {
+      server.mockAll("scheduleWithOneCommonTeam.json");
+      const { gamesByTeam } = await getSchedule();
+      const nycID = 9668;
+      const torID = 2077;
+      const sanID = 9722;
+      const nycTorId = "2022-04-24.toronto-new-york-city.regular-season";
+      const nycSanId = "2022-02-23.santos-new-york-city.ccl";
+      expect(gamesToIds(gamesByTeam[nycID])).toEqual([nycTorId, nycSanId]);
+      expect(gamesToIds(gamesByTeam[sanID])).toEqual([nycSanId]);
+      expect(gamesToIds(gamesByTeam[torID])).toEqual([nycTorId]);
     });
   });
 });

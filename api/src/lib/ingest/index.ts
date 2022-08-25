@@ -1,12 +1,13 @@
-import type {Game, Schedule, Team} from 'types/index';
-import { DateTime } from 'luxon';
+import type { Game, Schedule, Team } from "types/index";
+import { DateTime } from "luxon";
 
 function collectCommonTeams(games: Game[]): Team[] {
   const teamMap = games
-    .map(game => [game.home, game.away])
+    .map((game) => [game.home, game.away])
     .reduce((teams, currentTeams) => {
-      currentTeams
-        .forEach(team => teams.set(`${team.sport}-${team.abbreviation}`, team));
+      currentTeams.forEach((team) =>
+        teams.set(`${team.sport}-${team.abbreviation}`, team)
+      );
       return teams;
     }, new Map<string, Team>());
   return Array.from(teamMap.values());
@@ -15,9 +16,9 @@ function collectCommonTeams(games: Game[]): Team[] {
 function groupGamesByDate(allGames: Game[]): Record<string, Game[]> {
   const dateGamesMap = allGames.reduce((schedule, game: Game) => {
     const gameDate = DateTime.fromJSDate(game.gameTime)
-      .setZone('America/New_York')
-      .startOf('day')
-      .toISO()
+      .setZone("America/New_York")
+      .startOf("day")
+      .toISO();
     if (schedule.has(gameDate)) {
       const games = schedule.get(gameDate);
       schedule.set(gameDate, [...games, game]);
@@ -29,11 +30,28 @@ function groupGamesByDate(allGames: Game[]): Record<string, Game[]> {
   return Object.fromEntries(dateGamesMap);
 }
 
+function groupByTeam(allGames: Game[]): Record<number, Game[]> {
+  const teamMap = allGames.reduce((schedule, game) => {
+    const teams = [game.home, game.away];
+    teams.forEach((team) => {
+      const previousGames: Game[] | undefined = schedule.get(team.id);
+      if (previousGames !== undefined) {
+        schedule.set(team.id, [...previousGames, game]);
+      } else {
+        schedule.set(team.id, [game]);
+      }
+    });
+    return schedule;
+  }, new Map<number, Game[]>());
+  return Object.fromEntries(teamMap);
+}
+
+// TODO do the groupings in parallel
 export function fullScheduleFromGames(games: Game[]): Schedule {
   return {
     games: games,
     teams: collectCommonTeams(games),
-    teamSchedules: new Map<string, Game[]>(),
-    gamesByDate: groupGamesByDate(games)
-  }
+    gamesByTeam: groupByTeam(games),
+    gamesByDate: groupGamesByDate(games),
+  };
 }

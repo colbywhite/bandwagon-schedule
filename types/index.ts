@@ -34,7 +34,7 @@ export interface Game {
 export interface Schedule {
   games: Game[];
   teams: Team[];
-  teamSchedules: Map<string, Game[]>;
+  gamesByTeam: Record<number, Game[]>;
   gamesByDate: Record<string, Game[]>;
 }
 
