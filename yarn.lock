@@ -6032,6 +6032,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/luxon@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/luxon@npm:3.0.0"
+  checksum: 271620771f063b7de114c2fa49f91a8645b7e215738ff43d611144dbce5b6a5d7db8f9b6b36da23e9c2b978633a45389d7fe243b2f74e08fdbbc917f12cfb98b
+  languageName: node
+  linkType: hard
+
 "@types/mdast@npm:^3.0.0":
   version: 3.0.10
   resolution: "@types/mdast@npm:3.0.10"
@@ -21083,6 +21090,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": 2.2.0
+    "@types/luxon": ^3.0.0
     husky: ">=6"
     lint-staged: ">=10"
     luxon: ^3.0.1

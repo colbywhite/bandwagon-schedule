@@ -1,11 +1,4 @@
-import type {
-  Game,
-  Schedule,
-  Sport,
-  Team,
-  TeamRecord,
-  Venue,
-} from "types/index";
+import type { Game, Sport, Team, TeamRecord, Venue } from "types/index";
 import type {
   RawMLSGame,
   RawMLSSchedule,
@@ -15,22 +8,10 @@ import type {
   RawMLSVenue,
 } from "./types";
 import thirdPartyClient from "./thirdPartyClient";
-import {collectCommonTeams} from 'src/lib/ingest';
-
-/**
- * This is a script to update the schedule data via the MLS's API at
- * https://sportapi.mlssoccer.com/api/matches?culture=en-us&dateFrom=2021-05-27&dateTo=2021-06-21
- */
+import { fullScheduleFromGames } from "src/lib/ingest";
+import { DateTime } from "luxon";
 
 const SOCCER: Sport = "soccer";
-
-function parseLocation(venue: RawMLSVenue): Venue {
-  return {
-    name: venue.name,
-    city: venue.city,
-  };
-}
-
 const SPANISH_NETWORKS = ["UniMás", "TUDN"];
 
 function parseNationalNetwork(game: RawMLSGame): string | undefined {
@@ -79,14 +60,26 @@ function parseTeam(
   };
 }
 
+function buildId(game: RawMLSGame) {
+  const dateStr = DateTime.fromJSDate(new Date(game.matchDate))
+    .setZone("America/New_York")
+    .startOf("day")
+    .toISODate();
+  const sanitizeName = (val: string) =>
+    val.replace(/\./g, "").replace(/ /g, "-");
+  return `${dateStr}.${sanitizeName(game.away.shortName)}-${sanitizeName(
+    game.home.shortName
+  )}.${sanitizeName(game.competition.shortName)}`.toLowerCase();
+}
+
 function parseRawGames(
   games: RawMLSSchedule,
   rankings: number[],
   standings: RawMLSStandings
 ): Game[] {
-  return games.map((game, index) => {
+  return games.map((game) => {
     const parsed: Game = {
-      id: index,
+      id: buildId(game),
       competition: game.competition.name,
       home: parseTeam(game.home, rankings, standings),
       away: parseTeam(game.away, rankings, standings),
@@ -114,14 +107,5 @@ export default () => {
   ]).then(([schedule, rankings, standings]) =>
     parseRawGames(schedule, rankings, standings)
   );
-  const getTeams = getGames.then(collectCommonTeams);
-  return Promise.all([getGames, getTeams]).then(([games, teams]) => {
-    const schedule: Schedule = {
-      games: games,
-      teams: teams,
-      teamSchedules: new Map(),
-      gamesByDate: {},
-    };
-    return schedule;
-  });
+  return getGames.then(fullScheduleFromGames);
 };

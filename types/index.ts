@@ -22,7 +22,7 @@ export interface Venue {
 }
 
 export interface Game {
-  id: number | string;
+  id:  string;
   home: Team;
   away: Team;
   network?: string;

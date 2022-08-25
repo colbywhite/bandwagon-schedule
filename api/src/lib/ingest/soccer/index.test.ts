@@ -86,4 +86,23 @@ describe("ingest/soccer", () => {
       expect(names).toEqual(["Santos", "New York City"]);
     });
   });
+
+  describe("Schedule#gamesByDate", () => {
+    it("should sort games by Date", async () => {
+      server.mockAll("scheduleFromApr19ToApr20.json");
+      const { gamesByDate } = await getSchedule();
+      const apr19games = gamesByDate["2022-04-19T00:00:00.000-04:00"];
+      const apr19Ids = apr19games.map((g) => g.id);
+      expect(apr19Ids).toEqual([
+        "2022-04-19.pittsburgh-cincinnati.us-open-cup",
+      ]);
+
+      const apr20games = gamesByDate["2022-04-20T00:00:00.000-04:00"];
+      const apr20Ids = apr20games.map((g) => g.id);
+      expect(apr20Ids).toEqual([
+        "2022-04-20.fc-motown-rny-fc.us-open-cup",
+        "2022-04-20.charlotte-greenville.us-open-cup",
+      ]);
+    });
+  });
 });
