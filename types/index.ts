@@ -1,4 +1,5 @@
 export interface Team {
+  id: number;
   shortName: string;
   fullName: string;
   abbreviation: string;

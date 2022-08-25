@@ -15,6 +15,7 @@ import type {
   RawMLSVenue,
 } from "./types";
 import thirdPartyClient from "./thirdPartyClient";
+import {collectCommonTeams} from 'src/lib/ingest';
 
 /**
  * This is a script to update the schedule data via the MLS's API at
@@ -64,14 +65,15 @@ function parseRecord(
 
 function parseTeam(
   team: RawMLSTeam,
-  rankings: string[],
+  rankings: number[],
   standings: RawMLSStandings
 ): Team {
   return {
+    id: team.optaId,
     abbreviation: team.abbreviation,
     shortName: team.shortName,
     fullName: team.fullName,
-    powerRank: findTeamRank(team.abbreviation, rankings),
+    powerRank: findTeamRank(team.optaId, rankings),
     sport: SOCCER,
     record: parseRecord(team, standings),
   };
@@ -79,7 +81,7 @@ function parseTeam(
 
 function parseRawGames(
   games: RawMLSSchedule,
-  rankings: string[],
+  rankings: number[],
   standings: RawMLSStandings
 ): Game[] {
   return games.map((game, index) => {
@@ -99,13 +101,8 @@ function parseRawGames(
   });
 }
 
-function findTeamRank(
-  teamName: string,
-  rankings: string[]
-): number | undefined {
-  const zeroIndexedRank = rankings.findIndex(
-    (name) => teamName.toLowerCase() === name.toLowerCase()
-  );
+function findTeamRank(teamId: number, rankings: number[]): number | undefined {
+  const zeroIndexedRank = rankings.findIndex((id) => id === teamId);
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
 
@@ -117,7 +114,7 @@ export default () => {
   ]).then(([schedule, rankings, standings]) =>
     parseRawGames(schedule, rankings, standings)
   );
-  const getTeams = getGames.then(() => [] as Team[]);
+  const getTeams = getGames.then(collectCommonTeams);
   return Promise.all([getGames, getTeams]).then(([games, teams]) => {
     const schedule: Schedule = {
       games: games,

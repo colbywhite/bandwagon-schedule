@@ -45,6 +45,7 @@ describe("ingest/soccer", () => {
       const { games } = await getSchedule();
       const game = games[0];
       const cin: Team = {
+        id: 11504,
         abbreviation: "CIN",
         fullName: "FC Cincinnati",
         powerRank: 18,
@@ -59,6 +60,7 @@ describe("ingest/soccer", () => {
         sport: "soccer",
       };
       const pit: Team = {
+        id: 9908,
         abbreviation: "PIT",
         fullName: "Pittsburgh Riverhounds SC",
         shortName: "Pittsburgh",
@@ -73,6 +75,15 @@ describe("ingest/soccer", () => {
       const { games } = await getSchedule();
       const { gameTime } = games[0];
       expect(gameTime).toEqual(new Date("2022-04-19T23:00:00.0000000Z"));
+    });
+  });
+
+  describe("Schedule#teams", () => {
+    it("should parse teams", async () => {
+      server.mockAll("scheduleWithRepeatTeams.json");
+      const { teams } = await getSchedule();
+      const names = teams.map((t) => t.shortName);
+      expect(names).toEqual(["Santos", "New York City"]);
     });
   });
 });

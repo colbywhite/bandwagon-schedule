@@ -8,17 +8,40 @@ import axios from "axios";
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.
  * This resolves the differences.
  */
-const ABBREVIATION_MAP: Record<string, string> = {
-  nwe: "ne",
-  nwy: "rbny",
-  mnu: "min",
-  dcu: "dc",
-  lag: "la",
-  san: "sj",
+
+const ABBREVIATION_MAP: Record<string, number> = {
+  lafc: 11690,
+  phi: 5513,
+  nyc: 9668,
+  atx: 15296,
+  mtl: 1616,
+  nsh: 15154,
+  dal: 1903,
+  clb: 454,
+  sea: 3500,
+  rsl: 1899,
+  col: 436,
+  por: 1581,
+  atl: 11091,
+  cin: 11504,
+  orl: 6900,
+  mia: 14880,
+  chi: 1207,
+  van: 1708,
+  tor: 2077,
+  clt: 16629,
+  skc: 421,
+  hou: 1897,
+  nwe: 928,
+  nwy: 399,
+  mnu: 6977,
+  dcu: 1326,
+  lag: 1230,
+  san: 1131,
 };
 const CURRENT_SEASON = 2022;
 
-function getRankings(): Promise<string[]> {
+function getRankings(): Promise<number[]> {
   const source =
     "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php";
   return axios
@@ -36,7 +59,8 @@ function getRankings(): Promise<string[]> {
         .map((node: Element) =>
           (node.children[0] as DataNode).data.toLowerCase()
         )
-        .map((abbreviation) => ABBREVIATION_MAP[abbreviation] || abbreviation)
+        .map((abbreviation) => ABBREVIATION_MAP[abbreviation] || -1)
+        .filter((id) => id > -1)
     );
 }
 
