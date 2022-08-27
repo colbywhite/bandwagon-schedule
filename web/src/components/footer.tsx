@@ -6,7 +6,7 @@ export default function Footer() {
       </p>
       <div className="pointer-events-none relative h-5 w-5">
         <a href="https://github.com/colbywhite/powerschedules">
-          <img src="/public/github.png" alt="GitHub logo" />
+          <img src="/github.png" alt="GitHub logo" />
         </a>
       </div>
     </footer>
