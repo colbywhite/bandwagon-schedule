@@ -3,25 +3,39 @@ import superjson from "superjson";
 import { mockHttpEvent } from "@redwoodjs/testing/api";
 
 import { handler } from "./schedule";
-
-//   Improve this test with help from the Redwood Testing Doc:
-//    https://redwoodjs.com/docs/testing#testing-functions
+import type { BuiltSchedule } from "./schedule";
+import { setupTestsWithMockHelper } from "src/lib/test.utils";
+import path from "path";
+import { DateTime } from "luxon";
 
 describe("schedule function", () => {
-  it("should respond with 200", async () => {
-    const httpEvent = mockHttpEvent({ queryStringParameters: {} });
+  const server = setupTestsWithMockHelper(
+    path.join(__dirname, "..", "..", "lib", "ingest", "soccer", "fixtures")
+  );
+  const httpEvent = mockHttpEvent({ queryStringParameters: {} });
 
-    const response = await handler(httpEvent, null);
-    expect(response.statusCode).toBe(200);
-    const data = superjson.parse(response.body);
-    const dates = Object.keys(data);
-    expect(dates).toEqual(["2022-08-07", "2022-08-08", "2022-08-09"]);
+  beforeEach(() => {
+    server.mockAll("scheduleFromApr19ToApr20.json");
   });
 
-  // You can also use scenarios to test your api functions
-  // See guide here: https://redwoodjs.com/docs/testing#scenarios
-  //
-  // scenario('Scenario test', async () => {
-  //
-  // })
+  it("should include build time", async () => {
+    const expectedBuildTime = new Date();
+    const response = await handler(httpEvent, null);
+    expect(response.statusCode).toBe(200);
+    const { buildTime } = superjson.parse<BuiltSchedule>(response.body);
+    const diff = DateTime.fromJSDate(buildTime).diff(
+      DateTime.fromJSDate(expectedBuildTime)
+    );
+    expect(diff.seconds).toBeCloseTo(0);
+  });
+
+  it("should include schedule", async () => {
+    const response = await handler(httpEvent, null);
+    expect(response.statusCode).toBe(200);
+    const { schedule } = superjson.parse<BuiltSchedule>(response.body);
+    expect(schedule.games).toBeDefined();
+    expect(schedule.teams).toBeDefined();
+    expect(schedule.gamesByDate).toBeDefined();
+    expect(schedule.gamesByTeam).toBeDefined();
+  });
 });

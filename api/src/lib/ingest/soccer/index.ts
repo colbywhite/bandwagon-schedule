@@ -1,11 +1,10 @@
-import type { Game, Sport, Team, TeamRecord, Venue } from "types/index";
+import type { Game, Sport, Team, TeamRecord } from "types/index";
 import type {
   RawMLSGame,
   RawMLSSchedule,
   RawMLSStandingEntry,
   RawMLSStandings,
   RawMLSTeam,
-  RawMLSVenue,
 } from "./types";
 import thirdPartyClient from "./thirdPartyClient";
 import { fullScheduleFromGames } from "src/lib/ingest";
@@ -99,9 +98,9 @@ function findTeamRank(teamId: number, rankings: number[]): number | undefined {
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
 
-export default () => {
+export default (...args: Parameters<typeof thirdPartyClient.getMLSSchedule>) => {
   const getGames = Promise.all([
-    thirdPartyClient.getMLSSchedule(),
+    thirdPartyClient.getMLSSchedule(...args),
     thirdPartyClient.getRankings(),
     thirdPartyClient.getMLSStandings(),
   ]).then(([schedule, rankings, standings]) =>

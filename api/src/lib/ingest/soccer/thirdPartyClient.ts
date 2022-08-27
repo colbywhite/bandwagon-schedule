@@ -3,6 +3,7 @@ import cheerio from "cheerio";
 import type { DataNode, Element } from "domhandler";
 import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
 import axios from "axios";
+import { DateTime } from "luxon";
 
 /**
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.
@@ -83,15 +84,49 @@ function isValidCompetition({ competition }: RawMLSGame): boolean {
   return VALID_COMPETITIONS.includes(competition.optaId);
 }
 
-function getMLSSchedule(): Promise<RawMLSSchedule> {
+function isGameWithinWeek(
+  min: DateTime,
+  max: DateTime,
+  { matchDate }: RawMLSGame
+): boolean {
+  const date = DateTime.fromISO(matchDate);
+  return date.isValid && min <= date && date <= max;
+}
+
+function aWeekAgo() {
+  return DateTime.now()
+    .setZone("America/New_York")
+    .startOf("day")
+    .minus({ week: 1 });
+}
+
+function aWeekFromNow() {
+  return DateTime.now()
+    .setZone("America/New_York")
+    .startOf("day")
+    .plus({ week: 1 });
+}
+
+function getMLSSchedule(
+  min: DateTime = aWeekAgo(),
+  max: DateTime = aWeekFromNow()
+): Promise<RawMLSSchedule> {
+  // since the API is not precise, add buffer and filter manually
+  const adjustedMin = min.minus({ week: 1 });
+  const adjustedMax = max.plus({ week: 1 });
+  const isWithinWeek = isGameWithinWeek.bind(null, min, max);
   const SCHEDULE_URL =
     "https://sportapi.mlssoccer.com/api/matches?culture=en-us" +
-    `&dateFrom=${CURRENT_SEASON}-01-01&dateTo=${CURRENT_SEASON}-12-31` +
+    `&dateFrom=${adjustedMin.toFormat(
+      "yyyy-MM-dd"
+    )}&dateTo=${adjustedMax.toFormat("yyyy-MM-dd")}` +
     "&excludeSecondaryTeams=true";
   return axios
     .get(SCHEDULE_URL)
     .then(({ data }) => data as RawMLSSchedule)
-    .then((schedule) => schedule.filter(isValidCompetition));
+    .then((schedule) =>
+      schedule.filter(isValidCompetition).filter(isWithinWeek)
+    );
 }
 
 function getMLSStandings(): Promise<RawMLSStandings> {

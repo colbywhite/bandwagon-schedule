@@ -1,57 +1,66 @@
-import { DateTime } from "luxon";
 import { rest } from "msw";
 import superjson from "superjson";
-import type { Schedule } from "types/index";
-import { Game } from "types/index";
+import type { Game, Schedule } from "types/index";
+import { BuiltSchedule } from "src/functions/schedule/schedule";
 
-const augSeventh: DateTime = DateTime.fromISO("2022-08-07T19:00:00", {
-  zone: "America/New_York",
-});
 export default rest.get(
   "/.redwood/functions/schedule",
   async (req, res, ctx) => {
-    const schedule: Record<string, Game[]> = {
-      [augSeventh.toISODate()]: [
-        {
-          id: 0,
-          away: {
-            shortName: "Hawks",
-            fullName: "Atlanta Hawks",
-            abbreviation: "ATL",
-            record: {
-              wins: 111,
-              losses: 100,
-              ties: 100,
-              conference: "East",
-              conferenceRank: 100,
-            },
-            powerRank: 100,
-            sport: "soccer",
-          },
-          home: {
-            shortName: "Hawks",
-            fullName: "Atlanta Hawks",
-            abbreviation: "ATL",
-            record: {
-              wins: 111,
-              losses: 100,
-              ties: 100,
-              conference: "East",
-              conferenceRank: 100,
-            },
-            powerRank: 100,
-            sport: "soccer",
-          },
-          network: "ABC",
-          gameTime: augSeventh.toJSDate(),
-          competition: "NBA Regular Season",
-          venue: {
-            name: "Madison Square Garden",
-            city: "New York, NY",
-          },
+    const game: Game = {
+      id: "2022-08-27.houston-minnesota.regular-season",
+      competition: "MLS Regular Season",
+      home: {
+        id: 6977,
+        abbreviation: "MIN",
+        shortName: "Minnesota",
+        fullName: "Minnesota United",
+        powerRank: 7,
+        sport: "soccer",
+        record: {
+          wins: 12,
+          losses: 9,
+          ties: 5,
+          conference: "West",
+          conferenceRank: 3,
         },
-      ],
+      },
+      away: {
+        id: 1897,
+        abbreviation: "HOU",
+        shortName: "Houston",
+        fullName: "Houston Dynamo FC",
+        powerRank: 27,
+        sport: "soccer",
+        record: {
+          wins: 7,
+          losses: 14,
+          ties: 5,
+          conference: "West",
+          conferenceRank: 12,
+        },
+      },
+      venue: {
+        name: "Allianz Field",
+        city: "Minnesota",
+      },
+      network: "Univision",
+      gameTime: new Date("2022-08-27T19:30:00.000Z"),
     };
-    return res(ctx.body(superjson.stringify(schedule)));
+    const schedule: Schedule = {
+      games: [game],
+      teams: [game.home, game.away],
+      gamesByTeam: {
+        [game.home.shortName]: [game],
+        [game.away.shortName]: [game],
+      },
+      gamesByDate: {
+        "2022-08-27T00:00:00.000Z": [game],
+      },
+    };
+    const response: BuiltSchedule = {
+      buildTime: new Date(),
+      schedule: schedule,
+    };
+    return res(ctx.body(superjson.stringify(response)));
   }
 );

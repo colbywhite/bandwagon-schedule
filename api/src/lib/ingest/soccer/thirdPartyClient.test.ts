@@ -1,6 +1,7 @@
 import thirdPartyClient from "src/lib/ingest/soccer/thirdPartyClient";
 import path from "path";
 import { setupTestsWithMockHelper } from "src/lib/test.utils";
+import { DateTime } from "luxon";
 
 describe("ingest/soccer/thirdPartyClient", () => {
   const helper = setupTestsWithMockHelper(path.join(__dirname, "fixtures"));
@@ -15,19 +16,32 @@ describe("ingest/soccer/thirdPartyClient", () => {
   });
 
   describe("getMLSSchedule", () => {
+    const slugsOfValidGames = [
+      "skcvsoma-06-22-2022",
+      "cinvsorl-06-24-2022",
+      "forvstor-06-04-2022",
+      "nycvsatl-09-14-2022",
+      "guavsnyc-02-15-2022",
+      "nycvspum-08-11-2021",
+    ];
+
     it("should return only valid games", async () => {
       helper.mockSchedule("scheduleWithInvalidGames.json");
-      const schedule = await thirdPartyClient.getMLSSchedule();
+      // Use wide time range to focus test on game validity
+      const min = DateTime.fromISO("2000-01-01");
+      const max = DateTime.fromISO("2100-01-01");
+      const schedule = await thirdPartyClient.getMLSSchedule(min, max);
       const slugs = schedule.map((g) => g.slug);
-      const expectedSlugs = [
-        "skcvsoma-06-22-2022",
-        "cinvsorl-06-24-2022",
-        "forvstor-06-04-2022",
-        "nycvsatl-09-14-2022",
-        "guavsnyc-02-15-2022",
-        "nycvspum-08-11-2021",
-      ];
-      expect(slugs).toEqual(expectedSlugs);
+      expect(slugs).toEqual(slugsOfValidGames);
+    });
+
+    it("should return only games within time range", async () => {
+      helper.mockSchedule("scheduleWithInvalidGames.json");
+      const min = DateTime.fromISO("2022-06-22");
+      const max = DateTime.fromISO("2022-06-24T24:00:00.000-05:00");
+      const schedule = await thirdPartyClient.getMLSSchedule(min, max);
+      const slugs = schedule.map((g) => g.slug);
+      expect(slugs).toEqual(["skcvsoma-06-22-2022", "cinvsorl-06-24-2022"]);
     });
   });
 
@@ -53,7 +67,9 @@ describe("ingest/soccer/thirdPartyClient", () => {
           },
         };
       }, {} as TeamRecords);
-      const expectedTeamRecords = helper.readJsonFixture("filteredStandings.json");
+      const expectedTeamRecords = helper.readJsonFixture(
+        "filteredStandings.json"
+      );
       expect(teamRecords).toEqual(expectedTeamRecords);
     });
   });

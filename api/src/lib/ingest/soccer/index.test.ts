@@ -1,9 +1,16 @@
-import getSchedule from "src/lib/ingest/soccer";
+import getOriginalSchedule from "src/lib/ingest/soccer";
 import { setupTestsWithMockHelper } from "src/lib/test.utils";
 import path from "path";
 import type { Game, Team } from "types/index";
+import { DateTime } from "luxon";
 
 const gamesToIds = (games: Game[]) => games.map((g) => g.id);
+// Auto set a wide time frame since that's not what we're testing here
+const getSchedule = getOriginalSchedule.bind(
+  null,
+  DateTime.fromISO("2000-01-01"),
+  DateTime.fromISO("2100-01-01")
+);
 
 describe("ingest/soccer", () => {
   const server = setupTestsWithMockHelper(path.join(__dirname, "fixtures"));

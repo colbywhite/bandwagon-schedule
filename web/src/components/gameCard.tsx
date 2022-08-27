@@ -9,17 +9,54 @@ interface TeamProps {
   team: Team;
 }
 
+interface RecordProps {
+  record?: TeamRecord;
+}
+
+interface RankProps {
+  rank?: number;
+}
+
+interface NetworkProps {
+  network?: string;
+}
+
 function formatTime(date: Date) {
   const dateTime = DateTime.fromJSDate(date);
   const timeZone = dateTime.toFormat("ZZZZZ").split(" ")[0];
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 }
 
-function TeamInfo({ team }: TeamProps) {
+function Record({ record }: RecordProps) {
   const recordToString = (record: TeamRecord) =>
     record.ties
       ? `${record.wins}-${record.losses}-${record.ties}`
       : `${record.wins}-${record.losses}`;
+  return record ? (
+    <p>
+      {recordToString(record)}, {record.conferenceRank} in {record.conference}
+    </p>
+  ) : (
+    <></>
+  );
+}
+
+function Rank({ rank }: RankProps) {
+  return rank ? <p>Power Rank: {rank}</p> : <></>;
+}
+
+function NetworkLogo({ network }: NetworkProps) {
+  return network ?
+    <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
+      <img
+        src={`/network-logos/${network.toLowerCase()}.png`}
+        alt={`${network} logo`}
+      />
+    </div>
+ : <></>;
+}
+
+function TeamInfo({ team }: TeamProps) {
   return (
     <div className="flex flex-row items-center gap-4">
       <div className="h-[50px] w-[50px]">
@@ -32,11 +69,8 @@ function TeamInfo({ team }: TeamProps) {
       </div>
       <div className="flex flex-col gap-0">
         <h5 className="mb-1">{team.shortName}</h5>
-        <p>
-          {recordToString(team.record)}, {team.record.conferenceRank} in{" "}
-          {team.record.conference}
-        </p>
-        <p>Power Rank: {team.powerRank}</p>
+        <Record record={team.record}></Record>
+        <Rank rank={team.powerRank}></Rank>
       </div>
     </div>
   );
@@ -51,12 +85,7 @@ export default function GameCard({ game }: GameProps) {
           <TeamInfo team={game.home} />
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
-          <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
-            <img
-              src={`/network-logos/${game.network.toLowerCase()}.png`}
-              alt={`${game.network} logo`}
-            />
-          </div>
+          <NetworkLogo network={game.network}></NetworkLogo>
           <p>{formatTime(game.gameTime)}</p>
         </div>
       </div>
