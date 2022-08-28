@@ -29,7 +29,7 @@ const HomePage = () => {
     return () => abort.abort();
   }, []);
   return (
-    <div className="flex w-full flex-col justify-around gap-1.5 p-2 md:p-3 lg:p-4">
+    <div className="flex w-full flex-col justify-around gap-1.5 p-2 md:p-3 lg:p-4 focus-visible:outline-none">
       <Header />
       <main className="my-3 flex flex-col gap-2">
         {schedule === undefined ? (
