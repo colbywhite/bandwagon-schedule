@@ -15,7 +15,7 @@ const HomePage = () => {
   );
   useEffect(() => {
     const abort = new AbortController();
-    fetch("/.redwood/functions/schedule", { signal: abort.signal })
+    fetch("/api/schedule", { signal: abort.signal })
       .then((response) => response.text())
       .then((body) => superjson.parse<BuiltSchedule>(body))
       .then((response) => {
