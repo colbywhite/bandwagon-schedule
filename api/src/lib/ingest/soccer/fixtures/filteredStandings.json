@@ -1,0 +1,142 @@
+{
+  "LAFC": {
+    "total_draws": 3,
+    "total_losses": 5,
+    "total_wins": 18
+  },
+  "PHI": {
+    "total_draws": 9,
+    "total_losses": 4,
+    "total_wins": 14
+  },
+  "ATX": {
+    "total_draws": 6,
+    "total_losses": 6,
+    "total_wins": 14
+  },
+  "MTL": {
+    "total_draws": 4,
+    "total_losses": 8,
+    "total_wins": 14
+  },
+  "NYC": {
+    "total_draws": 6,
+    "total_losses": 7,
+    "total_wins": 13
+  },
+  "DAL": {
+    "total_draws": 9,
+    "total_losses": 8,
+    "total_wins": 11
+  },
+  "MIN": {
+    "total_draws": 5,
+    "total_losses": 9,
+    "total_wins": 12
+  },
+  "RBNY": {
+    "total_draws": 8,
+    "total_losses": 8,
+    "total_wins": 11
+  },
+  "RSL": {
+    "total_draws": 8,
+    "total_losses": 8,
+    "total_wins": 10
+  },
+  "ORL": {
+    "total_draws": 6,
+    "total_losses": 10,
+    "total_wins": 10
+  },
+  "MIA": {
+    "total_draws": 6,
+    "total_losses": 10,
+    "total_wins": 10
+  },
+  "NSH": {
+    "total_draws": 9,
+    "total_losses": 9,
+    "total_wins": 9
+  },
+  "CLB": {
+    "total_draws": 11,
+    "total_losses": 6,
+    "total_wins": 8
+  },
+  "LA": {
+    "total_draws": 4,
+    "total_losses": 11,
+    "total_wins": 10
+  },
+  "VAN": {
+    "total_draws": 7,
+    "total_losses": 11,
+    "total_wins": 9
+  },
+  "NE": {
+    "total_draws": 10,
+    "total_losses": 8,
+    "total_wins": 8
+  },
+  "CIN": {
+    "total_draws": 10,
+    "total_losses": 8,
+    "total_wins": 8
+  },
+  "SEA": {
+    "total_draws": 3,
+    "total_losses": 13,
+    "total_wins": 10
+  },
+  "POR": {
+    "total_draws": 12,
+    "total_losses": 8,
+    "total_wins": 7
+  },
+  "CLT": {
+    "total_draws": 2,
+    "total_losses": 15,
+    "total_wins": 10
+  },
+  "COL": {
+    "total_draws": 8,
+    "total_losses": 10,
+    "total_wins": 8
+  },
+  "TOR": {
+    "total_draws": 6,
+    "total_losses": 13,
+    "total_wins": 8
+  },
+  "CHI": {
+    "total_draws": 6,
+    "total_losses": 12,
+    "total_wins": 8
+  },
+  "ATL": {
+    "total_draws": 9,
+    "total_losses": 10,
+    "total_wins": 7
+  },
+  "SJ": {
+    "total_draws": 9,
+    "total_losses": 11,
+    "total_wins": 6
+  },
+  "HOU": {
+    "total_draws": 5,
+    "total_losses": 14,
+    "total_wins": 7
+  },
+  "SKC": {
+    "total_draws": 5,
+    "total_losses": 15,
+    "total_wins": 7
+  },
+  "DC": {
+    "total_draws": 4,
+    "total_losses": 16,
+    "total_wins": 6
+  }
+}

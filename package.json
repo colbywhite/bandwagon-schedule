@@ -1,36 +1,44 @@
 {
-  "name": "powerschedules",
   "private": true,
   "scripts": {
-    "prepreview": "next build",
-    "preview": "next start",
-    "build": "next build",
-    "start": "next dev",
-    "lint": "next lint"
+    "start": "rw dev",
+    "test": "rw test",
+    "lint:check": "prettier -c .",
+    "lint:write": "prettier -w .",
+    "postinstall": "husky install"
   },
-  "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@fontsource/roboto": "^4.5.1",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.4.0",
-    "babel-plugin-superjson-next": "^0.4.3",
-    "luxon": "^3.0.1",
-    "next": "12.1.6",
-    "next-superjson": "^0.0.4",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "superjson": "^1.9.1",
-    "tailwindcss": "^3.1.7"
+  "workspaces": {
+    "packages": [
+      "api",
+      "web",
+      "packages/*"
+    ]
   },
   "devDependencies": {
+    "@redwoodjs/core": "2.2.0",
     "@types/luxon": "^3.0.0",
-    "@types/node": "17.0.38",
-    "@types/react": "18.0.10",
-    "autoprefixer": "^10.4.8",
-    "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6",
-    "postcss": "^8.4.14",
-    "typescript": "4.7.2"
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13"
+  },
+  "eslintConfig": {
+    "extends": "@redwoodjs/eslint-config",
+    "root": true
+  },
+  "engines": {
+    "node": ">=14.19 <=16.x",
+    "yarn": ">=1.15"
+  },
+  "prisma": {
+    "seed": "yarn rw exec seed"
+  },
+  "packageManager": "yarn@3.2.1",
+  "dependencies": {
+    "luxon": "^3.0.1",
+    "superjson": "^1.9.1"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
