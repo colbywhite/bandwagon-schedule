@@ -15,7 +15,7 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "2.2.0",
+    "@redwoodjs/core": "^3.0.0-rc.294",
     "@types/luxon": "^3.0.0",
     "husky": ">=6",
     "lint-staged": ">=10",
