@@ -1,8 +1,9 @@
 import type { APIGatewayEvent, Context } from "aws-lambda";
-import superjson from "superjson";
-import getSoccerSchedule from "src/lib/ingest/soccer";
-import type { Schedule } from "types/index";
 import { DateTime } from "luxon";
+import superjson from "superjson";
+import type { Schedule } from "types/index";
+
+import getSoccerSchedule from "src/lib/ingest/soccer";
 
 interface BuildInfo {
   buildTime: Date;

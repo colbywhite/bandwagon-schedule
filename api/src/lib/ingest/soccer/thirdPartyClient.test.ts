@@ -1,7 +1,9 @@
-import thirdPartyClient from "src/lib/ingest/soccer/thirdPartyClient";
 import path from "path";
-import { setupTestsWithMockHelper } from "src/lib/test.utils";
+
 import { DateTime } from "luxon";
+
+import thirdPartyClient from "src/lib/ingest/soccer/thirdPartyClient";
+import { setupTestsWithMockHelper } from "src/lib/test.utils";
 
 describe("ingest/soccer/thirdPartyClient", () => {
   const helper = setupTestsWithMockHelper(path.join(__dirname, "fixtures"));

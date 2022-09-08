@@ -13,7 +13,7 @@ const Routes = () => {
   return (
     <Router>
       <Route path="/" page={HomePage} name="home" prerender />
-      <Route notfound page={NotFoundPage} prerender/>
+      <Route notfound page={NotFoundPage} prerender />
     </Router>
   );
 };

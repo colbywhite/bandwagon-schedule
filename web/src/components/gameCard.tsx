@@ -1,5 +1,5 @@
-import type { Game, Team, TeamRecord } from "types/index";
 import { DateTime } from "luxon";
+import type { Game, Team, TeamRecord } from "types/index";
 
 interface GameProps {
   game: Game;
@@ -46,14 +46,16 @@ function Rank({ rank }: RankProps) {
 }
 
 function NetworkLogo({ network }: NetworkProps) {
-  return network ?
+  return network ? (
     <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
       <img
         src={`/network-logos/${network.toLowerCase()}.png`}
         alt={`${network} logo`}
       />
     </div>
- : <></>;
+  ) : (
+    <></>
+  );
 }
 
 function TeamInfo({ team }: TeamProps) {

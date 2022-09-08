@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import superjson from "superjson";
 import type { Game, Schedule } from "types/index";
+
 import { BuiltSchedule } from "src/functions/schedule/schedule";
 
 export default rest.get(

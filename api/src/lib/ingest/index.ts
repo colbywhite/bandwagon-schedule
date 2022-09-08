@@ -1,5 +1,5 @@
-import type { Game, Schedule, Team } from "types/index";
 import { DateTime } from "luxon";
+import type { Game, Schedule, Team } from "types/index";
 
 function collectCommonTeams(games: Game[]): Team[] {
   const teamMap = games

@@ -1,10 +1,10 @@
+import fs from "fs";
+import path from "path";
+
 import type { Path, ResponseTransformer, RestContext } from "msw";
 import { rest } from "msw";
-
 import { setupServer } from "msw/node";
 import type { JSONValue } from "superjson/src/types";
-import path from "path";
-import fs from "fs";
 
 type Body = Parameters<RestContext["body"]>[0];
 
@@ -31,8 +31,8 @@ class MockHelper {
 
   public mockAll(
     scheduleFixture: string,
-    rankingsFixture: string = "defaultRankings.html",
-    standingsFixture: string = "defaultStanding.json"
+    rankingsFixture = "defaultRankings.html",
+    standingsFixture = "defaultStanding.json"
   ) {
     this.mockSchedule(scheduleFixture);
     this.mockRankings(rankingsFixture);

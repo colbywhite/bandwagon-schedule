@@ -1,9 +1,10 @@
+import axios from "axios";
 import type { Cheerio, CheerioAPI } from "cheerio";
 import cheerio from "cheerio";
 import type { DataNode, Element } from "domhandler";
-import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
-import axios from "axios";
 import { DateTime } from "luxon";
+
+import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
 
 /**
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.

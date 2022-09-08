@@ -1,7 +1,8 @@
 import { render, registerHandler, screen } from "@redwoodjs/testing/web";
 
-import HomePage from "./HomePage";
 import handler from "src/mocks/handlers";
+
+import HomePage from "./HomePage";
 
 //   Improve this test with help from the Redwood Testing Doc:
 //   https://redwoodjs.com/docs/testing#testing-pages-layouts

@@ -1,4 +1,9 @@
+import { DateTime } from "luxon";
 import type { Game, Sport, Team, TeamRecord } from "types/index";
+
+import { fullScheduleFromGames } from "src/lib/ingest";
+
+import thirdPartyClient from "./thirdPartyClient";
 import type {
   RawMLSGame,
   RawMLSSchedule,
@@ -6,9 +11,6 @@ import type {
   RawMLSStandings,
   RawMLSTeam,
 } from "./types";
-import thirdPartyClient from "./thirdPartyClient";
-import { fullScheduleFromGames } from "src/lib/ingest";
-import { DateTime } from "luxon";
 
 const SOCCER: Sport = "soccer";
 const SPANISH_NETWORKS = ["UniMás", "TUDN"];
@@ -98,7 +100,9 @@ function findTeamRank(teamId: number, rankings: number[]): number | undefined {
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
 
-export default (...args: Parameters<typeof thirdPartyClient.getMLSSchedule>) => {
+export default (
+  ...args: Parameters<typeof thirdPartyClient.getMLSSchedule>
+) => {
   const getGames = Promise.all([
     thirdPartyClient.getMLSSchedule(...args),
     thirdPartyClient.getRankings(),

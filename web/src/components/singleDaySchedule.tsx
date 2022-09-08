@@ -1,5 +1,6 @@
 import type { DateTime } from "luxon";
 import type { Game } from "types/index";
+
 import GameCard from "./gameCard";
 
 interface GamesProps {
