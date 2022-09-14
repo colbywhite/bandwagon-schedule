@@ -1,6 +1,0 @@
-.redwood
-web/dist
-api/dist
-.yarn
-README.md
-api/src/lib/ingest/soccer/fixtures/*.html
