@@ -23,7 +23,7 @@ interface NetworkProps {
 }
 
 function formatTime(date: Date) {
-  const dateTime = DateTime.fromJSDate(date);
+  const dateTime = DateTime.fromJSDate(date).setZone('America/New_York');
   const timeZone = dateTime.toFormat("ZZZZZ").split(" ")[0];
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 }
@@ -80,7 +80,6 @@ function TeamInfo({ team }: TeamProps) {
 }
 
 export default function GameCard({ game }: GameProps) {
-  console.log('gameTime', game.gameTime, typeof game.gameTime)
   return (
     <div className="border-400 flex flex-col gap-3 border-2 p-1">
       <div className="flex flex-row items-center justify-around gap-1">
