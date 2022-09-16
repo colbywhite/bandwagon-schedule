@@ -3,7 +3,7 @@ import type {GatsbyConfig} from 'gatsby';
 const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Power schedules',
-    siteUrl: 'https://www.yourdomain.tld'
+    siteUrl: 'https://powerschedules.net'
   },
   graphqlTypegen: true,
   plugins: [
