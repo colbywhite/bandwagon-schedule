@@ -2,6 +2,8 @@ import { DateTime } from "luxon";
 import type { Game, Team, TeamRecord } from "../../@types";
 import React from 'react';
 
+import icon from '../images/icon.png'
+
 interface GameProps {
   game: Game;
 }
@@ -50,7 +52,7 @@ function NetworkLogo({ network }: NetworkProps) {
   return network ? (
     <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
       <img
-        src={`/network-logos/${network.toLowerCase()}.png`}
+        src={icon}
         alt={`${network} logo`}
       />
     </div>
@@ -64,7 +66,7 @@ function TeamInfo({ team }: TeamProps) {
     <div className="flex flex-row items-center gap-4">
       <div className="h-[50px] w-[50px]">
         <img
-          src={`/basketball-logos/${team.abbreviation.toLowerCase()}.png`}
+          src={icon}
           alt={team.shortName}
           width="50"
           height="50"
