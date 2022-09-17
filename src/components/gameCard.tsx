@@ -1,6 +1,7 @@
-import { DateTime } from "luxon";
-import type { Game, Team, TeamRecord } from "../../@types";
+import {DateTime} from 'luxon';
+import type {Game, Team, TeamRecord} from '../../@types';
 import React from 'react';
+import Time from './time';
 
 import icon from '../images/icon.png'
 
@@ -26,11 +27,11 @@ interface NetworkProps {
 
 function formatTime(date: Date) {
   const dateTime = DateTime.fromJSDate(date).setZone('America/New_York');
-  const timeZone = dateTime.toFormat("ZZZZZ").split(" ")[0];
+  const timeZone = dateTime.toFormat('ZZZZZ').split(' ')[0];
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 }
 
-function Record({ record }: RecordProps) {
+function Record({record}: RecordProps) {
   const recordToString = (record: TeamRecord) =>
     record.ties
       ? `${record.wins}-${record.losses}-${record.ties}`
@@ -44,11 +45,11 @@ function Record({ record }: RecordProps) {
   );
 }
 
-function Rank({ rank }: RankProps) {
+function Rank({rank}: RankProps) {
   return rank ? <p>Power Rank: {rank}</p> : <></>;
 }
 
-function NetworkLogo({ network }: NetworkProps) {
+function NetworkLogo({network}: NetworkProps) {
   return network ? (
     <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
       <img
@@ -61,7 +62,7 @@ function NetworkLogo({ network }: NetworkProps) {
   );
 }
 
-function TeamInfo({ team }: TeamProps) {
+function TeamInfo({team}: TeamProps) {
   return (
     <div className="flex flex-row items-center gap-4">
       <div className="h-[50px] w-[50px]">
@@ -81,17 +82,17 @@ function TeamInfo({ team }: TeamProps) {
   );
 }
 
-export default function GameCard({ game }: GameProps) {
+export default function GameCard({game}: GameProps) {
   return (
     <div className="border-400 flex flex-col gap-3 border-2 p-1">
       <div className="flex flex-row items-center justify-around gap-1">
         <div className="border-r-400 flex grow flex-col gap-1 border-r-2">
-          <TeamInfo team={game.away} />
-          <TeamInfo team={game.home} />
+          <TeamInfo team={game.away}/>
+          <TeamInfo team={game.home}/>
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
           <NetworkLogo network={game.network}></NetworkLogo>
-          <p>{formatTime(game.gameTime)}</p>
+          <Time time={game.gameTime}></Time>
         </div>
       </div>
       <div className="text-center">

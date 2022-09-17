@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+time.enter {
+    @apply opacity-0
+}
+
+time.enter-active {
+    @apply opacity-100
+}
+
+time.exit {
+    @apply opacity-100
+}
+
+time.exit-active {
+    @apply opacity-0
+}
