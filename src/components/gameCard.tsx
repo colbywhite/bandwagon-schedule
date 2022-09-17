@@ -1,9 +1,10 @@
 import {DateTime} from 'luxon';
 import type {Game, Team, TeamRecord} from '../../@types';
 import React from 'react';
+import type {DateFormatter} from './time';
 import Time from './time';
 
-import icon from '../images/icon.png'
+import icon from '../images/icon.png';
 
 interface GameProps {
   game: Game;
@@ -23,12 +24,6 @@ interface RankProps {
 
 interface NetworkProps {
   network?: string;
-}
-
-function formatTime(date: Date) {
-  const dateTime = DateTime.fromJSDate(date).setZone('America/New_York');
-  const timeZone = dateTime.toFormat('ZZZZZ').split(' ')[0];
-  return dateTime.toFormat(`h:mm a '${timeZone}'`);
 }
 
 function Record({record}: RecordProps) {
@@ -82,6 +77,12 @@ function TeamInfo({team}: TeamProps) {
   );
 }
 
+const gameTimeFormatter: DateFormatter = (date, zone) => {
+  const dateTime = DateTime.fromJSDate(date).setZone(zone);
+  const timeZone = dateTime.toFormat('ZZZZZ').split(' ')[0];
+  return dateTime.toFormat(`h:mm a '${timeZone}'`);
+};
+
 export default function GameCard({game}: GameProps) {
   return (
     <div className="border-400 flex flex-col gap-3 border-2 p-1">
@@ -92,7 +93,7 @@ export default function GameCard({game}: GameProps) {
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
           <NetworkLogo network={game.network}></NetworkLogo>
-          <Time time={game.gameTime}></Time>
+          <Time time={game.gameTime} formatter={gameTimeFormatter}></Time>
         </div>
       </div>
       <div className="text-center">
