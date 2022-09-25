@@ -1,16 +1,10 @@
-import { DateTime } from "luxon";
-import type { Game, Sport, Team, TeamRecord } from "../../../../@types";
+import {DateTime} from 'luxon';
+import type {Game, Schedule, Sport, Team, TeamRecord} from '../../../../../@types';
 
-import { fullScheduleFromGames } from "..";
+import {fullScheduleFromGames} from '..';
 
-import thirdPartyClient from "./thirdPartyClient";
-import type {
-  RawMLSGame,
-  RawMLSSchedule,
-  RawMLSStandingEntry,
-  RawMLSStandings,
-  RawMLSTeam,
-} from "./types";
+import thirdPartyClient from './thirdPartyClient';
+import type {RawMLSGame, RawMLSSchedule, RawMLSStandingEntry, RawMLSStandings, RawMLSTeam} from './types';
 
 const SOCCER: Sport = "soccer";
 const SPANISH_NETWORKS = ["UniMás", "TUDN"];
@@ -111,4 +105,4 @@ export default (
     parseRawGames(schedule, rankings, standings)
   );
   return getGames.then(fullScheduleFromGames);
-};
+}

@@ -16,7 +16,9 @@ const config: GatsbyConfig = {
         start_url: '/',
         icon: 'src/images/icon.png'
       }
-    }]
+    },
+    'gatsby-source-powerschedules'
+    ]
 };
 
 export default config;

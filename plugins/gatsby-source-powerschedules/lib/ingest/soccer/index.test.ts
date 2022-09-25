@@ -1,7 +1,7 @@
 import path from 'path';
 
 import {DateTime} from 'luxon';
-import type {Game, Team} from '../../../../@types';
+import type {Game, Team} from '../../../../../@types';
 
 import getOriginalSchedule from './';
 import {setupTestsWithMockHelper} from '../../test.utils';
