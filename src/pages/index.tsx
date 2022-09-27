@@ -2,14 +2,14 @@ import React from 'react';
 import Header from '../components/header';
 import type {HeadFC} from 'gatsby';
 import {graphql} from 'gatsby';
-import type {Game} from '../../@types';
-import GameCard from '../components/gameCard';
+import {DateTime} from 'luxon';
+import SingleDaySchedule from '../components/singleDaySchedule';
 
-export const ALL_GAMES_QUERY = graphql`
-query AllGamesQuery {
-  allGame {
-    totalCount
-    nodes {
+export const UPCOMING_GAMES_QUERY = graphql`
+query UpcomingGamesQuery {
+  gamesByDate {
+    date
+    games {
       id
       home {
         id
@@ -50,14 +50,19 @@ query AllGamesQuery {
 }
 `;
 
-type RawGame = Omit<Game, 'gameTime'> & {gameTime: string}
-export default function Index({data}: { data: { allGame: { nodes: RawGame[] } } }) {
+export default function Index({data}: { data: Queries.UpcomingGamesQueryQuery }) {
   return (
     <div className="flex w-full flex-col justify-around gap-1.5 p-2 focus-visible:outline-none md:p-3 lg:p-4">
       <Header/>
       <main className="my-3 flex flex-col gap-2">
-        {data.allGame.nodes.map((game: RawGame) => (
-          <GameCard key={game.id} game={{...game, gameTime: new Date(game.gameTime)}}/>))}
+        {data.gamesByDate &&
+          data.gamesByDate.map((gamesOnDate) =>
+            (gamesOnDate && <SingleDaySchedule
+              date={DateTime.fromISO(gamesOnDate.date).setZone('America/New_York')}
+              games={gamesOnDate.games as Queries.Game[]}
+              key={gamesOnDate.date}
+            />)
+          )}
       </main>
     </div>
   );

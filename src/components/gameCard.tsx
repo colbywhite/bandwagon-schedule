@@ -1,5 +1,4 @@
 import {DateTime} from 'luxon';
-import type {Game, Team, TeamRecord} from '../../@types';
 import React from 'react';
 import type {DateFormatter} from './time';
 import Time from './time';
@@ -7,27 +6,27 @@ import Time from './time';
 import icon from '../images/icon.png';
 
 interface GameProps {
-  game: Game;
+  game: Queries.Game;
 }
 
 interface TeamProps {
-  team: Team;
+  team: Queries.Team;
 }
 
 interface RecordProps {
-  record?: TeamRecord;
+  record: Queries.Maybe<Queries.TeamRecord>;
 }
 
 interface RankProps {
-  rank?: number;
+  rank: Queries.Maybe<number>;
 }
 
 interface NetworkProps {
-  network?: string;
+  network?: Queries.Maybe<string>;
 }
 
 function Record({record}: RecordProps) {
-  const recordToString = (record: TeamRecord) =>
+  const recordToString = (record: Queries.TeamRecord) =>
     record.ties
       ? `${record.wins}-${record.losses}-${record.ties}`
       : `${record.wins}-${record.losses}`;
@@ -93,7 +92,7 @@ export default function GameCard({game}: GameProps) {
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
           <NetworkLogo network={game.network}></NetworkLogo>
-          <Time time={game.gameTime} formatter={gameTimeFormatter}></Time>
+          <Time time={new Date(game.gameTime)} formatter={gameTimeFormatter}></Time>
         </div>
       </div>
       <div className="text-center">
