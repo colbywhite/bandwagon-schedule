@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: fjogeleit/http-request-action@v1
         with:
-          url: ${{ secrets.GATSBY_BUILD_URL }}
-          method: 'GET'
+          url: "https://webhook.gatsbyjs.com/hooks/data_source/publish/${{ secrets.GATSBY_BUILD_ID }}"
+          method: POST
           customHeaders: '{"x-gatsby-cloud-data-source": "gatsby-source-powerschedules"}'
