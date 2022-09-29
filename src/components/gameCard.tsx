@@ -76,8 +76,8 @@ function TeamInfo({team}: TeamProps) {
   );
 }
 
-const gameTimeFormatter: DateFormatter = (date, zone) => {
-  const dateTime = DateTime.fromJSDate(date).setZone(zone);
+const gameTimeFormatter: DateFormatter = (date) => {
+  const dateTime = DateTime.fromJSDate(date).setZone('local');
   const timeZone = dateTime.toFormat('ZZZZZ').split(' ')[0];
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 };
