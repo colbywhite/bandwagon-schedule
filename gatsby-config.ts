@@ -11,14 +11,20 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Power schedules',
-        short_name: 'Power schedules',
+        name: 'Power Schedules',
+        short_name: 'Power Schedules',
+        description: 'Sport schedules based on power rankings',
         start_url: '/',
-        icon: 'src/images/icon.png'
+        lang: 'en',
+        icon: 'src/images/icon.png',
+        orientation: 'portrait',
+        theme_color: '#663399',
+        display: 'standalone'
       }
     },
+    'gatsby-plugin-offline',
     'gatsby-source-powerschedules'
-    ]
+  ]
 };
 
 export default config;
