@@ -15,6 +15,7 @@ query UpcomingGamesQuery {
       home {
         id
         shortName
+        logo(width:50, height:50)
         fullName
         abbreviation
         record {
@@ -29,6 +30,7 @@ query UpcomingGamesQuery {
       away {
         id
         shortName
+        logo(width:50, height:50)
         fullName
         abbreviation
         record {

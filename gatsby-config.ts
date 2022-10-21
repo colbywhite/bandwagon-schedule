@@ -8,8 +8,11 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Power Schedules',
         short_name: 'Power Schedules',
@@ -23,7 +26,12 @@ const config: GatsbyConfig = {
         display: 'standalone'
       }
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: ['/']
+      }
+    },
     'gatsby-source-powerschedules'
   ]
 };

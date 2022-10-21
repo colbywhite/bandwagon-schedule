@@ -2,7 +2,7 @@ import {DateTime} from 'luxon';
 import React from 'react';
 import type {DateFormatter} from './time';
 import Time from './time';
-
+import {GatsbyImage, getImage, StaticImage} from 'gatsby-plugin-image';
 import icon from '../images/icon.png';
 
 interface GameProps {
@@ -57,16 +57,10 @@ function NetworkLogo({network}: NetworkProps) {
 }
 
 function TeamInfo({team}: TeamProps) {
+  const logo = getImage(team.logo);
   return (
     <div className="flex flex-row items-center gap-4">
-      <div className="h-[50px] w-[50px]">
-        <img
-          src={icon}
-          alt={team.shortName}
-          width="50"
-          height="50"
-        />
-      </div>
+      <GatsbyImage alt={team.fullName} image={logo}/>
       <div className="flex flex-col gap-0">
         <h5 className="mb-1">{team.shortName}</h5>
         <Record record={team.record}></Record>
