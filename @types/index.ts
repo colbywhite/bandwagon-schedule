@@ -38,6 +38,4 @@ export interface Schedule {
   gamesByDate: Record<string, Game[]>;
 }
 
-export type ScheduleResponse = Schedule & { buildTime: Date }
-
-export type Sport = 'soccer';
+export enum Sport { 'soccer'};

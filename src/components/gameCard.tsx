@@ -1,32 +1,32 @@
 import {DateTime} from 'luxon';
 import React from 'react';
 import type {DateFormatter} from './time';
+import logo from '../images/vite.svg';
 import Time from './time';
-import {GatsbyImage, getImage, StaticImage} from 'gatsby-plugin-image';
-import icon from '../images/icon.png';
+import type {Game, Team, TeamRecord} from '../../@types'
 
 interface GameProps {
-  game: Queries.Game;
+  game: Game;
 }
 
 interface TeamProps {
-  team: Queries.Team;
+  team: Team;
 }
 
 interface RecordProps {
-  record: Queries.Maybe<Queries.TeamRecord>;
+  record?: TeamRecord;
 }
 
 interface RankProps {
-  rank: Queries.Maybe<number>;
+  rank?: number;
 }
 
 interface NetworkProps {
-  network?: Queries.Maybe<string>;
+  network?: string;
 }
 
 function Record({record}: RecordProps) {
-  const recordToString = (record: Queries.TeamRecord) =>
+  const recordToString = (record: TeamRecord) =>
     record.ties
       ? `${record.wins}-${record.losses}-${record.ties}`
       : `${record.wins}-${record.losses}`;
@@ -47,7 +47,7 @@ function NetworkLogo({network}: NetworkProps) {
   return network ? (
     <div className="h-fit max-h-[50px] w-fit max-w-[50px]">
       <img
-        src={icon}
+        src={logo}
         alt={`${network} logo`}
       />
     </div>
@@ -57,10 +57,9 @@ function NetworkLogo({network}: NetworkProps) {
 }
 
 function TeamInfo({team}: TeamProps) {
-  const logo = getImage(team.logo);
   return (
     <div className="flex flex-row items-center gap-4">
-      <GatsbyImage alt={team.fullName} image={logo}/>
+      <img src={logo} alt={team.fullName}/>
       <div className="flex flex-col gap-0">
         <h5 className="mb-1">{team.shortName}</h5>
         <Record record={team.record}></Record>

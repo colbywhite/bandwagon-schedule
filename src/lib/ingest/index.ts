@@ -1,5 +1,5 @@
 import {DateTime} from 'luxon';
-import type {Game, Schedule, Team} from '../../../../@types';
+import type {Game, Schedule, Team} from '../../../@types';
 
 function collectCommonTeams(games: Game[]): Team[] {
   const teamMap = games

@@ -1,19 +1,20 @@
 import {DateTime} from 'luxon';
-import type {Game, Schedule, Sport, Team, TeamRecord} from '../../../../../@types';
+import type {Game, Team, TeamRecord} from '../../../../@types';
+import {Sport} from '../../../../@types';
 
-import {fullScheduleFromGames} from '..';
+import {fullScheduleFromGames} from '../index';
 
 import thirdPartyClient from './thirdPartyClient';
 import type {RawMLSGame, RawMLSSchedule, RawMLSStandingEntry, RawMLSStandings, RawMLSTeam} from './types';
 
-const SOCCER: Sport = "soccer";
-const SPANISH_NETWORKS = ["UniMás", "TUDN"];
+const SOCCER: Sport = Sport.soccer;
+const SPANISH_NETWORKS = ['UniMás', 'TUDN'];
 
 function parseNationalNetwork(game: RawMLSGame): string | undefined {
   const broadcaster = game.broadcasters.find(
     (b) =>
-      b.broadcasterTypeLabel === "National TV" &&
-      b.broadcasterType === "US TV" &&
+      b.broadcasterTypeLabel === 'National TV' &&
+      b.broadcasterType === 'US TV' &&
       !SPANISH_NETWORKS.includes(b.broadcasterName)
   );
   return broadcaster?.broadcasterName;
@@ -35,7 +36,7 @@ function parseRecord(
     losses: entry.statistics.total_losses,
     ties: entry.statistics.total_draws,
     conference: entry.group_id,
-    conferenceRank: entry.position,
+    conferenceRank: entry.position
   };
 }
 
@@ -51,17 +52,17 @@ function parseTeam(
     fullName: team.fullName,
     powerRank: findTeamRank(team.optaId, rankings),
     sport: SOCCER,
-    record: parseRecord(team, standings),
+    record: parseRecord(team, standings)
   };
 }
 
 function buildId(game: RawMLSGame) {
   const dateStr = DateTime.fromJSDate(new Date(game.matchDate))
-    .setZone("America/New_York")
-    .startOf("day")
+    .setZone('America/New_York')
+    .startOf('day')
     .toISODate();
   const sanitizeName = (val: string) =>
-    val.replace(/\./g, "").replace(/ /g, "-");
+    val.replace(/\./g, '').replace(/ /g, '-');
   return `${dateStr}.${sanitizeName(game.away.shortName)}-${sanitizeName(
     game.home.shortName
   )}.${sanitizeName(game.competition.shortName)}`.toLowerCase();
@@ -80,10 +81,10 @@ function parseRawGames(
       away: parseTeam(game.away, rankings, standings),
       venue: {
         name: game.venue.name,
-        city: game.venue.city,
+        city: game.venue.city
       },
       network: parseNationalNetwork(game),
-      gameTime: new Date(game.matchDate),
+      gameTime: new Date(game.matchDate)
     };
     return parsed;
   });
@@ -100,7 +101,7 @@ export default (
   const getGames = Promise.all([
     thirdPartyClient.getMLSSchedule(...args),
     thirdPartyClient.getRankings(),
-    thirdPartyClient.getMLSStandings(),
+    thirdPartyClient.getMLSStandings()
   ]).then(([schedule, rankings, standings]) =>
     parseRawGames(schedule, rankings, standings)
   );

@@ -1,10 +1,11 @@
 import type {DateTime} from 'luxon';
 import React from 'react';
+import type {Game} from '../../@types'
 
 import GameCard from './gameCard';
 
 interface GamesProps {
-  games: Queries.Game[];
+  games: Game[];
 }
 
 interface DayProps {
