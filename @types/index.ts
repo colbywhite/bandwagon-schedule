@@ -6,6 +6,7 @@ export interface Team {
   record?: TeamRecord;
   powerRank?: number;
   sport: Sport;
+  logoUrl?: string;
 }
 
 export interface TeamRecord {

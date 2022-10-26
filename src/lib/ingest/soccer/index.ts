@@ -52,7 +52,8 @@ function parseTeam(
     fullName: team.fullName,
     powerRank: findTeamRank(team.optaId, rankings),
     sport: SOCCER,
-    record: parseRecord(team, standings)
+    record: parseRecord(team, standings),
+    logoUrl: team.logoColorUrl
   };
 }
 

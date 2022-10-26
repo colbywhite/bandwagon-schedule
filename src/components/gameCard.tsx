@@ -1,9 +1,10 @@
 import {DateTime} from 'luxon';
 import React from 'react';
 import type {DateFormatter} from './time';
-import logo from '../images/vite.svg';
 import Time from './time';
-import type {Game, Team, TeamRecord} from '../../@types'
+import logo from '../images/vite.svg';
+import type {Game, Team, TeamRecord} from '../../@types';
+import TeamLogo from './teamLogo';
 
 interface GameProps {
   game: Game;
@@ -59,7 +60,7 @@ function NetworkLogo({network}: NetworkProps) {
 function TeamInfo({team}: TeamProps) {
   return (
     <div className="flex flex-row items-center gap-4">
-      <img src={logo} alt={team.fullName}/>
+      <TeamLogo team={team}/>
       <div className="flex flex-col gap-0">
         <h5 className="mb-1">{team.shortName}</h5>
         <Record record={team.record}></Record>

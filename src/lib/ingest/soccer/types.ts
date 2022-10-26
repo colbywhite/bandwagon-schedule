@@ -37,6 +37,7 @@ export interface RawMLSTeam {
   backgroundColor: string;
   logoBWSlug: string;
   logoColorSlug: string;
+  logoColorUrl: string;
   crestColorSlug: string;
 }
 
