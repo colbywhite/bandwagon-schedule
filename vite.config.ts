@@ -8,6 +8,14 @@ import {DateTime} from 'luxon';
 import {VitePWA} from 'vite-plugin-pwa';
 import {fullScheduleFromGames} from './src/lib/ingest';
 import {Game} from './@types';
+import axios from 'axios';
+
+const test = () => {
+  return axios.get('https://www.basketball-reference.com/leagues/NBA_2023_standings.html')
+    .then(() => console.log('Can hit basketball-reference.com'))
+    .catch(() => console.error('Can not hit basketball-reference.com'))
+}
+
 
 const ingest: () => PluginOption = () => {
   let logger: Logger;
@@ -31,6 +39,7 @@ const ingest: () => PluginOption = () => {
     name: 'schedule.ingest',
     configResolved: resolvedConfig => logger = resolvedConfig.logger,
     buildStart: async () => {
+      await test();
       const filepath = './src/data.json';
       const schedule = await Promise.all([getGames(getBasketballGames, 'basketball'), getGames(getSoccerGames, 'soccer')])
         .then(([bGames, sGames]) => [...bGames, ...sGames])
