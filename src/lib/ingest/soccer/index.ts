@@ -106,5 +106,5 @@ export default (
   ]).then(([schedule, rankings, standings]) =>
     parseRawGames(schedule, rankings, standings)
   );
-  return getGames.then(fullScheduleFromGames);
+  return getGames;
 }

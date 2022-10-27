@@ -39,4 +39,4 @@ export interface Schedule {
   gamesByDate: Record<string, Game[]>;
 }
 
-export enum Sport { 'soccer'};
+export enum Sport { 'soccer', 'basketball'};

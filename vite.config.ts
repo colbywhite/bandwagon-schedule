@@ -2,9 +2,12 @@ import type {Logger, PluginOption} from 'vite';
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
+import getBasketballGames from './src/lib/ingest/basketball';
 import getSoccerGames from './src/lib/ingest/soccer';
 import {DateTime} from 'luxon';
 import {VitePWA} from 'vite-plugin-pwa';
+import {fullScheduleFromGames} from './src/lib/ingest';
+import {Game} from './@types';
 
 const ingest: () => PluginOption = () => {
   let logger: Logger;
@@ -15,16 +18,24 @@ const ingest: () => PluginOption = () => {
       console.log(msg);
     }
   };
+  const getGames = async (fetcher: (min?: DateTime, max?: DateTime) => Promise<Game[]>, name: string) => {
+    log(`Retrieving ${name} games`);
+    const today = DateTime.now()
+      .setZone('America/New_York')
+      .startOf('day');
+    const games = await fetcher(today);
+    log(`Retrieved ${name} games`);
+    return games;
+  };
   return ({
     name: 'schedule.ingest',
     configResolved: resolvedConfig => logger = resolvedConfig.logger,
     buildStart: async () => {
       const filepath = './src/data.json';
-      const today = DateTime.now()
-        .setZone('America/New_York')
-        .startOf('day');
-      const schedule = await getSoccerGames(today);
-      await fs.writeFileSync(filepath, JSON.stringify(schedule));
+      const schedule = await Promise.all([getGames(getBasketballGames, 'basketball'), getGames(getSoccerGames, 'soccer')])
+        .then(([bGames, sGames]) => [...bGames, ...sGames])
+        .then(fullScheduleFromGames);
+      await fs.writeFileSync(filepath, JSON.stringify(schedule, null, 2));
       log(`Ingested games to ${filepath}`);
     }
   });

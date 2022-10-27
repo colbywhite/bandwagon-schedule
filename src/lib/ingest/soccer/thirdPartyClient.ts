@@ -10,7 +10,6 @@ import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.
  * This resolves the differences.
  */
-
 const ABBREVIATION_MAP: Record<string, number> = {
   lafc: 11690,
   phi: 5513,
