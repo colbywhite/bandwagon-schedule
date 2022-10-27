@@ -14,6 +14,19 @@ import type {
 
 const LEAGUE_ID = '00';
 const SEASON = '2022-23';
+const HEADERS = {
+  'Host': 'stats.nba.com',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
+  'Accept': 'application/json, text/plain, */*',
+  'Accept-Language': 'en-US,en;q=0.5',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'x-nba-stats-origin': 'stats',
+  'x-nba-stats-token': 'true',
+  'Connection': 'keep-alive',
+  'Referer': 'https://stats.nba.com/',
+  'Pragma': 'no-cache',
+  'Cache-Control': 'no-cache'
+};
 
 /**
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on nba.com.
@@ -136,12 +149,8 @@ function getNBAStandings(): Promise<ParsedNBAStandings> {
   const STANDINGS_URL =
     'https://stats.nba.com/stats/leaguestandingsv3' +
     `?GroupBy=conf&LeagueID=${LEAGUE_ID}&Season=${SEASON}&SeasonType=Regular+Season&Section=overall`;
-  const headers = {
-    'x-nba-stats-origin': 'stats',
-    'x-nba-stats-token': 'true',
-    'Referer': 'https://stats.nba.com/'
-  };
-  return axios.get(STANDINGS_URL, {headers}).then(({data}) => data as RawNBAStandings).then(parseNBAStandings);
+  return axios.get(STANDINGS_URL, {headers: HEADERS})
+    .then(({data}) => data as RawNBAStandings).then(parseNBAStandings);
 }
 
 export default {
