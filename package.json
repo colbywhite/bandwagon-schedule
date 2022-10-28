@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && vite build -c functions.vite.config.ts && tsc",
+    "build": "vite build && tsc",
     "preview": "vite preview --host"
   },
   "dependencies": {
