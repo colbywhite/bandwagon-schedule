@@ -46,7 +46,8 @@ function parseTeam(
     fullName: team.teamName,
     powerRank: findTeamRank(team.teamId, rankings),
     sport: Sport.basketball,
-    record: parseRecord(team, standings)
+    record: parseRecord(team, standings),
+    logoUrl: `https://cdn.nba.com/logos/nba/${team.teamId}/primary/L/logo.svg`
   };
 }
 
