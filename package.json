@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build && tsc",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "dependencies": {
     "luxon": "^3.0.4",
