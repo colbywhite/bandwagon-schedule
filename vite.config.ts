@@ -51,6 +51,24 @@ export default defineConfig({
     react(),
     ingest(),
     VitePWA({
+      manifest: {
+        name: 'Power Schedules',
+        short_name: 'Power Schedules',
+        description: 'Sport schedules based on power rankings',
+        theme_color: '#FFC51D',
+        icons: [
+          {
+            src: 'icon192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'icon512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
       registerType: 'autoUpdate',
       devOptions: {
         enabled: true
