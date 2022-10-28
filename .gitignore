@@ -26,3 +26,7 @@ dist-ssr
 
 # build output
 src/data.json
+
+# Local Netlify folder
+.netlify
+netlify/edge-functions

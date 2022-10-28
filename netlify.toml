@@ -1,0 +1,11 @@
+[[edge_functions]]
+path = "/bballref"
+function = "bballref"
+
+[[edge_functions]]
+path = "/nba"
+function = "nba"
+
+[[edge_functions]]
+path = "/espn"
+function = "espn"
