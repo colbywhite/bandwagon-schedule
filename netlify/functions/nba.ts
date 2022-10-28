@@ -1,3 +1,5 @@
+import {Handler} from '@netlify/functions';
+
 const HEADERS = {
   'Host': 'stats.nba.com',
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0',
@@ -12,7 +14,10 @@ const HEADERS = {
   'Cache-Control': 'no-cache'
 };
 const URL = 'https://stats.nba.com/stats/leaguestandingsv3?GroupBy=conf&LeagueID=00&Season=2022-23&SeasonType=Regular+Season&Section=overall';
-export default () =>
+
+const handler: Handler = async () =>
   fetch(URL, {headers: HEADERS})
-    .then(() => new Response('Can hit stats.nba.com'))
-    .catch(() => new Response('Can not hit stats.nba.com'))
+    .then(() => ({statusCode: 200, body: JSON.stringify({message:'Can hit nba.com'})}))
+    .catch(() => ({statusCode: 500, body: JSON.stringify({message:'Can not hit nba.com'})}));
+
+export {handler};
