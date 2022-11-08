@@ -3,9 +3,8 @@ node_modules
 /netlify/functions/server/index.js
 /public/build
 /.netlify
+yarn-error.log
 
 /.env
 
 /app/styles/tailwind.css
-
-cypress/videos/
