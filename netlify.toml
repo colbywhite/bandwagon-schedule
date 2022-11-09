@@ -19,7 +19,7 @@
   to = "/.netlify/functions/server"
   status = 200
 
-[[headers]]
-  for = "/build/*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
+#[[headers]]
+#  for = "/build/*"
+#  [headers.values]
+#    "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
