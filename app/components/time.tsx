@@ -9,7 +9,8 @@ export interface TimeProps {
 export type DateFormatter = (date: Date) => string;
 
 function buildStandardFormatter(format: string): DateFormatter {
-  return (date) => DateTime.fromJSDate(date).setZone("America/New_York").toFormat(format);
+  return (date) =>
+    DateTime.fromJSDate(date).setZone("America/New_York").toFormat(format);
 }
 
 function isString(val: unknown): val is string {
