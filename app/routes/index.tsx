@@ -5,47 +5,16 @@ import { DateTime } from "luxon";
 import { useLoaderData } from "@remix-run/react";
 import SingleDaySchedule from "~/components/singleDaySchedule";
 import Header from "~/components/header";
-
-interface IpLocateResponse {
-  asn: string;
-  city: string;
-  continent: string;
-  country: string;
-  country_code: string;
-  ip: string;
-  org: string;
-  latitude: number;
-  longitude: number;
-  postal_code: string;
-  subdivision: string;
-  time_zone: string;
-}
-
-const DEFAULT_TZ = "America/New_York";
-
-async function getTimeZone(ip: unknown) {
-  if (isDefinedString(ip)) {
-    return fetch(`https://www.iplocate.io/api/lookup/${ip}`)
-      .then((res) => res.json() as Promise<IpLocateResponse>)
-      .then(({ time_zone }) => time_zone)
-      .catch(() => DEFAULT_TZ);
-  }
-  return DEFAULT_TZ;
-}
-
-// TODO use regex to check if ip address
-function isDefinedString(val: unknown): val is string {
-  return (
-    val !== undefined && val !== null && typeof val === "string" && val !== ""
-  );
-}
+import { getTimeZone } from "~/utils";
 
 export async function loader({ request, context: { clientIp } }: LoaderArgs) {
   // TODO: hardcode dates for now since mls season is over.
   const min = DateTime.fromISO("2022-10-01");
   const max = DateTime.fromISO("2022-10-14");
-  const { gamesByDate } = await getSoccerGames(min, max);
-  const zone = await getTimeZone(clientIp);
+  const [{ gamesByDate }, zone] = await Promise.all([
+    getSoccerGames(min, max),
+    getTimeZone(clientIp),
+  ]);
   return json({ zone, gamesByDate });
 }
 
