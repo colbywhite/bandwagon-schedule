@@ -1,18 +1,24 @@
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import getSoccerGames from "~/lib/ingest/soccer";
+import getBasketballGames from "~/lib/ingest/basketball";
 import { DateTime } from "luxon";
 import { useLoaderData } from "@remix-run/react";
 import SingleDaySchedule from "~/components/singleDaySchedule";
 import Header from "~/components/header";
 import { getTimeZone } from "~/utils";
+import { buildSchedule, GameFetcher } from "~/lib/ingest";
 
 export async function loader({ request, context: { clientIp } }: LoaderArgs) {
-  // TODO: hardcode dates for now since mls season is over.
-  const min = DateTime.fromISO("2022-10-01");
-  const max = DateTime.fromISO("2022-10-14");
+  // TODO: hardcode dates for now to a day with both basketball & soccer games.
+  const min = DateTime.fromISO("2022-11-04");
+  const max = DateTime.fromISO("2022-11-06");
+  const fetchSportInfo: GameFetcher[] = [
+    { fetcher: getBasketballGames, name: "basketball" },
+    { fetcher: getSoccerGames, name: "soccer" },
+  ];
   const [{ gamesByDate }, zone] = await Promise.all([
-    getSoccerGames(min, max),
+    buildSchedule(fetchSportInfo, min, max),
     getTimeZone(clientIp),
   ]);
   return json({ zone, gamesByDate });

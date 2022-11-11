@@ -6,6 +6,7 @@ export interface Team {
   record?: TeamRecord;
   powerRank?: number;
   sport: Sport;
+  logoUrl?: string;
 }
 
 export interface TeamRecord {
@@ -40,4 +41,7 @@ export interface Schedule {
 
 export type ScheduleResponse = Schedule & { buildTime: Date };
 
-export type Sport = "soccer";
+export enum Sport {
+  "soccer",
+  "basketball",
+}

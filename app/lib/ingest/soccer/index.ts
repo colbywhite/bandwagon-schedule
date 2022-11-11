@@ -1,8 +1,6 @@
 import { DateTime } from "luxon";
-import type { Game, Sport, Team, TeamRecord } from "~/@types";
-
-import { fullScheduleFromGames } from "../index";
-
+import type { Game, Team, TeamRecord } from "~/@types";
+import { Sport } from "~/@types";
 import thirdPartyClient from "./thirdPartyClient";
 import type {
   RawMLSGame,
@@ -12,7 +10,6 @@ import type {
   RawMLSTeam,
 } from "./types";
 
-const SOCCER: Sport = "soccer";
 const SPANISH_NETWORKS = ["UniMás", "TUDN"];
 
 function parseNationalNetwork(game: RawMLSGame): string | undefined {
@@ -56,8 +53,9 @@ function parseTeam(
     shortName: team.shortName,
     fullName: team.fullName,
     powerRank: findTeamRank(team.optaId, rankings),
-    sport: SOCCER,
+    sport: Sport.soccer,
     record: parseRecord(team, standings),
+    logoUrl: team.logoColorUrl
   };
 }
 
@@ -110,5 +108,5 @@ export default (
   ]).then(([schedule, rankings, standings]) =>
     parseRawGames(schedule, rankings, standings)
   );
-  return getGames.then(fullScheduleFromGames);
+  return getGames;
 };

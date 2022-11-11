@@ -49,9 +49,29 @@ function groupByTeam(allGames: Game[]): Record<number, Game[]> {
 // TODO do the groupings in parallel
 export function fullScheduleFromGames(games: Game[]): Schedule {
   return {
-    games: games,
+    games: games, // TODO sort by gameTime
     teams: collectCommonTeams(games),
     gamesByTeam: groupByTeam(games),
     gamesByDate: groupGamesByDate(games),
   };
+}
+
+export type GameFetcher = {
+  fetcher: (min?: DateTime, max?: DateTime) => Promise<Game[]>;
+  name: string;
+};
+export function buildSchedule(
+  fetchers: GameFetcher[],
+  min: DateTime,
+  max: DateTime
+) {
+  const promises = fetchers.map(async ({ fetcher, name }) => {
+    console.log(`Retrieving ${name} games`);
+    const games = await fetcher(min, max);
+    console.log(`Retrieved ${name} games`);
+    return games;
+  });
+  return Promise.all(promises)
+    .then((sports) => sports.flat())
+    .then(fullScheduleFromGames);
 }
