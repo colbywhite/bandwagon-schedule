@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800,900|Open+Sans:400,700,800|Roboto:400,700" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  
+	<title>Composite MLS Rankings</title>
+	<meta name="description" content="Calculated by aggregating computer generated power rankings from around the web and determining each team’s average ranking." />
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@GuruRankings" />
+	<meta name="twitter:title" content="Composite MLS Rankings" />
+	<meta name="twitter:description" content="Calculated by aggregating computer generated power rankings from around the web and determining each team’s average ranking." />
+	<meta name="twitter:image" content="http://powerrankingsguru.com/images/social-media/composite-MLS-rankings.jpg" />
+
+	<!-- Open Graph data -->
+	<meta property="og:title" content="Composite MLS Rankings" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php" />
+	<meta property="og:image" content="http://www.powerrankingsguru.com/images/social-media/composite-MLS-rankings.jpg" />
+	<meta property="og:description" content="Calculated by aggregating computer generated power rankings from around the web and determining each team’s average ranking." /> 
+	<meta property="og:site_name" content="Power Rankings Guru" />
+	<meta property="fb:admins" content="1551218840214873" />
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TVX7NP');</script>
+	<!-- End Google Tag Manager -->
+        
+</head>
+<body>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVX7NP"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+		<div class="overlay" >
+		<div class="overlay-header-container">
+			<div class="overlay-header">
+				<div class="overlay-logo">
+				  <img src="/images/powerrankingsguru-black.png">
+				</div>
+				<div class="close-overlay-button">
+					<img src="/images/iconmonstr-x.png">
+				</div>
+			</div>
+		</div>
+		<div class="overlay-body">
+			<ul class="overlay-menu">
+				<li class="overlay-menu-item">
+					NFL
+					<img src="/images/iconmonstr-chevron-down.png" class="list-chevron-down">
+					<img src="/images/iconmonstr-chevron-up.png" class="list-chevron-up">
+				</li>
+				<ul class="overlay-submenu">
+					<li class="overlay-submenu-item"><a href="/nfl/team-power-rankings.php">POWER RANKINGS</a></li>
+					<li class="overlay-submenu-item"><a href="/nfl/strength-of-schedule.php">STRENGTH OF SCHEDULE</a></li>
+					<li class="overlay-submenu-item"><a href="/nfl/win-projections.php">WIN PROJECTIONS</a></li>
+					<li class="overlay-submenu-item"><a href="/nfl/playoff-odds.php">PLAYOFF ODDS</a></li>
+					<li class="overlay-submenu-item"><a href="/nfl/super-bowl-odds.php">SUPER BOWL ODDS</a></li>
+				</ul>
+				<li class="overlay-menu-item">
+					NBA
+					<img src="/images/iconmonstr-chevron-down.png" class="list-chevron-down">
+					<img src="/images/iconmonstr-chevron-up.png" class="list-chevron-up">
+				</li>
+				<ul class="overlay-submenu">
+					<li class="overlay-submenu-item"><a href="/nba/team-power-rankings.php">POWER RANKINGS</a></li>
+					<li class="overlay-submenu-item"><a href="/nba/strength-of-schedule.php">STRENGTH OF SCHEDULE</a></li>
+					<li class="overlay-submenu-item"><a href="/nba/win-projections.php">WIN PROJECTIONS</a></li>
+					<li class="overlay-submenu-item"><a href="/nba/playoff-odds.php">PLAYOFF ODDS</a></li>
+					<li class="overlay-submenu-item"><a href="/nba/finals-odds.php">FINALS ODDS</a></li>
+				</ul>
+				<li class="overlay-menu-item">
+					MLB
+					<img src="/images/iconmonstr-chevron-down.png" class="list-chevron-down">
+					<img src="/images/iconmonstr-chevron-up.png" class="list-chevron-up">
+				</li>
+				<ul class="overlay-submenu">
+					<li class="overlay-submenu-item"><a href="/mlb/team-power-rankings.php">POWER RANKINGS</a></li>
+					<li class="overlay-submenu-item"><a href="/mlb/strength-of-schedule.php">STRENGTH OF SCHEDULE</a></li>
+					<li class="overlay-submenu-item"><a href="/mlb/win-projections.php">WIN PROJECTIONS</a></li>
+					<li class="overlay-submenu-item"><a href="/mlb/playoff-odds.php">PLAYOFF ODDS</a></li>
+					<li class="overlay-submenu-item"><a href="/mlb/world-series-odds.php">WORLD SERIES ODDS</a></li>
+				</ul>
+				<li class="overlay-menu-item">
+					NHL
+					<img src="/images/iconmonstr-chevron-down.png" class="list-chevron-down">
+					<img src="/images/iconmonstr-chevron-up.png" class="list-chevron-up">
+				</li>
+				<ul class="overlay-submenu">
+					<li class="overlay-submenu-item"><a href="/nhl/team-power-rankings.php">POWER RANKINGS</a></li>
+					<li class="overlay-submenu-item"><a href="/nhl/strength-of-schedule.php">STRENGTH OF SCHEDULE</a></li>
+					<li class="overlay-submenu-item"><a href="/nhl/point-projections.php">POINT PROJECTIONS</a></li>
+					<li class="overlay-submenu-item"><a href="/nhl/playoff-odds.php">PLAYOFF ODDS</a></li>
+					<li class="overlay-submenu-item"><a href="/nhl/stanley-cup-odds.php">STANLEY CUP ODDS</a></li>
+				</ul>
+				<li class="overlay-menu-item">
+					<a href="/college-football/team-power-rankings.php">NCAAF</a>
+				</li>
+				<li class="overlay-menu-item">
+					<a href="/mens-college-basketball/team-power-rankings.php">NCAAM</a>
+				</li>
+				<li class="overlay-menu-item">
+					GURU FC
+					<img src="/images/iconmonstr-chevron-down.png" class="list-chevron-down">
+					<img src="/images/iconmonstr-chevron-up.png" class="list-chevron-up">
+				</li>
+				<ul class="overlay-submenu">
+					<li class="overlay-submenu-item"><a href="/soccer/epl/team-power-rankings.php">EPL</a></li>
+					<li class="overlay-submenu-item"><a href="/soccer/spanish-la-liga/team-power-rankings.php">LA LIGA</a></li>
+					<li class="overlay-submenu-item"><a href="/soccer/french-ligue-1/team-power-rankings.php">LIGUE 1</a></li>
+					<li class="overlay-submenu-item"><a href="/soccer/italian-serie-a/team-power-rankings.php">SERIE A</a></li>
+					<li class="overlay-submenu-item"><a href="/soccer/german-bundesliga/team-power-rankings.php">BUNDESLIGA</a></li>
+					<li class="overlay-submenu-item"><a href="/soccer/mls/team-power-rankings.php">MLS</a></li>
+				</ul>
+				<li class="overlay-menu-item">
+					<a href="/about/contact.php">
+					CONTACT US
+					</a>	
+				</li>
+			</ul>
+			<div class="overlay-social">
+				<div class="overlay-social-links-wrapper">
+					<div class="overlay-social-links">
+						<div class="social-link-container">
+							<a href="https://www.facebook.com/powerrankingsguru/" target="_blank">
+								<div class="share-icon-container facebook">
+									<span class="share-icon icon-facebook"></span>
+								</div>	
+							</a>
+						</div>
+						<div class="social-link-container">
+							<a href="https://twitter.com/gururankings" target="_blank">
+								<div class="share-icon-container twitter">
+									<span class="share-icon icon-twitter"></span>
+								</div>	
+							</a>
+						</div>
+						<div class="social-link-container">
+							<a href="https://www.instagram.com/powerrankingsguru/" target="_blank">
+								<div class="share-icon-container instagram">
+									<span class="share-icon icon-instagram"></span>
+								</div>
+							</a>
+						</div>
+						<div class="social-link-container">
+							<a href="https://www.linkedin.com/company/power-rankings-guru" target="_blank">
+								<div class="share-icon-container linkedin">
+									<span class="share-icon icon-linkedin2 linkedin"></span>
+								</div>
+							</a>
+						</div>	
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="nav-container">
+  	<nav>
+			<div class="nav-logo">
+				<a href="/index.html"><img src="/images/powerrankingsguru.png"></a>
+			</div>
+			<div class="nav-social">
+				<a href="https://www.facebook.com/powerrankingsguru/" target="_blank">
+					<div class="nav-social-icon-container">
+						<span class="share-icon icon-facebook"></span>
+					</div>
+				</a>
+				<a href="https://twitter.com/gururankings" target="_blank">
+					<div class="nav-social-icon-container">
+						<span class="share-icon icon-twitter"></span>
+					</div>
+				</a>
+				<a href="https://www.instagram.com/powerrankingsguru/" target="_blank">
+					<div class="nav-social-icon-container">
+						<span class="share-icon icon-instagram"></span>
+					</div>
+				</a>
+			</div>	
+			<div class="nav-options">	
+				<div class="nav-link">
+					<a href="/nfl/team-power-rankings.php" class="nav-link-sport">
+						<div class="nav-link-sport-container">
+							<p class="nav-link-sport-id">NFL</p>
+						</div>
+					</a>
+					<ul class="nav-submenu">
+						<div class="submenu-caret nfl-caret"></div>
+						<li class="nav-submenu-item"><a href="/nfl/team-power-rankings.php" class="nav-drop-link">POWER RANKINGS</a></li>
+						<li class="nav-submenu-item"><a href="/nfl/strength-of-schedule.php" class="nav-drop-link">STRENGTH OF SCHEDULE</a></li>
+						<li class="nav-submenu-item"><a href="/nfl/win-projections.php" class="nav-drop-link">WIN PROJECTIONS</a></li>
+						<li class="nav-submenu-item"><a href="/nfl/playoff-odds.php" class="nav-drop-link">PLAYOFF ODDS</a></li>
+						<li class="nav-submenu-item"><a href="/nfl/super-bowl-odds.php" class="nav-drop-link">SUPER BOWL ODDS</a></li>
+					</ul>
+				</div>
+				<div class="nav-link">
+					<a href="/nba/team-power-rankings.php" class="nav-link-sport">NBA</a>
+					<ul class="nav-submenu">
+						<div class="submenu-caret nba-caret"></div>
+						<li class="nav-submenu-item"><a href="/nba/team-power-rankings.php" class="nav-drop-link">POWER RANKINGS</a></li>
+						<li class="nav-submenu-item"><a href="/nba/strength-of-schedule.php" class="nav-drop-link">STRENGTH OF SCHEDULE</a></li>
+						<li class="nav-submenu-item"><a href="/nba/win-projections.php" class="nav-drop-link">WIN PROJECTIONS</a></li>
+						<li class="nav-submenu-item"><a href="/nba/playoff-odds.php" class="nav-drop-link">PLAYOFF ODDS</a></li>
+						<li class="nav-submenu-item"><a href="/nba/finals-odds.php" class="nav-drop-link">FINALS ODDS</a></li>
+					</ul>
+				</div>
+				<div class="nav-link">
+					<a href="/mlb/team-power-rankings.php" class="nav-link-sport">MLB</a>
+					<ul class="nav-submenu">
+						<div class="submenu-caret mlb-caret"></div>
+						<li class="nav-submenu-item"><a href="/mlb/team-power-rankings.php" class="nav-drop-link">POWER RANKINGS</a></li>
+						<li class="nav-submenu-item"><a href="/mlb/strength-of-schedule.php" class="nav-drop-link">STRENGTH OF SCHEDULE</a></li>
+						<li class="nav-submenu-item"><a href="/mlb/win-projections.php" class="nav-drop-link">WIN PROJECTIONS</a></li>
+						<li class="nav-submenu-item"><a href="/mlb/playoff-odds.php" class="nav-drop-link">PLAYOFF ODDS</a></li>
+						<li class="nav-submenu-item"><a href="/mlb/world-series-odds.php" class="nav-drop-link">WORLD SERIES ODDS</a></li>
+					</ul>
+				</div>
+				<div class="nav-link">
+					<a href="/nhl/team-power-rankings.php" class="nav-link-sport">NHL</a>
+					<ul class="nav-submenu">
+						<div class="submenu-caret nhl-caret"></div>
+						<li class="nav-submenu-item"><a href="/nhl/team-power-rankings.php" class="nav-drop-link">POWER RANKINGS</a></li>
+						<li class="nav-submenu-item"><a href="/nhl/strength-of-schedule.php" class="nav-drop-link">STRENGTH OF SCHEDULE</a></li>
+						<li class="nav-submenu-item"><a href="/nhl/point-projections.php" class="nav-drop-link">POINT PROJECTIONS </a></li>
+						<li class="nav-submenu-item"><a href="/nhl/playoff-odds.php" class="nav-drop-link">PLAYOFF ODDS</a></li>
+						<li class="nav-submenu-item"><a href="/nhl/stanley-cup-odds.php" class="nav-drop-link">STANLEY CUP ODDS</a></li>
+					</ul>
+				</div>
+				<div class="nav-link">
+					<a href="/college-football/team-power-rankings.php" class="nav-link-sport">NCAAF</a>		
+				</div>
+				<div class="nav-link">
+					<a href="/mens-college-basketball/team-power-rankings.php" class="nav-link-sport">NCAAM</a>		
+				</div>
+				<div class="nav-link">
+					<a href="/soccer/epl/team-power-rankings.php" class="nav-link-sport">GURU FC</a>
+					<ul class="nav-submenu">
+						<div class="submenu-caret fc-caret"></div>
+						<li class="nav-submenu-item"><a href="/soccer/epl/team-power-rankings.php" class="nav-drop-link">EPL</a></li>
+						<li class="nav-submenu-item"><a href="/soccer/spanish-la-liga/team-power-rankings.php" class="nav-drop-link">LA LIGA</a></li>
+						<li class="nav-submenu-item"><a href="/soccer/french-ligue-1/team-power-rankings.php" class="nav-drop-link">LIGUE 1</a></li>
+						<li class="nav-submenu-item"><a href="/soccer/italian-serie-a/team-power-rankings.php" class="nav-drop-link">SERIE A</a></li>
+						<li class="nav-submenu-item"><a href="/soccer/german-bundesliga/team-power-rankings.php" class="nav-drop-link">BUNDESLIGA</a></li>
+						<li class="nav-submenu-item"><a href="/soccer/mls/team-power-rankings.php" class="nav-drop-link">MLS</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="nav-overlay-button">
+				<img src="/images/iconmonstr-menu-1.png">	
+			</div>	
+		</nav>
+  </div>	<div class="page-content">
+		<div class="header-ad-wrapper">
+			<div class="header-ad-align">
+				<div class="header-ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+           <!-- responsive-mobile-banner -->
+           <ins class="adsbygoogle responsive-mobile-banner"
+								 style="display:inline-block"
+								 data-ad-client="ca-pub-6594948594346712"
+								 data-ad-slot="6062045007">
+					</ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="main-content">
+				<div class="content-header">
+					
+					  <p class='updated-date'>Updated <span style='font-weight:700;'> Tuesday Aug. 16</span></p>					
+					<h1 class="content-title">2022 Composite MLS Rankings</h1>
+					<h2 class="content-summary">Calculated by aggregating computer generated power rankings from around the web and determining each team’s average ranking.</h2>
+					<div class="social-share-bar">
+						<div class="facebook share-button">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//powerrankingsguru.com/soccer/mls/team-power-rankings.php" target="_blank">
+								<img src="/images/iconmonstr-facebook-1.png">
+							</a>
+						</div>
+						<div class="twitter share-button">
+							<a href="https://twitter.com/home?status=http%3A//powerrankingsguru.com/soccer/mls/team-power-rankings.php%0A%0A" target="_blank">
+								<img src="/images/iconmonstr-twitter-1.png">
+							</a>
+						</div>
+						<div class="linkedin share-button">
+							<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://powerrankingsguru.com/soccer/mls/team-power-rankings.php" target="_blank">
+								<img src="/images/iconmonstr-linkedin-1.png">
+							</a>
+						</div>
+						<div class="email share-button">
+							<a href="mailto:?" target="_blank">
+								<img src="/images/iconmonstr-email-1.png">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="gfc-controller">
+					<a href="/soccer/epl/team-power-rankings.php" class="controller-right">EPL</a><a class="controller-right" href="/soccer/spanish-la-liga/team-power-rankings.php">La Liga</a><a  href="/soccer/french-ligue-1/team-power-rankings.php" class="controller-right">Ligue 1</a><a href="/soccer/italian-serie-a/team-power-rankings.php" class="controller-right">Serie A</a><a  href="/soccer/german-bundesliga/team-power-rankings.php" class="controller-right"><span class="controller-full">Bundesliga</span><span class="controller-abbrv">GBL</span></a><a id="active-controller" href="team-power-rankings.php">MLS</a>
+				</div>
+				<div class="table-container">
+					<table class='gfc-rankings-table'>
+																	<thead>
+																		<tr class='column-labels-row'>
+																			<th class='gfc-rank-col'></th>
+																			<th class='column-labels gfc-team-col col-text-left'>TEAM</th>
+																			<th class='column-labels col-text-center average'><span class='table-header-full'>AVERAGE<br>RANKING</span><span class='table-header-short'>AVG</span></th>
+																			<th class='column-labels col-text-center move-col'><span class='table-header-full'>1-WEEK</span><br>MOVE</th>
+																			<th class='column-labels col-text-center wins'>MAKE<br>PLAYOFFS</th>
+																			<th class='column-labels col-text-center champ-odds'>WIN<br>LEAGUE</th>
+																		</tr>
+																	</thead>
+																	<tbody><tr>
+																			<td class='gfc-rank'>1
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Los_Angeles_Football_Club.svg.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>LAFC</span><span class='abbrv'>LAFC</span><span class='record'>54 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>1.00</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#1f9cda;'>>99%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#a8d9f1;'>34%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>2
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/New_York_City_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>NYCFC</span><span class='abbrv'>NYC</span><span class='record'>42 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>2.50</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#1f9cda;'>>99%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#d2ecf8;'>15%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>3
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Philadelphia_Union.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Philadelphia</span><span class='abbrv'>PHI</span><span class='record'>48 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>2.50</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#1f9cda;'>>99%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#d2ecf8;'>15%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>4
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Austin_FC.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Austin FC</span><span class='abbrv'>ATX</span><span class='record'>48 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>4.80</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#1f9cda;'>>99%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>3%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>5
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/New_York_Red_Bulls.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>NY Red Bulls</span><span class='abbrv'>NWY</span><span class='record'>37 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>6.80</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#38a8df;'>88%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>2%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>6
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Montreal_Impact.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Montreal</span><span class='abbrv'>MTL</span><span class='record'>43 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>7.00</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#1f9cda;'>>99%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#e6f5fb;'>4%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>7
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Columbus_Crew.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Columbus</span><span class='abbrv'>CLB</span><span class='record'>34 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>8.50</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#62bae5;'>69%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>2%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>8
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/FC_Dallas.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>FC Dallas</span><span class='abbrv'>DAL</span><span class='record'>39 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>8.80</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#41abe0;'>84%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>2%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>9
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/New_England_Revolution.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>New England</span><span class='abbrv'>NWE</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>9.00</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#6ebfe7;'>63%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'>1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>10
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Los_Angeles_Galaxy.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>LA Galaxy</span><span class='abbrv'>LAG</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>9.50</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 2</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#59b6e4;'>73%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>2%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>11
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Minnesota_United_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Minnesota</span><span class='abbrv'>MNU</span><span class='record'>38 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>9.80</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#34a6de;'>90%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>3%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>12
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Real_Salt_Lake.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Real Salt Lake</span><span class='abbrv'>RSL</span><span class='record'>37 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>13.00</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 4</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#4db1e2;'>79%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eaf7fc;'>2%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>13
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Colorado_Rapids.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Colorado</span><span class='abbrv'>COL</span><span class='record'>31 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>13.80</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#87caeb;'>51%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'>1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>14
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Portland_Timbers.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Portland</span><span class='abbrv'>POR</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>14.00</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 4</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#bde2f4;'>24%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>15
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Seattle_Sounders_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Seattle</span><span class='abbrv'>SEA</span><span class='record'>32 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>14.50</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 2</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#83c9eb;'>53%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>16
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Nashville_SC.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Nashville</span><span class='abbrv'>NSH</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>14.80</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#acdbf2;'>33%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>17
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Atlanta_United_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Atlanta</span><span class='abbrv'>ATL</span><span class='record'>29 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>16.30</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#bde2f4;'>24%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>18
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/FC_Cincinnati.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>FC Cincinnati</span><span class='abbrv'>CIN</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>16.50</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#a0d6f0;'>38%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>19
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Orlando_City.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Orlando City</span><span class='abbrv'>ORL</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>18.50</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#a4d7f0;'>37%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>20
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Inter_Miami.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Inter Miami</span><span class='abbrv'>MIA</span><span class='record'>33 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>19.80</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#93d0ee;'>44%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>21
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Chicago_Fire.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Chicago</span><span class='abbrv'>CHI</span><span class='record'>30 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>20.50</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 2</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#c5e6f6;'>21%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>22
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Toronto_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Toronto FC</span><span class='abbrv'>TOR</span><span class='record'>29 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>22.30</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 3</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#daeff9;'>11%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>23
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Vancouver_Whitecaps_FC.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Vancouver</span><span class='abbrv'>VAN</span><span class='record'>30 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>23.80</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#d6edf8;'>13%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>24
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/San_Jose_Earthquakes.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>San Jose</span><span class='abbrv'>SAN</span><span class='record'>24 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>23.80</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#eef8fc;'>1%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>25
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Charlotte_FC.png'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Charlotte FC</span><span class='abbrv'>CLT</span><span class='record'>29 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>24.30</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#e2f3fa;'>7%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>26
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Sporting_Kansas_City.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Sporting KC</span><span class='abbrv'>SKC</span><span class='record'>23 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>26.00</td>
+																			<td class='col-text-center move move-col'  style="color:green;">&#8593; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#eef8fc;'><1%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>27
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/Houston_Dynamo.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>Houston</span><span class='abbrv'>HOU</span><span class='record'>25 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>26.80</td>
+																			<td class='col-text-center move move-col'  style="color:red;">&#8595; 1</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#eef8fc;'>1%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr><tr>
+																			<td class='gfc-rank'>28
+																			<td class='col-text-left'>
+																				<img class='gfc-logo' src='/images/mls/DC_United.svg'>
+																				<div class='gfc-team-name'>
+																					<span class='full-name'>D.C. United</span><span class='abbrv'>DCU</span><span class='record'>22 pts</span>
+																				</div>
+																			</td>
+																			<td class='col-text-center average'>27.75</td>
+																			<td class='col-text-center move move-col'  style="color:black;">-</div></td>
+																			<td class='col-text-center wins' style=' color:black; background-color:#eef8fc;'><1%</td>
+																			<td class='col-text-center champ-odds' style=' color:black; background-color:#eef8fc;'><1%</td>
+																		</tr>	</tbody>
+																</table>	
+					<div class="description">
+						<p><span style="font-weight:700;">How We Calculate:</span> Our MLS Power Rankings are calculated by aggregating computer rankings from around the web and determining each team’s average ranking. Up or down movement within our rankings versus the previous week is provided for each team. Some of these sites also project teams’ future success. We collect this info and calculate each team’s average playoff odds and MLS Cup title odds.</p>
+						
+						<p>Our heat chart below shows how each of the four sites we pull from ranks all 28 teams. We pull from <a href="https://projects.fivethirtyeight.com/soccer-predictions/mls/" target="_blank">FiveThirtyEight (538)</a>, <a href="https://masseyratings.com/mls/ratings" target="_blank">Massey Ratings (MY)</a>, <a href="http://sagarin.com/sports/soccer.htm" target="_blank">Sagarin (SAG)</a> and <a href="https://www.dratings.com/sports/mls-soccer-ratings/" target="_blank">DRatings (DR)</a>.</p>
+						
+					</div>
+
+										 <table class='heat-chart'>
+																	<thead>
+																		<tr>
+																			<th colspan='1'></th>
+																			<th class='section-label' colspan='4'>SITES PULLED FROM</th>
+																			<th colspan='1'></th>
+																		</tr>
+																		<tr>
+																			<th class='thead-separate' colspan='6'></th>
+																		</tr>
+																		<tr class='column-labels-row'>
+																			<th class='four-heat-team'>TEAM</th>
+																			<th class='four-heat-column-labels col-text-center'>538</th>
+																			<th class='four-heat-column-labels col-text-center'><span class='table-header-full'>Massey Ratings</span><span class='table-header-short'>MY</span></th>					
+																			<th class='four-heat-column-labels col-text-center'><span class='table-header-full'>Sagarian</span><span class='table-header-short'>SAG</span></th>
+																			<th class='four-heat-column-labels col-text-center'><span class='table-header-full'>DRatings</span><span class='table-header-short'>DR</span></th>
+																			<th class='heat-average col-text-center'><span class='table-header-full'>AVERAGE</span><span class='table-header-short'>AVG</span></th>
+																		</tr>	
+																	</thead>
+																	<tbody><tr>
+																			<td class='heat-team-name'><span class='full-name'>LAFC</span><span class='abbrv'>LAFC</span></td>
+																			<td class='heat-chart-data'>1</td>
+																			<td class='heat-chart-data'>1</a></td>
+																			<td class='heat-chart-data'>1</td>
+																			<td class='heat-chart-data'>1</td>
+																			<td class='heat-average-data'>1.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>NYCFC</span><span class='abbrv'>NYC</span></td>
+																			<td class='heat-chart-data'>2</td>
+																			<td class='heat-chart-data'>3</a></td>
+																			<td class='heat-chart-data'>2</td>
+																			<td class='heat-chart-data'>3</td>
+																			<td class='heat-average-data'>2.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Philadelphia</span><span class='abbrv'>PHI</span></td>
+																			<td class='heat-chart-data'>3</td>
+																			<td class='heat-chart-data'>2</a></td>
+																			<td class='heat-chart-data'>3</td>
+																			<td class='heat-chart-data'>2</td>
+																			<td class='heat-average-data'>2.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Austin FC</span><span class='abbrv'>ATX</span></td>
+																			<td class='heat-chart-data'>7</td>
+																			<td class='heat-chart-data'>4</a></td>
+																			<td class='heat-chart-data'>4</td>
+																			<td class='heat-chart-data'>4</td>
+																			<td class='heat-average-data'>4.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>NY Red Bulls</span><span class='abbrv'>NWY</span></td>
+																			<td class='heat-chart-data'>4</td>
+																			<td class='heat-chart-data'>9</a></td>
+																			<td class='heat-chart-data'>5</td>
+																			<td class='heat-chart-data'>9</td>
+																			<td class='heat-average-data'>6.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Montreal</span><span class='abbrv'>MTL</span></td>
+																			<td class='heat-chart-data'>6</td>
+																			<td class='heat-chart-data'>5</a></td>
+																			<td class='heat-chart-data'>9</td>
+																			<td class='heat-chart-data'>8</td>
+																			<td class='heat-average-data'>7.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Columbus</span><span class='abbrv'>CLB</span></td>
+																			<td class='heat-chart-data'>11</td>
+																			<td class='heat-chart-data'>8</a></td>
+																			<td class='heat-chart-data'>8</td>
+																			<td class='heat-chart-data'>7</td>
+																			<td class='heat-average-data'>8.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>FC Dallas</span><span class='abbrv'>DAL</span></td>
+																			<td class='heat-chart-data'>16</td>
+																			<td class='heat-chart-data'>7</a></td>
+																			<td class='heat-chart-data'>7</td>
+																			<td class='heat-chart-data'>5</td>
+																			<td class='heat-average-data'>8.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>New England</span><span class='abbrv'>NWE</span></td>
+																			<td class='heat-chart-data'>8</td>
+																			<td class='heat-chart-data'>10</a></td>
+																			<td class='heat-chart-data'>6</td>
+																			<td class='heat-chart-data'>12</td>
+																			<td class='heat-average-data'>9.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>LA Galaxy</span><span class='abbrv'>LAG</span></td>
+																			<td class='heat-chart-data'>5</td>
+																			<td class='heat-chart-data'>13</a></td>
+																			<td class='heat-chart-data'>10</td>
+																			<td class='heat-chart-data'>10</td>
+																			<td class='heat-average-data'>9.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Minnesota</span><span class='abbrv'>MNU</span></td>
+																			<td class='heat-chart-data'>14</td>
+																			<td class='heat-chart-data'>6</a></td>
+																			<td class='heat-chart-data'>13</td>
+																			<td class='heat-chart-data'>6</td>
+																			<td class='heat-average-data'>9.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Real Salt Lake</span><span class='abbrv'>RSL</span></td>
+																			<td class='heat-chart-data'>15</td>
+																			<td class='heat-chart-data'>11</a></td>
+																			<td class='heat-chart-data'>15</td>
+																			<td class='heat-chart-data'>11</td>
+																			<td class='heat-average-data'>13.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Colorado</span><span class='abbrv'>COL</span></td>
+																			<td class='heat-chart-data'>9</td>
+																			<td class='heat-chart-data'>19</a></td>
+																			<td class='heat-chart-data'>12</td>
+																			<td class='heat-chart-data'>15</td>
+																			<td class='heat-average-data'>13.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Portland</span><span class='abbrv'>POR</span></td>
+																			<td class='heat-chart-data'>17</td>
+																			<td class='heat-chart-data'>14</a></td>
+																			<td class='heat-chart-data'>11</td>
+																			<td class='heat-chart-data'>14</td>
+																			<td class='heat-average-data'>14.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Seattle</span><span class='abbrv'>SEA</span></td>
+																			<td class='heat-chart-data'>12</td>
+																			<td class='heat-chart-data'>17</a></td>
+																			<td class='heat-chart-data'>16</td>
+																			<td class='heat-chart-data'>13</td>
+																			<td class='heat-average-data'>14.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Nashville</span><span class='abbrv'>NSH</span></td>
+																			<td class='heat-chart-data'>13</td>
+																			<td class='heat-chart-data'>15</a></td>
+																			<td class='heat-chart-data'>14</td>
+																			<td class='heat-chart-data'>17</td>
+																			<td class='heat-average-data'>14.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Atlanta</span><span class='abbrv'>ATL</span></td>
+																			<td class='heat-chart-data'>10</td>
+																			<td class='heat-chart-data'>20</a></td>
+																			<td class='heat-chart-data'>17</td>
+																			<td class='heat-chart-data'>18</td>
+																			<td class='heat-average-data'>16.30</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>FC Cincinnati</span><span class='abbrv'>CIN</span></td>
+																			<td class='heat-chart-data'>20</td>
+																			<td class='heat-chart-data'>12</a></td>
+																			<td class='heat-chart-data'>18</td>
+																			<td class='heat-chart-data'>16</td>
+																			<td class='heat-average-data'>16.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Orlando City</span><span class='abbrv'>ORL</span></td>
+																			<td class='heat-chart-data'>19</td>
+																			<td class='heat-chart-data'>16</a></td>
+																			<td class='heat-chart-data'>19</td>
+																			<td class='heat-chart-data'>20</td>
+																			<td class='heat-average-data'>18.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Inter Miami</span><span class='abbrv'>MIA</span></td>
+																			<td class='heat-chart-data'>22</td>
+																			<td class='heat-chart-data'>18</a></td>
+																			<td class='heat-chart-data'>20</td>
+																			<td class='heat-chart-data'>19</td>
+																			<td class='heat-average-data'>19.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Chicago</span><span class='abbrv'>CHI</span></td>
+																			<td class='heat-chart-data'>18</td>
+																			<td class='heat-chart-data'>22</a></td>
+																			<td class='heat-chart-data'>21</td>
+																			<td class='heat-chart-data'>21</td>
+																			<td class='heat-average-data'>20.50</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Toronto FC</span><span class='abbrv'>TOR</span></td>
+																			<td class='heat-chart-data'>21</td>
+																			<td class='heat-chart-data'>23</a></td>
+																			<td class='heat-chart-data'>23</td>
+																			<td class='heat-chart-data'>22</td>
+																			<td class='heat-average-data'>22.30</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Vancouver</span><span class='abbrv'>VAN</span></td>
+																			<td class='heat-chart-data'>25</td>
+																			<td class='heat-chart-data'>21</a></td>
+																			<td class='heat-chart-data'>25</td>
+																			<td class='heat-chart-data'>24</td>
+																			<td class='heat-average-data'>23.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>San Jose</span><span class='abbrv'>SAN</span></td>
+																			<td class='heat-chart-data'>23</td>
+																			<td class='heat-chart-data'>25</a></td>
+																			<td class='heat-chart-data'>24</td>
+																			<td class='heat-chart-data'>23</td>
+																			<td class='heat-average-data'>23.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Charlotte FC</span><span class='abbrv'>CLT</span></td>
+																			<td class='heat-chart-data'>26</td>
+																			<td class='heat-chart-data'>24</a></td>
+																			<td class='heat-chart-data'>22</td>
+																			<td class='heat-chart-data'>25</td>
+																			<td class='heat-average-data'>24.30</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Sporting KC</span><span class='abbrv'>SKC</span></td>
+																			<td class='heat-chart-data'>24</td>
+																			<td class='heat-chart-data'>26</a></td>
+																			<td class='heat-chart-data'>28</td>
+																			<td class='heat-chart-data'>26</td>
+																			<td class='heat-average-data'>26.00</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>Houston</span><span class='abbrv'>HOU</span></td>
+																			<td class='heat-chart-data'>27</td>
+																			<td class='heat-chart-data'>27</a></td>
+																			<td class='heat-chart-data'>26</td>
+																			<td class='heat-chart-data'>27</td>
+																			<td class='heat-average-data'>26.80</td>
+																		</tr><tr>
+																			<td class='heat-team-name'><span class='full-name'>D.C. United</span><span class='abbrv'>DCU</span></td>
+																			<td class='heat-chart-data'>28</td>
+																			<td class='heat-chart-data'>28</a></td>
+																			<td class='heat-chart-data'>27</td>
+																			<td class='heat-chart-data'>28</td>
+																			<td class='heat-average-data'>27.75</td>
+																		</tr>	</tbody>
+																</table>
+											<div class="description">
+												<p>Standard deviation is a statistical tool used to measure the variance within a set of numbers.  In the table below, we use standard deviation to determine which teams are ranked the most and least consistently.  A low number indicates that a team is ranked consistently across the three sites we pull from.  A high number indicates an inconsistently ranked team.</p>
+											</div>
+					
+											<table class='heat-chart'>
+																	<thead>
+																		<tr>
+																			<th colspan='1'></th>
+																			<th class='section-label' colspan='3'>SITES PULLED FROM</th>
+																			<th colspan='1'></th>
+																		</tr>
+																		<tr>
+																			<th class='thead-separate' colspan='5'></th>
+																		</tr>
+																		<tr class='column-labels-row'>
+																			<th class='three-heat-team'>TEAM</th>
+																			<th class='three-heat-column-labels col-text-center'>538</th>
+																			<th class='three-heat-column-labels col-text-center'><span class='table-header-full'>WhoScored</span><span class='table-header-short'>WS</span></th>					
+																			<th class='three-heat-column-labels col-text-center'><span class='table-header-full'>Sagarian</span><span class='table-header-short'>SAG</span></th>
+																			<th class='three-heat-average col-text-center'><span class='table-header-full'>STAN DEV</span><span class='table-header-short'>STDV</span></th>
+																		</tr>	
+																	</thead>
+																	<tbody><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>LAFC</span><span class='abbrv'>LAFC</span></td>
+																			<td class='heat-chart-data'>1</td>
+																			<td class='heat-chart-data'>1</a></td>
+																			<td class='heat-chart-data'>1</td>
+																			<td class='heat-average-data'>0.000</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Houston</span><span class='abbrv'>HOU</span></td>
+																			<td class='heat-chart-data'>27</td>
+																			<td class='heat-chart-data'>27</a></td>
+																			<td class='heat-chart-data'>26</td>
+																			<td class='heat-average-data'>0.500</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>D.C. United</span><span class='abbrv'>DCU</span></td>
+																			<td class='heat-chart-data'>28</td>
+																			<td class='heat-chart-data'>28</a></td>
+																			<td class='heat-chart-data'>27</td>
+																			<td class='heat-average-data'>0.500</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>NYCFC</span><span class='abbrv'>NYC</span></td>
+																			<td class='heat-chart-data'>2</td>
+																			<td class='heat-chart-data'>3</a></td>
+																			<td class='heat-chart-data'>2</td>
+																			<td class='heat-average-data'>0.577</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Philadelphia</span><span class='abbrv'>PHI</span></td>
+																			<td class='heat-chart-data'>3</td>
+																			<td class='heat-chart-data'>2</a></td>
+																			<td class='heat-chart-data'>3</td>
+																			<td class='heat-average-data'>0.577</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>San Jose</span><span class='abbrv'>SAN</span></td>
+																			<td class='heat-chart-data'>23</td>
+																			<td class='heat-chart-data'>25</a></td>
+																			<td class='heat-chart-data'>24</td>
+																			<td class='heat-average-data'>0.957</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Toronto FC</span><span class='abbrv'>TOR</span></td>
+																			<td class='heat-chart-data'>21</td>
+																			<td class='heat-chart-data'>23</a></td>
+																			<td class='heat-chart-data'>23</td>
+																			<td class='heat-average-data'>0.957</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Austin FC</span><span class='abbrv'>ATX</span></td>
+																			<td class='heat-chart-data'>7</td>
+																			<td class='heat-chart-data'>4</a></td>
+																			<td class='heat-chart-data'>4</td>
+																			<td class='heat-average-data'>1.500</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Sporting KC</span><span class='abbrv'>SKC</span></td>
+																			<td class='heat-chart-data'>24</td>
+																			<td class='heat-chart-data'>26</a></td>
+																			<td class='heat-chart-data'>28</td>
+																			<td class='heat-average-data'>1.633</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Charlotte FC</span><span class='abbrv'>CLT</span></td>
+																			<td class='heat-chart-data'>26</td>
+																			<td class='heat-chart-data'>24</a></td>
+																			<td class='heat-chart-data'>22</td>
+																			<td class='heat-average-data'>1.708</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Inter Miami</span><span class='abbrv'>MIA</span></td>
+																			<td class='heat-chart-data'>22</td>
+																			<td class='heat-chart-data'>18</a></td>
+																			<td class='heat-chart-data'>20</td>
+																			<td class='heat-average-data'>1.708</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Nashville</span><span class='abbrv'>NSH</span></td>
+																			<td class='heat-chart-data'>13</td>
+																			<td class='heat-chart-data'>15</a></td>
+																			<td class='heat-chart-data'>14</td>
+																			<td class='heat-average-data'>1.708</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Chicago</span><span class='abbrv'>CHI</span></td>
+																			<td class='heat-chart-data'>18</td>
+																			<td class='heat-chart-data'>22</a></td>
+																			<td class='heat-chart-data'>21</td>
+																			<td class='heat-average-data'>1.732</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Columbus</span><span class='abbrv'>CLB</span></td>
+																			<td class='heat-chart-data'>11</td>
+																			<td class='heat-chart-data'>8</a></td>
+																			<td class='heat-chart-data'>8</td>
+																			<td class='heat-average-data'>1.732</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Orlando City</span><span class='abbrv'>ORL</span></td>
+																			<td class='heat-chart-data'>19</td>
+																			<td class='heat-chart-data'>16</a></td>
+																			<td class='heat-chart-data'>19</td>
+																			<td class='heat-average-data'>1.732</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Montreal</span><span class='abbrv'>MTL</span></td>
+																			<td class='heat-chart-data'>6</td>
+																			<td class='heat-chart-data'>5</a></td>
+																			<td class='heat-chart-data'>9</td>
+																			<td class='heat-average-data'>1.826</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Vancouver</span><span class='abbrv'>VAN</span></td>
+																			<td class='heat-chart-data'>25</td>
+																			<td class='heat-chart-data'>21</a></td>
+																			<td class='heat-chart-data'>25</td>
+																			<td class='heat-average-data'>1.893</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Real Salt Lake</span><span class='abbrv'>RSL</span></td>
+																			<td class='heat-chart-data'>15</td>
+																			<td class='heat-chart-data'>11</a></td>
+																			<td class='heat-chart-data'>15</td>
+																			<td class='heat-average-data'>2.309</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Seattle</span><span class='abbrv'>SEA</span></td>
+																			<td class='heat-chart-data'>12</td>
+																			<td class='heat-chart-data'>17</a></td>
+																			<td class='heat-chart-data'>16</td>
+																			<td class='heat-average-data'>2.380</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Portland</span><span class='abbrv'>POR</span></td>
+																			<td class='heat-chart-data'>17</td>
+																			<td class='heat-chart-data'>14</a></td>
+																			<td class='heat-chart-data'>11</td>
+																			<td class='heat-average-data'>2.449</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>New England</span><span class='abbrv'>NWE</span></td>
+																			<td class='heat-chart-data'>8</td>
+																			<td class='heat-chart-data'>10</a></td>
+																			<td class='heat-chart-data'>6</td>
+																			<td class='heat-average-data'>2.582</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>NY Red Bulls</span><span class='abbrv'>NWY</span></td>
+																			<td class='heat-chart-data'>4</td>
+																			<td class='heat-chart-data'>9</a></td>
+																			<td class='heat-chart-data'>5</td>
+																			<td class='heat-average-data'>2.630</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>LA Galaxy</span><span class='abbrv'>LAG</span></td>
+																			<td class='heat-chart-data'>5</td>
+																			<td class='heat-chart-data'>13</a></td>
+																			<td class='heat-chart-data'>10</td>
+																			<td class='heat-average-data'>3.317</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>FC Cincinnati</span><span class='abbrv'>CIN</span></td>
+																			<td class='heat-chart-data'>20</td>
+																			<td class='heat-chart-data'>12</a></td>
+																			<td class='heat-chart-data'>18</td>
+																			<td class='heat-average-data'>3.416</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Colorado</span><span class='abbrv'>COL</span></td>
+																			<td class='heat-chart-data'>9</td>
+																			<td class='heat-chart-data'>19</a></td>
+																			<td class='heat-chart-data'>12</td>
+																			<td class='heat-average-data'>4.272</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Atlanta</span><span class='abbrv'>ATL</span></td>
+																			<td class='heat-chart-data'>10</td>
+																			<td class='heat-chart-data'>20</a></td>
+																			<td class='heat-chart-data'>17</td>
+																			<td class='heat-average-data'>4.349</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>Minnesota</span><span class='abbrv'>MNU</span></td>
+																			<td class='heat-chart-data'>14</td>
+																			<td class='heat-chart-data'>6</a></td>
+																			<td class='heat-chart-data'>13</td>
+																			<td class='heat-average-data'>4.349</td>
+																		</tr><tr>
+																			<td class='heat-team-name col-text-left'><span class='full-name'>FC Dallas</span><span class='abbrv'>DAL</span></td>
+																			<td class='heat-chart-data'>16</td>
+																			<td class='heat-chart-data'>7</a></td>
+																			<td class='heat-chart-data'>7</td>
+																			<td class='heat-average-data'>4.924</td>
+																		</tr>	</tbody>
+																</table>				</div>
+			</div>
+						<div class="sidebar">
+				<div class="sidebar-follow">
+					<h2>Follow Us</h2>
+					<div class="sidebar-guru-logo">
+						<img src="/images/guru_indexv2.png" height="210">
+					</div>
+					<div class="sidebar-social-links">
+						<a href="https://www.facebook.com/powerrankingsguru/" target="_blank">
+								<span class="icon-facebook"></span>
+						</a>
+						<a href="https://twitter.com/gururankings" target="_blank">
+								<span class="icon-twitter"></span>
+						</a>
+						<a href="https://www.instagram.com/powerrankingsguru/" target="_blank">
+								<span class="icon-instagram"></span>
+						</a>
+						<a href="https://www.linkedin.com/company/power-rankings-guru" target="_blank">
+								<span class="icon-linkedin2"></span>
+						</a>
+					</div>
+				</div>
+				<div class="sidebar-ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Sidebar Ad 2 -->
+					<ins class="adsbygoogle"
+							 style="display:inline-block;width:300px;height:250px"
+							 data-ad-client="ca-pub-6594948594346712"
+							 data-ad-slot="7017692989"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+				<div class="sb-general-links">
+					<h2>Quick Links</h2>
+					<a href="/mlb/team-power-rankings.php">MLB Power Rankings</a>
+					<a href="/nfl/team-power-rankings.php">NFL Power Rankings</a>
+					<a href="/nba/team-power-rankings.php">NBA Power Rankings</a>
+					<a href="/college-football/team-power-rankings.php">NCAAF Power Rankings</a>
+					<a href="/nhl/team-power-rankings.php" class="sb-link-bottom">NHL Power Rankings</a>
+				</div>
+				<div class="sidebar-ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Sidebar Ad 1 -->
+					<ins class="adsbygoogle"
+							 style="display:inline-block;width:300px;height:250px"
+							 data-ad-client="ca-pub-6594948594346712"
+							 data-ad-slot="5540959786"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous">
+		</script>
+		<script src='/scripts/main.js'></script>
+		<script>
+											var allTableCells = document.getElementsByClassName("heat-chart-data");
+											for(var i = 0, max = allTableCells.length; i < max; i++) {
+											var node = allTableCells[i];
+
+											//get the text from the first child node - which should be a text node
+											var currentText = node.childNodes[0].nodeValue; 
+
+											//check for 'one' and assign this table cell's background color accordingly 
+											if (currentText === "1")
+													node.style.backgroundColor = "#63be7b";
+											else if (currentText ==="2")
+													node.style.backgroundColor = "#6cc07b";
+											else if (currentText ==="3")
+													node.style.backgroundColor = "#76c37c";
+											else if (currentText ==="4")
+													node.style.backgroundColor = "#80c67c";
+											else if (currentText ==="5")
+													node.style.backgroundColor = "#8ac97d";
+											else if (currentText ==="6")
+													node.style.backgroundColor = "#93cc7d";
+											else if (currentText ==="7")
+													node.style.backgroundColor = "#9dce7e";
+											else if (currentText ==="8")
+													node.style.backgroundColor = "#a7d17e";
+											else if (currentText ==="9")
+													node.style.backgroundColor = "#b1d47f";
+											else if (currentText ==="10")
+													node.style.backgroundColor = "#bad780";
+											else if (currentText ==="11")
+													node.style.backgroundColor = "#c4da80";
+											else if (currentText ==="12")
+													node.style.backgroundColor = "#cedc81";
+											else if (currentText ==="13")
+													node.style.backgroundColor = "#d8df81";
+											else if (currentText ==="14")
+													node.style.backgroundColor = "#e1e282";
+											else if (currentText ==="15")
+													node.style.backgroundColor = "#ebe582";
+											else if (currentText ==="16")
+													node.style.backgroundColor = "#f5e883";
+											else if (currentText ==="17")
+													node.style.backgroundColor = "#ffeb84";
+											else if (currentText ==="18")
+													node.style.backgroundColor = "#ffe383";
+											else if (currentText ==="19")
+													node.style.backgroundColor = "#ffda81";
+											else if (currentText ==="20")
+													node.style.backgroundColor = "#fed280";
+											else if (currentText ==="21")
+													node.style.backgroundColor = "#fec97e";
+											else if (currentText ==="22")
+													node.style.backgroundColor = "#fdc07c";
+											else if (currentText ==="23")
+													node.style.backgroundColor = "#fdb87b";
+											else if (currentText ==="24")
+													node.style.backgroundColor = "#fcaf79";
+											else if (currentText ==="25")
+													node.style.backgroundColor = "#fca677";
+											else if (currentText ==="26")
+													node.style.backgroundColor = "#fb9d75";
+											else if (currentText ==="27")
+													node.style.backgroundColor = "#fb9574";
+											else if (currentText ==="28")
+													node.style.backgroundColor = "#fa8c72";
+											else if (currentText ==="29")
+													node.style.backgroundColor = "#fa8370";
+											else if (currentText ==="30")
+													node.style.backgroundColor = "#f97b6f";
+											else if (currentText ==="31")
+													node.style.backgroundColor = "#f9726d";
+											else if (currentText ==="32")
+													node.style.backgroundColor = "#f8696b";
+											}
+		</script>	
+		</div>
+		<footer>
+	<div class="footer-container">
+		<div class="footer-content">
+			<div class="footer-logo">
+				<a href="/index.html"><img src="/images/powerrankingsguru.png"></a>
+			</div>
+			<div class="footer-links">
+				<div class="footer-break">
+					<a href="/NFL/team-power-rankings.php">NFL</a>
+					<a href="/NBA/team-power-rankings.php">NBA</a>
+					<a href="/MLB/team-power-rankings.php">MLB</a>
+					<a href="/NHL/team-power-rankings.php">NHL</a>
+				</div>
+				<div class="footer-break">
+					<a href="/college-football/team-power-rankings.php">NCAAF</a>
+					<a href="/mens-college-basketball/team-power-rankings.php">NCAAM</a>
+					<a href="/Soccer/EPL/team-power-rankings.php">GURU FC</a>
+				</div>
+			</div>
+			<div class="footer-links">
+				<a href="/about/contact.php">Contact</a>
+				<a href="/about/terms.php">Terms of Use</a>
+				<a href="/about/privacy-policy.php">Privacy Policy</a>
+			</div>
+			<div class="footer-links">
+				<p>&#x24B8; Power Rankings Guru 2015-2019.  All Rights Reserved.  Joga Bonito.</p>
+			</div>
+		</div>
+	</div>
+</footer>	</div>	
+</body>
+</html>
+
+
+
+           
+            

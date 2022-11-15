@@ -55,7 +55,7 @@ function parseTeam(
     powerRank: findTeamRank(team.optaId, rankings),
     sport: Sport.soccer,
     record: parseRecord(team, standings),
-    logoUrl: team.logoColorUrl
+    logoUrl: team.logoColorUrl,
   };
 }
 

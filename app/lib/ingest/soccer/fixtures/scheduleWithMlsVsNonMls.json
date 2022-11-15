@@ -1,0 +1,73 @@
+[
+  {
+    "optaId": 2283952,
+    "slug": "cinvspit-04-19-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 11504,
+      "fullName": "FC Cincinnati",
+      "slug": "fc-cincinnati",
+      "shortName": "Cincinnati",
+      "abbreviation": "CIN",
+      "backgroundColor": "#003087",
+      "logoBWSlug": "webcomp_093edcd5-74d9-4da2-93f8-d464f7169dd4",
+      "logoColorSlug": "webcomp_553d2bce-a8cd-4cce-ada2-b6e07c74dc28",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
+      "crestColorSlug": "webcomp_41e2f018-d1fe-482e-bd36-9d2a02da24a0"
+    },
+    "away": {
+      "optaId": 9908,
+      "fullName": "Pittsburgh Riverhounds SC",
+      "slug": "pittsburgh-riverhounds",
+      "shortName": "Pittsburgh",
+      "abbreviation": "PIT",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_798c98f5-d95c-4dbc-862c-67f75046dc45",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645275/assets/competitions/united-soccer-league/pittsburgh-riverhounds-sc-480.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "15489",
+      "backgroundImageSlug": "",
+      "name": "TQL Stadium",
+      "city": "Cincinnati, OH"
+    },
+    "season": {
+      "slug": "us-open-cup-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 557,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 557,
+      "name": "US Open Cup",
+      "slug": "u-s-open-cup",
+      "shortName": "U.S. Open Cup",
+      "matchType": "Cup",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [],
+    "sponsorImage": {},
+    "matchDate": "2022-04-19T23:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "ESPN+",
+        "broadcasterName": "ESPN+",
+        "broadcasterType": "Streaming"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  }
+]

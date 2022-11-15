@@ -14,7 +14,7 @@ export async function loader({ request, context: { clientIp } }: LoaderArgs) {
   const min = DateTime.fromISO("2022-11-04");
   const max = DateTime.fromISO("2022-11-06");
   const fetchSportInfo: GameFetcher[] = [
-    { fetcher: getBasketballGames, name: "basketball" },
+    // { fetcher: getBasketballGames, name: "basketball" },
     { fetcher: getSoccerGames, name: "soccer" },
   ];
   const [{ gamesByDate }, zone] = await Promise.all([

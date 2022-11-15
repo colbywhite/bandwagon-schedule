@@ -15,6 +15,7 @@
     "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "ntl:ci": "netlify dev",
+    "test": "vitest",
     "start": "cross-env NODE_ENV=production netlify dev",
     "typecheck": "tsc -b"
   },
@@ -45,16 +46,23 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/eslint": "^8.4.1",
     "@types/luxon": "^3.1.0",
+    "@types/node": "^18.11.9",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "@vitejs/plugin-react": "^2.2.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.5.0",
+    "happy-dom": "^7.7.0",
+    "msw": "^0.48.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
     "tailwindcss": "^3.0.23",
-    "typescript": "^4.6.3"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.6.3",
+    "vite-tsconfig-paths": "^3.5.2",
+    "vitest": "^0.25.1"
   },
   "engines": {
     "node": ">=14"

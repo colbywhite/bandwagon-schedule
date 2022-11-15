@@ -1,0 +1,421 @@
+[
+  {
+    "optaId": 2262771,
+    "slug": "guavsnyc-02-15-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 9722,
+      "fullName": "Santos de Guápiles",
+      "slug": "santos-de-guapiles",
+      "shortName": "Santos",
+      "abbreviation": "SAN",
+      "backgroundColor": "",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_cff0aa9d-8565-40c7-bf3b-60f86ff756d2",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1640192110/assets/competitions/concacaf-champions-league/santos_480x480-2022.png",
+      "crestColorSlug": ""
+    },
+    "away": {
+      "optaId": 9668,
+      "fullName": "New York City FC",
+      "slug": "new-york-city-fc",
+      "shortName": "New York City",
+      "abbreviation": "NYC",
+      "backgroundColor": "#569AD7",
+      "logoBWSlug": "webcomp_7c306c3e-2055-4fad-9a50-34c3b404afbe",
+      "logoColorSlug": "webcomp_aa786b8b-1837-461c-b683-a2499d15033d",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970758/assets/logos/9668-nycfc-logo_mluq9x.png",
+      "crestColorSlug": "webcomp_d015713a-ad2c-4b5f-b63f-55d90c8f5982"
+    },
+    "venue": {
+      "venueOptaId": "7484",
+      "backgroundImageSlug": "",
+      "name": "Estadio Nacional de Costa Rica",
+      "city": "San Jose"
+    },
+    "season": {
+      "slug": "concacaf-champions-league-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 549,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 549,
+      "name": "Concacaf Champions League",
+      "slug": "concacaf-champions-league",
+      "shortName": "CCL",
+      "matchType": "1st Leg",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "FS2",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "TUDN",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "",
+        "broadcasterName": "OneSoccer",
+        "broadcasterStreamingURL": "https://onesoccer.ca/",
+        "broadcasterType": "Canada Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-16T01:00:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2262778,
+    "slug": "colvscom-02-23-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 436,
+      "fullName": "Colorado Rapids",
+      "slug": "colorado-rapids",
+      "shortName": "Colorado",
+      "abbreviation": "COL",
+      "backgroundColor": "#8A2432",
+      "logoBWSlug": "webcomp_b51660a4-4015-4a32-b1c5-f47c95c9ca66",
+      "logoColorSlug": "webcomp_c9a9244f-09e3-4e68-a741-3f88948a1c9c",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970746/assets/logos/436-colorado-logo_yifx69.png",
+      "crestColorSlug": "webcomp_99232c2a-d3a1-47b6-bda1-10ec2a9cacfe"
+    },
+    "away": {
+      "optaId": 1950,
+      "fullName": "Comunicaciones",
+      "slug": "csd-comunicaciones",
+      "shortName": "Comunicaciones",
+      "abbreviation": "COM",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "",
+      "logoColorSlug": "webcomp_a9c1bfc6-b0a0-4088-a962-aa83fc067673",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1640192110/assets/competitions/concacaf-champions-league/comunicaciones_480x480-2022.png",
+      "crestColorSlug": ""
+    },
+    "venue": {
+      "venueOptaId": "3357",
+      "backgroundImageSlug": "",
+      "name": "Dick's Sporting Goods Park",
+      "city": "Commerce City, CO"
+    },
+    "season": {
+      "slug": "concacaf-champions-league-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 549,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 549,
+      "name": "Concacaf Champions League",
+      "slug": "concacaf-champions-league",
+      "shortName": "CCL",
+      "matchType": "",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "FS2",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "",
+        "broadcasterName": "OneSoccer",
+        "broadcasterStreamingURL": "https://onesoccer.ca/",
+        "broadcasterType": "Canada Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-24T01:15:00.0000000Z",
+    "tags": [],
+    "homeClubBroadcasters": [],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": ""
+  },
+  {
+    "optaId": 2259026,
+    "slug": "orlvsmtl-02-27-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 6900,
+      "fullName": "Orlando City",
+      "slug": "orlando-city-sc",
+      "shortName": "Orlando",
+      "abbreviation": "ORL",
+      "backgroundColor": "#61259E",
+      "logoBWSlug": "webcomp_3e90d4f0-6195-43d7-9d77-da4c1d7e3f65",
+      "logoColorSlug": "webcomp_9499966a-5150-4e9e-9df8-e3254b265584",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970757/assets/logos/6900-orlando-logo_tfcjmq.png",
+      "crestColorSlug": "webcomp_93928d77-288d-4606-8c86-6920962f1e71"
+    },
+    "away": {
+      "optaId": 1616,
+      "fullName": "CF Montréal",
+      "slug": "cf-montreal",
+      "shortName": "Montréal",
+      "abbreviation": "MTL",
+      "backgroundColor": "#212121",
+      "logoBWSlug": "webcomp_92b846b8-d974-40e0-a2a0-46072b997487",
+      "logoColorSlug": "webcomp_0b101073-79e6-4354-987a-775fa3f8b912",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1615326140/assets/logos/1616-montreal-logo_jkdycg.png",
+      "crestColorSlug": "webcomp_52bbe7a4-229e-4466-b719-0f9667edbf04"
+    },
+    "venue": {
+      "venueOptaId": "11698",
+      "backgroundImageSlug": "",
+      "name": "Exploria Stadium",
+      "city": "Orlando, Florida"
+    },
+    "season": {
+      "slug": "us-major-league-soccer-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 98,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 98,
+      "name": "MLS Regular Season",
+      "slug": "mls-regular-season",
+      "shortName": "Regular Season",
+      "matchType": "Regular",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TVA Sports",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      },
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TSN1",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      },
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TSN3",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      },
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TSN5",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      },
+      {
+        "broadcasterTypeLabel": "Streaming",
+        "broadcasterName": "MLS LIVE on ESPN+",
+        "broadcasterStreamingURL": "https://plus.espn.com/soccer",
+        "broadcasterType": "US Streaming"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-02-27T18:00:00.0000000Z",
+    "thirdPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://seatgeek.com/cf-montreal-at-orlando-city-sc-tickets/mls/2022-02-27-1-pm/5575350?aid=12189&pid=integration&utm_medium=partnership&utm_source=mls&utm_campaign=integration&rid=4",
+      "openInNewTab": true,
+      "isVisible": false
+    },
+    "tags": [
+      {
+        "type": "tag",
+        "_translationId": "01ae285f-1b87-4b01-a687-19281bb7c6ab",
+        "_entityId": "42de7bfc-76d0-4956-a5b8-955f061a4a68",
+        "selfUrl": "https://dapi.mlssoccer.com/v2/content/en-us/tags/jdpush",
+        "title": "JDPush",
+        "slug": "jdpush",
+        "neutralSlug": "jdpush",
+        "externalSourceReference": {},
+        "fields": {}
+      },
+      {
+        "type": "tag",
+        "_translationId": "585bc0ba-cd79-4321-8246-4eff9093d9c0",
+        "_entityId": "771e3aa2-0134-46e7-8aae-bfb2967a627d",
+        "selfUrl": "https://dapi.mlssoccer.com/v2/content/en-us/tags/seatgeek-deeplink-added",
+        "title": "seatgeek-deeplink-added",
+        "slug": "seatgeek-deeplink-added",
+        "neutralSlug": "seatgeek-deeplink-added",
+        "externalSourceReference": {},
+        "fields": {}
+      }
+    ],
+    "matchKickOffTime": "2022-02-27T18:08:00.0000000Z",
+    "homeClubBroadcasters": [
+      {
+        "broadcasterTypeLabel": "ORL TV",
+        "broadcasterName": "Fox 35 Plus",
+        "broadcasterType": "Linear TV"
+      },
+      {
+        "broadcasterTypeLabel": "ORL Streaming",
+        "broadcasterName": "LionNation TV",
+        "broadcasterType": "Linear TV"
+      }
+    ],
+    "awayClubBroadcasters": [
+      {
+        "broadcasterName": "91,9 Sports",
+        "broadcasterType": "Radio"
+      },
+      {
+        "broadcasterName": "TSN 690",
+        "broadcasterType": "Radio"
+      }
+    ],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": "2:2825056"
+  },
+  {
+    "optaId": 2261092,
+    "slug": "minvschi-04-23-2022",
+    "leagueMatchTitle": "",
+    "home": {
+      "optaId": 6977,
+      "fullName": "Minnesota United",
+      "slug": "minnesota-united-fc",
+      "shortName": "Minnesota",
+      "abbreviation": "MIN",
+      "backgroundColor": "#737B82",
+      "logoBWSlug": "webcomp_73d6b760-8b5f-44fb-9ed8-19435b008968",
+      "logoColorSlug": "webcomp_a1c50cc7-da2a-49d9-a255-474b2782fd6a",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1614970757/assets/logos/6977-minnesota-logo_tzjlhe.png",
+      "crestColorSlug": "webcomp_858d4cc5-5d2c-4d30-a173-50bac6381c30"
+    },
+    "away": {
+      "optaId": 1207,
+      "fullName": "Chicago Fire FC",
+      "slug": "chicago-fire-fc",
+      "shortName": "Chicago",
+      "abbreviation": "CHI",
+      "backgroundColor": "#141946",
+      "logoBWSlug": "webcomp_37d78f9a-31c1-4aa2-96e7-14d9b5f86847",
+      "logoColorSlug": "webcomp_ae953999-88ac-4bfe-8d6f-10010d649cad",
+      "logoColorUrl": "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1633358356/assets/logos/CHI_Logo_480x480-2021-v2.png",
+      "crestColorSlug": "webcomp_4323e5d2-b6f8-4c6e-a6d9-0033445af1eb"
+    },
+    "venue": {
+      "venueOptaId": "13671",
+      "backgroundImageSlug": "",
+      "name": "Allianz Field",
+      "city": "Minnesota"
+    },
+    "season": {
+      "slug": "us-major-league-soccer-season-2022-2023",
+      "optaId": 2022,
+      "competitionId": 98,
+      "name": "Season 2022/2023"
+    },
+    "competition": {
+      "optaId": 98,
+      "name": "MLS Regular Season",
+      "slug": "mls-regular-season",
+      "shortName": "Regular Season",
+      "matchType": "Regular",
+      "logoLight": {
+        "slug": ""
+      },
+      "logoDark": {
+        "slug": ""
+      },
+      "blockHeaderName": "",
+      "mgmId": ""
+    },
+    "broadcasters": [
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "ESPN",
+        "broadcasterStreamingURL": "www.espn.com",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "National TV",
+        "broadcasterName": "ESPN Deportes",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "US TV"
+      },
+      {
+        "broadcasterTypeLabel": "TV",
+        "broadcasterName": "TSN1",
+        "broadcasterStreamingURL": "",
+        "broadcasterType": "Canada TV"
+      }
+    ],
+    "sponsorImage": {},
+    "matchDate": "2022-04-23T21:00:00.0000000Z",
+    "firstPartyTickets": {
+      "displayText": "Tickets",
+      "accessibleText": "Tickets",
+      "url": "https://seatgeek.com/chicago-fire-fc-at-minnesota-united-fc-tickets/mls/2022-04-23-4-pm/5595167?aid=12189&pid=integration&utm_medium=partnership&utm_source=mls&utm_campaign=integration&rid=3",
+      "openInNewTab": true,
+      "isVisible": false
+    },
+    "tags": [
+      {
+        "type": "tag",
+        "_translationId": "585bc0ba-cd79-4321-8246-4eff9093d9c0",
+        "_entityId": "771e3aa2-0134-46e7-8aae-bfb2967a627d",
+        "selfUrl": "https://dapi.mlssoccer.com/v2/content/en-us/tags/seatgeek-deeplink-added",
+        "title": "seatgeek-deeplink-added",
+        "slug": "seatgeek-deeplink-added",
+        "neutralSlug": "seatgeek-deeplink-added",
+        "externalSourceReference": {},
+        "fields": {}
+      }
+    ],
+    "matchKickOffTime": "2022-04-23T21:08:00.0000000Z",
+    "homeClubBroadcasters": [
+      {
+        "broadcasterName": "SKOR North",
+        "broadcasterStreamingURL": "https://live.skornorth.com/listen/",
+        "broadcasterType": "Radio"
+      }
+    ],
+    "awayClubBroadcasters": [],
+    "clubBroadcasters": [],
+    "isTimeTbd": false,
+    "mgmId": "2:3126898"
+  }
+]

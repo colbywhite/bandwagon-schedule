@@ -7,7 +7,7 @@ export default function TeamLogo({ team, ...props }: LogoProps) {
   if (!team || !team.logoUrl) {
     return <></>;
   }
-  const {width, height} = {...DEFAULT_PROPS, ...props};
+  const { width, height } = { ...DEFAULT_PROPS, ...props };
   if (team.sport === Sport.soccer) {
     const format = `w_${width},h_${height}`;
     return (

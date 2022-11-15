@@ -10,3 +10,4 @@ sam.yaml
 /app/styles/tailwind.css
 
 /netlify/functions/server
+app/lib/ingest/**/fixtures
