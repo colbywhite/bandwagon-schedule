@@ -67,7 +67,7 @@ export function buildSchedule(
 ) {
   const promises = fetchers.map(async ({ fetcher, name }) => {
     console.log(`Retrieving ${name} games`);
-    const games = await fetcher(min, max);
+    const games = await fetcher();
     console.log(`Retrieved ${name} games`);
     return games;
   });

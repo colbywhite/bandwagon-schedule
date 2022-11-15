@@ -1,82 +1,63 @@
-import type { Game, Team, TeamRecord } from "~/@types";
+import type { Game, Team } from "~/@types";
 import { Sport } from "~/@types";
 
-import thirdPartyClient from "./thirdPartyClient";
-import type {
-  ParsedNBAStandingEntry,
-  ParsedNBAStandings,
-  RawNBAGame,
-  RawNBAGamesOnDate,
-  RawNBATeam,
-} from "./types";
+import thirdPartyClient, { parseDate } from "./thirdPartyClient";
+import type { RawNBAGame, RawNBATeam } from "./types";
+import { ID_INFO } from "~/lib/ingest/basketball/teamIds";
+import { DateTime } from "luxon";
 
-function parseNationalNetwork({
-  broadcasters: { nationalTvBroadcasters },
-}: RawNBAGame): string | undefined {
-  const broadcaster = nationalTvBroadcasters.find(
-    (b) => b.broadcasterScope === "natl" && b.broadcasterMedia == "tv"
-  );
-  return broadcaster?.broadcasterDisplay;
-}
-
-function parseRecord(
-  team: RawNBATeam,
-  standings: ParsedNBAStandings
-): TeamRecord | undefined {
-  const entry: ParsedNBAStandingEntry | undefined = standings.find(
-    (entry) => team.teamId === Number(entry.TeamID)
-  );
-  if (entry === undefined) {
-    return undefined;
+function parseShortTeamName({ strTeam, strAlternate }: RawNBATeam): string {
+  if (strAlternate !== undefined && strAlternate.trim() !== "") {
+    return strAlternate.trim();
   }
-  return {
-    wins: Number(entry.WINS),
-    losses: Number(entry.LOSSES),
-    conference: String(entry.Conference),
-    conferenceRank: Number(entry.PlayoffRank),
-  };
+  const nameParts = strTeam.trim().split(" ");
+  return nameParts[nameParts.length - 1];
 }
 
 function parseTeam(
-  team: RawNBATeam,
-  rankings: number[],
-  standings: ParsedNBAStandings
+  teamId: string,
+  teams: RawNBATeam[],
+  rankings: string[]
 ): Team {
+  const team = teams.find((team) => team.idTeam === teamId);
+  if (team === undefined) {
+    throw new Error(`No team found for id ${teamId}`);
+  }
+  const nbaId = ID_INFO.find((i) => i.id === team.idTeam)?.nbaId;
   return {
-    id: team.teamId,
-    abbreviation: team.teamTricode,
-    shortName: team.teamName,
-    fullName: team.teamName,
-    powerRank: findTeamRank(team.teamId, rankings),
+    id: Number(team.idTeam),
+    abbreviation: team.strTeamShort,
+    shortName: parseShortTeamName(team),
+    fullName: team.strTeam,
+    powerRank: findTeamRank(team.idTeam, rankings),
     sport: Sport.basketball,
-    record: parseRecord(team, standings),
-    logoUrl: `https://cdn.nba.com/logos/nba/${team.teamId}/primary/L/logo.svg`,
+    logoUrl: nbaId
+      ? `https://cdn.nba.com/logos/nba/${nbaId}/primary/L/logo.svg`
+      : undefined,
   };
 }
 
 function parseRawGames(
-  games: RawNBAGamesOnDate[],
-  rankings: number[],
-  standings: ParsedNBAStandings
+  games: RawNBAGame[],
+  teams: RawNBATeam[],
+  rankings: string[]
 ): Game[] {
-  return games.reduce((parsedGames, { games: rawGames }) => {
-    const games: Game[] = rawGames.map((rawGame) => ({
-      id: rawGame.gameId,
-      competition: "NBA Regular Season",
-      home: parseTeam(rawGame.homeTeam, rankings, standings),
-      away: parseTeam(rawGame.awayTeam, rankings, standings),
+  return games.map((game) => {
+    return {
+      id: game.idEvent,
+      competition: "NBA", // TODO determine postseason
+      home: parseTeam(game.idHomeTeam, teams, rankings),
+      away: parseTeam(game.idAwayTeam, teams, rankings),
       venue: {
-        name: rawGame.arenaName,
-        city: rawGame.arenaCity,
+        name: "TODO",
+        city: "TODO",
       },
-      network: parseNationalNetwork(rawGame),
-      gameTime: new Date(rawGame.gameDateTimeUTC),
-    }));
-    return [...parsedGames, ...games];
-  }, [] as Game[]);
+      gameTime: parseDate(game).toJSDate(),
+    };
+  });
 }
 
-function findTeamRank(teamId: number, rankings: number[]): number | undefined {
+function findTeamRank(teamId: string, rankings: string[]): number | undefined {
   const zeroIndexedRank = rankings.findIndex((id) => id === teamId);
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
@@ -86,10 +67,10 @@ export default (
 ) => {
   const getGames = Promise.all([
     thirdPartyClient.getNBASchedule(...args),
+    thirdPartyClient.getNBATeams(),
     thirdPartyClient.getRankings(),
-    thirdPartyClient.getNBAStandings(),
-  ]).then(([schedule, rankings, standings]) =>
-    parseRawGames(schedule, rankings, standings)
+  ]).then(([schedule, teams, rankings]) =>
+    parseRawGames(schedule, teams, rankings)
   );
   return getGames;
 };

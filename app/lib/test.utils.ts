@@ -51,6 +51,13 @@ export function mockResponsesBeforeEach(...handlers: RestHandler[]) {
   return server;
 }
 
+export const BASKETBALL_URLS = {
+  rankings: "http://www.powerrankingsguru.com/nba/team-power-rankings.php",
+  teams:
+    "https://www.thesportsdb.com/api/v1/json/TEST_KEY/lookup_all_teams.php",
+  schedule: "https://www.thesportsdb.com/api/v1/json/TEST_KEY/eventsseason.php",
+};
+
 export const SOCCER_URLS = {
   rankings:
     "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php",

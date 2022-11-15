@@ -1,14 +1,5 @@
 export interface RawNBASchedule {
-  meta: {
-    version: number;
-    request: string;
-    time: string;
-  };
-  leagueSchedule: {
-    seasonYear: string;
-    leagueId: string;
-    gameDates: RawNBAGamesOnDate[];
-  };
+  events: RawNBAGame[];
 }
 
 export interface RawNBAGamesOnDate {
@@ -17,48 +8,53 @@ export interface RawNBAGamesOnDate {
 }
 
 export interface RawNBAGame {
-  gameId: string;
-  gameCode: string;
-  gameStatus: number;
-  gameStatusText: string;
-  gameSequence: number;
-  gameDateEst: string;
-  gameTimeEst: string;
-  gameDateTimeEst: string;
-  gameDateUTC: string;
-  gameTimeUTC: string;
-  gameDateTimeUTC: string;
-  homeTeamTime: string;
-  awayTeamTime: string;
-  day: string;
-  monthNum: number;
-  weekNumber: number;
-  weekName: string;
-  ifNecessary: boolean;
-  seriesGameNumber: string;
-  seriesText: string;
-  arenaName: string;
-  arenaState: string;
-  arenaCity: string;
-  postponedStatus: string;
-  branchLink: string;
-  broadcasters: {
-    nationalTvBroadcasters: NationalTVBroadcaster[];
-  };
-  homeTeam: RawNBATeam;
-  awayTeam: RawNBATeam;
+  idEvent: string;
+  idAPIfootball: string;
+  strEvent: string;
+  strEventAlternate: string;
+  strFilename: string;
+  strSport: string;
+  idLeague: string;
+  strLeague: string;
+  strSeason: string;
+  strHomeTeam: string;
+  strAwayTeam: string;
+  intHomeScore: string;
+  intRound: string;
+  intAwayScore: string;
+  strTimestamp: string;
+  dateEvent: string;
+  dateEventLocal: string;
+  strTime: string;
+  strTimeLocal: string;
+  idHomeTeam: string;
+  idAwayTeam: string;
+  strResult: string;
+  strVenue: string;
+  strCountry: string;
+  strCity: string;
+  strPoster: string;
+  strSquare: string;
+  strThumb: string;
+  strBanner: string;
+  strVideo: string;
+  strStatus: string;
+  strPostponed: string;
+  strLocked: string;
 }
 
 export interface RawNBATeam {
-  teamId: number;
-  teamName: string;
-  teamCity: string;
-  teamTricode: string;
-  teamSlug: string;
-  wins: number;
-  losses: number;
-  score: number;
-  seed: number;
+  idTeam: string;
+  idAPIfootball: string;
+  intLoved: string;
+  strTeam: string;
+  strTeamShort: string;
+  strAlternate: string;
+  intFormedYear: string;
+  strSport: string;
+  strLeague: string;
+  idLeague: string;
+  strStadium: string;
 }
 
 export interface NationalTVBroadcaster {
