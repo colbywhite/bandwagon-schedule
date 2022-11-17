@@ -1,16 +1,8 @@
 import path from "path";
 import { describe, expect, it } from "vitest";
 import thirdPartyClient from "./thirdPartyClient";
-import {
-  BASKETBALL_URLS,
-  FixtureHelper,
-  jsonResponse,
-  mockResponsesBeforeEach,
-  SOCCER_URLS,
-  textResponse,
-} from "../../test.utils";
+import { BASKETBALL_URLS, FixtureHelper, jsonResponse, mockResponsesBeforeEach, textResponse } from "../../test.utils";
 import { DateTime } from "luxon";
-import { as } from "vitest/dist/types-f302dae9";
 
 const fixtures = new FixtureHelper(path.join(__dirname, "fixtures"));
 describe("ingest/basketball/thirdPartyClient", () => {

@@ -5,6 +5,7 @@ import type { DataNode, Element } from "domhandler";
 import { DateTime } from "luxon";
 
 import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
+import { cacheWrappedRequest } from "~/cache";
 
 /**
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.
@@ -47,8 +48,8 @@ function getRankings(): Promise<number[]> {
   const source =
     "http://www.powerrankingsguru.com/soccer/mls/team-power-rankings.php";
   return axios
-    .get(source)
-    .then(({ data }) => data as string)
+    .get<string>(source)
+    .then(({ data }) => data)
     .then(cheerio.load)
     .then((parser: CheerioAPI) =>
       parser(
@@ -123,8 +124,8 @@ function getMLSSchedule(
     )}&dateTo=${adjustedMax.toFormat("yyyy-MM-dd")}` +
     "&excludeSecondaryTeams=true";
   return axios
-    .get(SCHEDULE_URL)
-    .then(({ data }) => data as RawMLSSchedule)
+    .get<RawMLSSchedule>(SCHEDULE_URL)
+    .then(({ data }) => data)
     .then((schedule) =>
       schedule.filter(isValidCompetition).filter(isWithinWeek)
     );
@@ -134,11 +135,11 @@ function getMLSStandings(): Promise<RawMLSStandings> {
   const STANDINGS_URL =
     "https://sportapi.mlssoccer.com/api/standings/live" +
     `?isLive=false&seasonId=${CURRENT_SEASON}&competitionId=${MLS_SEASON_ID}`;
-  return axios.get(STANDINGS_URL).then(({ data }) => data);
+  return axios.get<RawMLSStandings>(STANDINGS_URL).then(({ data }) => data);
 }
 
 export default {
-  getRankings,
-  getMLSSchedule,
-  getMLSStandings,
+  getRankings: cacheWrappedRequest("mls-rankings", getRankings),
+  getMLSSchedule: cacheWrappedRequest("mls-schedule", getMLSSchedule),
+  getMLSStandings: cacheWrappedRequest("mls-standings", getMLSStandings),
 };

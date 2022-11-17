@@ -4,16 +4,9 @@ import cheerio from "cheerio";
 import type { DataNode, Element } from "domhandler";
 import { DateTime } from "luxon";
 
-import type {
-  ParsedNBAStandingEntry,
-  ParsedNBAStandings,
-  RawNBAGamesOnDate,
-  RawNBASchedule,
-  RawNBAStandings,
-  RawNBATeam,
-} from "./types";
-import { RawNBAGame } from "./types";
+import type { RawNBAGame, RawNBASchedule, RawNBATeam } from "./types";
 import { ID_INFO } from "~/lib/ingest/basketball/teamIds";
+import { cacheWrappedRequest } from "~/cache";
 
 const LEAGUE_ID = "4387";
 const SEASON = "2022-2023";
@@ -29,8 +22,8 @@ export function parseDate({ dateEvent, strTime }: RawNBAGame): DateTime {
 function getRankings(): Promise<string[]> {
   const source = "http://www.powerrankingsguru.com/nba/team-power-rankings.php";
   return axios
-    .get(source)
-    .then(({ data }) => data as string)
+    .get<string>(source)
+    .then(({ data }) => data)
     .then(cheerio.load)
     .then((parser: CheerioAPI) =>
       parser(
@@ -93,8 +86,8 @@ function getNBASchedule(
   const key = process.env.SPORT_DB_KEY || process.env.VITE_SPORT_DB_KEY;
   const SCHEDULE_URL = `https://www.thesportsdb.com/api/v1/json/${key}/eventsseason.php?id=${LEAGUE_ID}&s=${SEASON}`;
   return axios
-    .get(SCHEDULE_URL)
-    .then(({ data }) => data as RawNBASchedule)
+    .get<RawNBASchedule>(SCHEDULE_URL)
+    .then(({ data }) => data)
     .then(({ events }) =>
       events.filter(containsValidGames).filter(isWithinRange)
     );
@@ -104,13 +97,13 @@ function getNBATeams() {
   const key = process.env.SPORT_DB_KEY || process.env.VITE_SPORT_DB_KEY;
   const TEAMS_URL = `https://www.thesportsdb.com/api/v1/json/${key}/lookup_all_teams.php?id=${LEAGUE_ID}`;
   return axios
-    .get(TEAMS_URL)
-    .then(({ data }) => data as { teams: RawNBATeam[] })
+    .get<{ teams: RawNBATeam[] }>(TEAMS_URL)
+    .then(({ data }) => data)
     .then(({ teams }) => teams);
 }
 
 export default {
-  getRankings,
-  getNBASchedule,
-  getNBATeams,
+  getRankings: cacheWrappedRequest("nba-rankings", getRankings),
+  getNBASchedule: cacheWrappedRequest("nba-schedule", getNBASchedule),
+  getNBATeams: cacheWrappedRequest("nba-teams", getNBATeams),
 };
