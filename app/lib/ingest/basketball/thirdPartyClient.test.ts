@@ -1,7 +1,13 @@
 import path from "path";
 import { describe, expect, it } from "vitest";
 import thirdPartyClient from "./thirdPartyClient";
-import { BASKETBALL_URLS, FixtureHelper, jsonResponse, mockResponsesBeforeEach, textResponse } from "../../test.utils";
+import {
+  BASKETBALL_URLS,
+  FixtureHelper,
+  jsonResponse,
+  mockResponsesBeforeEach,
+  textResponse,
+} from "../../test.utils";
 import { DateTime } from "luxon";
 
 const fixtures = new FixtureHelper(path.join(__dirname, "fixtures"));
