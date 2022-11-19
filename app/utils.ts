@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useMatches } from "@remix-run/react";
+import { DateTime } from "luxon";
 
 export function useMatchesData(id: string) {
   const matchingRoutes = useMatches();
@@ -49,4 +50,12 @@ function isDefinedString(val: unknown): val is string {
 
 async function fetchJson<T>(...args: Parameters<typeof fetch>) {
   return fetch(...args).then((res) => res.json() as Promise<T>);
+}
+
+export function today() {
+  return DateTime.now().setZone("America/New_York").startOf("day");
+}
+
+export function toDateTime(val: string | Date): DateTime {
+  return typeof val === "string" ? DateTime.fromISO(val) : DateTime.fromJSDate(val);
 }

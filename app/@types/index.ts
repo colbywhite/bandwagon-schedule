@@ -27,21 +27,12 @@ export interface Game {
   home: Team;
   away: Team;
   network?: string;
-  gameTime: Date;
+  gameTime: Date | string;
   competition: string;
   venue: Venue;
 }
 
-export interface Schedule {
-  games: Game[];
-  teams: Team[];
-  gamesByTeam: Record<number, Game[]>;
-  gamesByDate: Record<string, Game[]>;
-}
-
-export type ScheduleResponse = Schedule & { buildTime: Date };
-
 export enum Sport {
-  "soccer",
-  "basketball",
+  "SOCCER" = "soccer",
+  "BASKETBALL" = "basketball",
 }

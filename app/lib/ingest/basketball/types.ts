@@ -2,11 +2,6 @@ export interface RawNBASchedule {
   events: RawNBAGame[];
 }
 
-export interface RawNBAGamesOnDate {
-  gameDate: string;
-  games: RawNBAGame[];
-}
-
 export interface RawNBAGame {
   idEvent: string;
   idAPIfootball: string;

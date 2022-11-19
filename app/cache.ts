@@ -2,6 +2,7 @@ import invariant from "tiny-invariant";
 import * as supabase from "@supabase/supabase-js";
 import { DateTime } from "luxon";
 import { StorageError, StorageUnknownError } from "@supabase/storage-js";
+import { today } from "~/utils";
 
 const BUCKET_ID = "third-party-requests";
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
@@ -24,42 +25,40 @@ async function isDuplicateBucketError(err: StorageError | null) {
   }
 }
 
-async function createCache() {
+export async function createBucket() {
   invariant(SUPABASE_URL, "Missing SUPABASE_URL env var.");
   invariant(SUPABASE_KEY, "Missing SUPABASE_KEY env var.");
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  const { storage: cache } = client;
+  const { storage } = client;
   // if the bucket exists this silently fails, so no need to catch anythi.
-  await cache.createBucket(BUCKET_ID, { public: false });
+  await storage.createBucket(BUCKET_ID, { public: false });
   // const { error } = await cache.createBucket(BUCKET_ID, { public: false });
   // (await isDuplicateBucketError(error))
   //   ? console.log(`Bucket ${BUCKET_ID} already exists.`)
   //   : console.log(`Created bucket ${BUCKET_ID}.`);
-  return cache;
+  return storage.from(BUCKET_ID);
 }
 
-function today() {
-  return DateTime.now().setZone("America/New_York").startOf("day");
+export async function saveToStorage<T>(name: string, data: T) {
+  const bucket = await createBucket();
+  const key = `${name}-${today().toISODate()}`;
+  await bucket.upload(key, JSON.stringify(data), {
+    contentType: "application/json",
+  });
+  console.log('Saved', key)
+  return data;
 }
 
-export function cacheWrappedRequest<Args extends any[], Return extends any>(
+export async function retrieveFromStorage<T>(
   name: string,
-  func: (...args: Args) => Promise<Return>
-) {
-  return async (...args: Args) => {
-    const cache = await createCache();
-    const key = `${name}-${today().toISODate()}`;
-    const { data: cacheHit } = await cache.from(BUCKET_ID).download(key);
-    if (cacheHit === null) {
-      // console.log("Cache miss for", key);
-      const result = await func(...args);
-      await cache.from(BUCKET_ID).upload(key, JSON.stringify(result), {
-        contentType: "application/json",
-      });
-      return result;
-    }
-    // console.log("Cache hit for", key);
-    const cachedBody = await cacheHit.text();
-    return JSON.parse(cachedBody) as Return;
-  };
+  date: DateTime = today()
+): Promise<T> {
+  const bucket = await createBucket();
+  const key = `${name}-${date.toISODate()}`;
+  const { data } = await bucket.download(key);
+  if (data === null) {
+    throw new Error(`Could not retrieve ${key} from ${BUCKET_ID}`);
+  }
+  const cachedBody = await data.text();
+  return JSON.parse(cachedBody) as T;
 }

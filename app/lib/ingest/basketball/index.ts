@@ -5,6 +5,8 @@ import thirdPartyClient, { parseDate } from "./thirdPartyClient";
 import type { RawNBAGame, RawNBATeam } from "./types";
 import { ID_INFO } from "~/lib/ingest/basketball/teamIds";
 import { DateTime } from "luxon";
+import { retrieveFromStorage, saveToStorage } from "~/cache";
+import { today } from "~/utils";
 
 function parseShortTeamName({ strTeam, strAlternate }: RawNBATeam): string {
   if (strAlternate !== undefined && strAlternate.trim() !== "") {
@@ -30,14 +32,14 @@ function parseTeam(
     shortName: parseShortTeamName(team),
     fullName: team.strTeam,
     powerRank: findTeamRank(team.idTeam, rankings),
-    sport: Sport.basketball,
+    sport: Sport.BASKETBALL,
     logoUrl: nbaId
       ? `https://cdn.nba.com/logos/nba/${nbaId}/primary/L/logo.svg`
       : undefined,
   };
 }
 
-function parseRawGames(
+export function parseRawGames(
   games: RawNBAGame[],
   teams: RawNBATeam[],
   rankings: string[]
@@ -62,15 +64,26 @@ function findTeamRank(teamId: string, rankings: string[]): number | undefined {
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
 
-export default (
+export async function saveGames(
   ...args: Parameters<typeof thirdPartyClient.getNBASchedule>
-) => {
-  const getGames = Promise.all([
+) {
+  console.log("Retrieving", Sport.BASKETBALL, "games");
+  return Promise.all([
     thirdPartyClient.getNBASchedule(...args),
     thirdPartyClient.getNBATeams(),
     thirdPartyClient.getRankings(),
-  ]).then(([schedule, teams, rankings]) =>
-    parseRawGames(schedule, teams, rankings)
-  );
-  return getGames;
-};
+  ])
+    .then(([schedule, teams, rankings]) =>
+      Promise.all([
+        saveToStorage("nba-schedule", schedule),
+        saveToStorage("nba-teams", teams),
+        saveToStorage("nba-rankings", rankings),
+      ])
+    )
+    .then((results) => parseRawGames(...results))
+    .then((games) => saveToStorage("nba-games", games));
+}
+
+export async function getGames(date: DateTime = today()) {
+  return retrieveFromStorage<Game[]>("nba-games", date);
+}

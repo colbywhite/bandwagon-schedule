@@ -5,13 +5,13 @@ import path from "path";
 import { setupServer } from "msw/node";
 import { afterEach, beforeAll } from "vitest";
 
-type JSONPrimitive = string | number | boolean | JSONPrimitive[];
-type JSONValue = JSONPrimitive | Record<string, JSONPrimitive>;
+type JSONPrimitive = string | number | boolean ;
+type JSONValue = JSONPrimitive | JSONPrimitive[]| Record<string, JSONPrimitive>;
 
 export class FixtureHelper {
   public constructor(private dir: string) {}
 
-  public json(name: string): JSONValue {
+  public json<T extends JSONValue>(name: string): T {
     return JSON.parse(this.text(name).toString());
   }
 

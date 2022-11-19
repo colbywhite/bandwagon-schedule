@@ -17,7 +17,8 @@
     "ntl:ci": "netlify dev",
     "test": "vitest",
     "start": "cross-env NODE_ENV=production netlify dev",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "update": "netlify functions:invoke update --port 3000"
   },
   "prettier": {},
   "eslintIgnore": [

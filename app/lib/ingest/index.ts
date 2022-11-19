@@ -1,7 +1,9 @@
-import { DateTime } from "luxon";
-import type { Game, Schedule, Team } from "~/@types";
+import { getGames as getBasketballGames, saveGames as saveBasketballGames } from "~/lib/ingest/basketball";
+import { getGames as getSoccerGames, saveGames as saveSoccerGames } from "~/lib/ingest/soccer";
+import type { Game, Team } from "~/@types";
+import { toDateTime } from "~/utils";
 
-function collectCommonTeams(games: Game[]): Team[] {
+export function collectCommonTeams(games: Game[]): Team[] {
   const teamMap = games
     .map((game) => [game.home, game.away])
     .reduce((teams, currentTeams) => {
@@ -13,9 +15,9 @@ function collectCommonTeams(games: Game[]): Team[] {
   return Array.from(teamMap.values());
 }
 
-function groupGamesByDate(allGames: Game[]): Record<string, Game[]> {
+export function groupGamesByDate(allGames: Game[]): Record<string, Game[]> {
   const dateGamesMap = allGames.reduce((schedule, game: Game) => {
-    const gameDate = DateTime.fromJSDate(game.gameTime)
+    const gameDate = toDateTime(game.gameTime)
       .setZone("America/New_York")
       .startOf("day")
       .toISO();
@@ -30,7 +32,7 @@ function groupGamesByDate(allGames: Game[]): Record<string, Game[]> {
   return Object.fromEntries(dateGamesMap);
 }
 
-function groupByTeam(allGames: Game[]): Record<number, Game[]> {
+export function groupByTeam(allGames: Game[]): Record<number, Game[]> {
   const teamMap = allGames.reduce((schedule, game) => {
     const teams = [game.home, game.away];
     teams.forEach((team) => {
@@ -46,32 +48,14 @@ function groupByTeam(allGames: Game[]): Record<number, Game[]> {
   return Object.fromEntries(teamMap);
 }
 
-// TODO do the groupings in parallel
-export function fullScheduleFromGames(games: Game[]): Schedule {
-  return {
-    games: games, // TODO sort by gameTime
-    teams: collectCommonTeams(games),
-    gamesByTeam: groupByTeam(games),
-    gamesByDate: groupGamesByDate(games),
-  };
+export async function getAllGames() {
+  return Promise.all([getBasketballGames(), getSoccerGames()]).then((games) =>
+    games.flat()
+  );
 }
 
-export type GameFetcher = {
-  fetcher: (min?: DateTime, max?: DateTime) => Promise<Game[]>;
-  name: string;
-};
-export function buildSchedule(
-  fetchers: GameFetcher[],
-  min: DateTime,
-  max: DateTime
-) {
-  const promises = fetchers.map(async ({ fetcher, name }) => {
-    console.log(`Retrieving ${name} games`);
-    const games = await fetcher();
-    console.log(`Retrieved ${name} games`);
-    return games;
-  });
-  return Promise.all(promises)
-    .then((sports) => sports.flat())
-    .then(fullScheduleFromGames);
+export async function saveAllGames() {
+  return Promise.all([saveBasketballGames(), saveSoccerGames()]).then((games) =>
+    games.flat()
+  );
 }

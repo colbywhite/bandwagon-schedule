@@ -8,7 +8,7 @@ export default function TeamLogo({ team, ...props }: LogoProps) {
     return <></>;
   }
   const { width, height } = { ...DEFAULT_PROPS, ...props };
-  if (team.sport === Sport.soccer) {
+  if (team.sport === Sport.SOCCER) {
     const format = `w_${width},h_${height}`;
     return (
       <img
@@ -19,7 +19,7 @@ export default function TeamLogo({ team, ...props }: LogoProps) {
         height={height}
       />
     );
-  } else if (team.sport === Sport.basketball) {
+  } else if (team.sport === Sport.BASKETBALL) {
     return (
       <img
         src={team.logoUrl}

@@ -6,7 +6,6 @@ import { DateTime } from "luxon";
 
 import type { RawNBAGame, RawNBASchedule, RawNBATeam } from "./types";
 import { ID_INFO } from "~/lib/ingest/basketball/teamIds";
-import { cacheWrappedRequest } from "~/cache";
 
 const LEAGUE_ID = "4387";
 const SEASON = "2022-2023";
@@ -103,7 +102,7 @@ function getNBATeams() {
 }
 
 export default {
-  getRankings: cacheWrappedRequest("nba-rankings", getRankings),
-  getNBASchedule: cacheWrappedRequest("nba-schedule", getNBASchedule),
-  getNBATeams: cacheWrappedRequest("nba-teams", getNBATeams),
+  getRankings,
+  getNBASchedule,
+  getNBATeams,
 };

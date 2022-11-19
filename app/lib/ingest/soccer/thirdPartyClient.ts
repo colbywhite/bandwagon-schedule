@@ -5,7 +5,6 @@ import type { DataNode, Element } from "domhandler";
 import { DateTime } from "luxon";
 
 import type { RawMLSGame, RawMLSSchedule, RawMLSStandings } from "./types";
-import { cacheWrappedRequest } from "~/cache";
 
 /**
  * There are some teams whose abbreviation on powerrankingsguru.com don't match the ones on mlssoccer.com.
@@ -139,7 +138,7 @@ function getMLSStandings(): Promise<RawMLSStandings> {
 }
 
 export default {
-  getRankings: cacheWrappedRequest("mls-rankings", getRankings),
-  getMLSSchedule: cacheWrappedRequest("mls-schedule", getMLSSchedule),
-  getMLSStandings: cacheWrappedRequest("mls-standings", getMLSStandings),
+  getRankings,
+  getMLSSchedule,
+  getMLSStandings,
 };

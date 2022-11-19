@@ -1,26 +1,20 @@
 import type { HeadersFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import getSoccerGames from "~/lib/ingest/soccer";
-import getBasketballGames from "~/lib/ingest/basketball";
+import { getAllGames } from "~/lib/ingest";
 import { DateTime } from "luxon";
 import { useLoaderData } from "@remix-run/react";
 import SingleDaySchedule from "~/components/singleDaySchedule";
 import Header from "~/components/header";
 import { getTimeZone } from "~/utils";
-import { buildSchedule, GameFetcher } from "~/lib/ingest";
+import { collectCommonTeams, groupGamesByDate } from "~/lib/ingest";
 
 export async function loader({ request, context: { clientIp } }: LoaderArgs) {
-  // TODO: hardcode dates for now to a day with both basketball & soccer games.
-  const min = DateTime.fromISO("2022-11-04");
-  const max = DateTime.fromISO("2022-11-06");
-  const fetchSportInfo: GameFetcher[] = [
-    { fetcher: getBasketballGames, name: "basketball" },
-    { fetcher: getSoccerGames, name: "soccer" },
-  ];
-  const [{ teams, gamesByDate }, zone] = await Promise.all([
-    buildSchedule(fetchSportInfo, min, max),
+  const [games, zone] = await Promise.all([
+    getAllGames(),
     getTimeZone(clientIp),
   ]);
+  const teams = collectCommonTeams(games);
+  const gamesByDate = groupGamesByDate(games);
   const logos = teams.filter((t) => t.logoUrl).map((t) => t.logoUrl);
   const headers = new Headers({ "x-logos": JSON.stringify(logos) });
   return json({ zone, gamesByDate }, { headers });

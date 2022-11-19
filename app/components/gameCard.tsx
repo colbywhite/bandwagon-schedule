@@ -76,17 +76,7 @@ const gameTimeFormatter: DateFormatter = (date) => {
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 };
 
-function isGame(game: Game | SerializeFrom<Game>): game is Game {
-  const { gameTime } = game;
-  return typeof gameTime !== "string";
-}
-
-function deserializeGame(game: Game | SerializeFrom<Game>): Game {
-  return isGame(game) ? game : { ...game, gameTime: new Date(game.gameTime) };
-}
-
-export default function GameCard({ game: serializedGame }: GameProps) {
-  const game = deserializeGame(serializedGame);
+export default function GameCard({ game }: GameProps) {
   return (
     <div className="border-400 flex flex-col gap-3 border-2 p-1">
       <div className="flex flex-row items-center justify-around gap-1">
@@ -96,7 +86,7 @@ export default function GameCard({ game: serializedGame }: GameProps) {
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
           <NetworkLogo network={game.network}></NetworkLogo>
-          <Time time={game.gameTime} formatter={gameTimeFormatter}></Time>
+          <Time time={new Date(game.gameTime)} formatter={gameTimeFormatter}></Time>
         </div>
       </div>
       <div className="text-center">

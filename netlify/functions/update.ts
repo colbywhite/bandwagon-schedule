@@ -1,11 +1,11 @@
 import type { Handler } from "@netlify/functions";
 import { schedule } from "@netlify/functions";
-import getBasketballGames from '~/lib/ingest/basketball'
+import { saveAllGames } from "~/lib/ingest";
 
-const update: Handler = async (event, context) => {
-  const games = await getBasketballGames()
-  console.log(games.length, 'games');
+const updateCache: Handler = async (event, context) => {
+  const games = await saveAllGames();
+  console.log("Saved", games.length, "games");
   return { statusCode: 200 };
 };
 
-export const handler = schedule("*/10 * * * *", update);
+export const handler = schedule("*/10 * * * *", updateCache);

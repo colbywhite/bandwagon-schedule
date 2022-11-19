@@ -9,6 +9,8 @@ import type {
   RawMLSStandings,
   RawMLSTeam,
 } from "./types";
+import { retrieveFromStorage, saveToStorage } from "~/cache";
+import { today } from "~/utils";
 
 const SPANISH_NETWORKS = ["UniMás", "TUDN"];
 
@@ -53,7 +55,7 @@ function parseTeam(
     shortName: team.shortName,
     fullName: team.fullName,
     powerRank: findTeamRank(team.optaId, rankings),
-    sport: Sport.soccer,
+    sport: Sport.SOCCER,
     record: parseRecord(team, standings),
     logoUrl: team.logoColorUrl,
   };
@@ -73,8 +75,8 @@ function buildId(game: RawMLSGame) {
 
 function parseRawGames(
   games: RawMLSSchedule,
-  rankings: number[],
-  standings: RawMLSStandings
+  standings: RawMLSStandings,
+  rankings: number[]
 ): Game[] {
   return games.map((game) => {
     const parsed: Game = {
@@ -98,15 +100,26 @@ function findTeamRank(teamId: number, rankings: number[]): number | undefined {
   return zeroIndexedRank === -1 ? undefined : zeroIndexedRank + 1;
 }
 
-export default (
+export async function saveGames(
   ...args: Parameters<typeof thirdPartyClient.getMLSSchedule>
-) => {
-  const getGames = Promise.all([
+) {
+  console.log("Retrieving", Sport.SOCCER, "games");
+  return Promise.all([
     thirdPartyClient.getMLSSchedule(...args),
-    thirdPartyClient.getRankings(),
     thirdPartyClient.getMLSStandings(),
-  ]).then(([schedule, rankings, standings]) =>
-    parseRawGames(schedule, rankings, standings)
-  );
-  return getGames;
-};
+    thirdPartyClient.getRankings(),
+  ])
+    .then(([schedule, standings, rankings]) =>
+      Promise.all([
+        saveToStorage("mls-schedule", schedule),
+        saveToStorage("mls-standings", standings),
+        saveToStorage("mls-rankings", rankings),
+      ])
+    )
+    .then((results) => parseRawGames(...results))
+    .then((games) => saveToStorage("mls-games", games));
+}
+
+export async function getGames(date: DateTime = today()) {
+  return retrieveFromStorage<Game[]>("mls-games", date);
+}
