@@ -70,8 +70,8 @@ function TeamInfo({ team }: TeamProps) {
   );
 }
 
-const gameTimeFormatter: DateFormatter = (date) => {
-  const dateTime = DateTime.fromJSDate(date).setZone("America/New_York");
+const gameTimeFormatter: DateFormatter = (date, zone: string) => {
+  const dateTime = date.setZone(zone);
   const timeZone = dateTime.toFormat("ZZZZZ").split(" ")[0];
   return dateTime.toFormat(`h:mm a '${timeZone}'`);
 };
@@ -86,7 +86,7 @@ export default function GameCard({ game }: GameProps) {
         </div>
         <div className="flex basis-1/4 flex-col items-center gap-1 text-center">
           <NetworkLogo network={game.network}></NetworkLogo>
-          <Time time={new Date(game.gameTime)} formatter={gameTimeFormatter}></Time>
+          <Time time={game.gameTime} formatter={gameTimeFormatter}></Time>
         </div>
       </div>
       <div className="text-center">

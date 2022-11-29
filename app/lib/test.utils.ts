@@ -5,8 +5,11 @@ import path from "path";
 import { setupServer } from "msw/node";
 import { afterEach, beforeAll } from "vitest";
 
-type JSONPrimitive = string | number | boolean ;
-type JSONValue = JSONPrimitive | JSONPrimitive[]| Record<string, JSONPrimitive>;
+type JSONPrimitive = string | number | boolean;
+type JSONValue =
+  | JSONPrimitive
+  | JSONPrimitive[]
+  | Record<string, JSONPrimitive>;
 
 export class FixtureHelper {
   public constructor(private dir: string) {}

@@ -44,9 +44,9 @@ export async function saveToStorage<T>(name: string, data: T) {
   const key = `${name}-${today().toISODate()}`;
   await bucket.upload(key, JSON.stringify(data), {
     contentType: "application/json",
-    upsert: true
+    upsert: true,
   });
-  console.log('Saved', key)
+  console.log("Saved", key);
   return data;
 }
 

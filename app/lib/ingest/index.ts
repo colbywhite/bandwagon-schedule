@@ -1,5 +1,11 @@
-import { getGames as getBasketballGames, saveGames as saveBasketballGames } from "~/lib/ingest/basketball";
-import { getGames as getSoccerGames, saveGames as saveSoccerGames } from "~/lib/ingest/soccer";
+import {
+  getGames as getBasketballGames,
+  saveGames as saveBasketballGames,
+} from "~/lib/ingest/basketball";
+import {
+  getGames as getSoccerGames,
+  saveGames as saveSoccerGames,
+} from "~/lib/ingest/soccer";
 import type { Game, Team } from "~/@types";
 import { toDateTime } from "~/utils";
 

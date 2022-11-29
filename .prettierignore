@@ -9,5 +9,5 @@ sam.yaml
 
 /app/styles/tailwind.css
 
-/netlify/functions/server
+/.netlify/
 app/lib/ingest/**/fixtures

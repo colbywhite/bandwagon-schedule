@@ -1,15 +1,23 @@
 import { useMemo } from "react";
 import { useMatches } from "@remix-run/react";
 import { DateTime } from "luxon";
+import type { RouteData } from "@remix-run/react/dist/routeData";
 
-export function useMatchesData(id: string) {
+export function useMatchesData<T extends RouteData>(id: string) {
   const matchingRoutes = useMatches();
   const route = useMemo(
     () => matchingRoutes.find((route) => route.id === id),
     [matchingRoutes, id]
   );
+  return route ? (route.data as T) : undefined;
+}
 
-  return route?.data;
+export function useTimezone() {
+  const indexRouteData = useMatchesData<{ zone: string }>("routes/index");
+  if (indexRouteData === undefined) {
+    throw new Error("No route data found for 'routes/index'");
+  }
+  return indexRouteData.zone;
 }
 
 const DEFAULT_TZ = "America/New_York";
@@ -31,15 +39,17 @@ interface IpLocateResponse {
 
 // TODO pull IP from cookie if present
 export async function getTimeZone(ip: unknown) {
+  const fallbackTZ =
+    process.env.NODE_ENV === "production" ? DEFAULT_TZ : "America/Chicago";
   // TODO use regex to check if ip address
   if (isDefinedString(ip)) {
     return fetchJson<IpLocateResponse>(
       `https://www.iplocate.io/api/lookup/${ip}`
     )
       .then(({ time_zone }) => time_zone)
-      .catch(() => DEFAULT_TZ);
+      .catch(() => fallbackTZ);
   }
-  return Promise.resolve(DEFAULT_TZ);
+  return Promise.resolve(fallbackTZ);
 }
 
 function isDefinedString(val: unknown): val is string {
@@ -57,5 +67,7 @@ export function today() {
 }
 
 export function toDateTime(val: string | Date): DateTime {
-  return typeof val === "string" ? DateTime.fromISO(val) : DateTime.fromJSDate(val);
+  return typeof val === "string"
+    ? DateTime.fromISO(val)
+    : DateTime.fromJSDate(val);
 }

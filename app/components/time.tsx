@@ -1,25 +1,36 @@
 import { DateTime } from "luxon";
 import React from "react";
+import { useTimezone } from "~/utils";
 
 export interface TimeProps {
-  time: Date;
+  time: DateTime | Date | string;
   formatter: DateFormatter | string;
+  zone?: string;
 }
 
-export type DateFormatter = (date: Date) => string;
+export type DateFormatter = (date: DateTime, zone: string) => string;
 
 function buildStandardFormatter(format: string): DateFormatter {
-  return (date) =>
-    DateTime.fromJSDate(date).setZone("America/New_York").toFormat(format);
+  return (date, zone: string) => date.setZone(zone).toFormat(format);
 }
 
 function isString(val: unknown): val is string {
   return typeof val === "string";
 }
 
-export default function Time({ time, formatter: givenFormatter }: TimeProps) {
+export default function Time({
+  time,
+  formatter: givenFormatter,
+  zone: givenZone,
+}: TimeProps) {
+  const zone = givenZone || useTimezone();
   const formatter = isString(givenFormatter)
     ? buildStandardFormatter(givenFormatter)
     : givenFormatter;
-  return <time dateTime={time.toISOString()}>{formatter(time)}</time>;
+  const dateTime = isString(time)
+    ? DateTime.fromISO(time)
+    : DateTime.isDateTime(time)
+    ? time
+    : DateTime.fromJSDate(time);
+  return <time dateTime={dateTime.toISO()}>{formatter(dateTime, zone)}</time>;
 }
