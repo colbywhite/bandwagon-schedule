@@ -8,4 +8,4 @@ const updateCache: Handler = async (event, context) => {
   return { statusCode: 200 };
 };
 
-export const handler = schedule("*/10 * * * *", updateCache);
+export const handler = schedule("0 * * * *", updateCache);
