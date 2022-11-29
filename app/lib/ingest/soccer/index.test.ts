@@ -105,7 +105,7 @@ describe("ingest/soccer", () => {
         logoUrl:
           "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
         shortName: "Cincinnati",
-        sport: Sport.soccer,
+        sport: Sport.SOCCER,
       };
       const pit: Team = {
         id: 9908,
@@ -114,7 +114,7 @@ describe("ingest/soccer", () => {
         shortName: "Pittsburgh",
         logoUrl:
           "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645275/assets/competitions/united-soccer-league/pittsburgh-riverhounds-sc-480.png",
-        sport: Sport.soccer,
+        sport: Sport.SOCCER,
       };
       expect(game.home).toEqual(cin);
       expect(game.away).toEqual(pit);
