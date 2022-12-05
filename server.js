@@ -10,6 +10,9 @@ import * as build from "@remix-run/dev/server-build";
  *    present if a secret is set.
  */
 function getLoadContext(event, context) {
+  Object.keys(event.headers).forEach((key) => {
+    console.log('getLoadContext', 'event.headers', key, event.headers[key])
+  })
   let rawAuthorizationString;
   let netlifyGraphToken;
 
