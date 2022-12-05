@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useMatches } from "@remix-run/react";
 import { DateTime } from "luxon";
 import type { RouteData } from "@remix-run/react/dist/routeData";
+import ipRegex from "ip-regex";
 
 export function useMatchesData<T extends RouteData>(id: string) {
   const matchingRoutes = useMatches();
@@ -23,22 +24,44 @@ export function useTimezone() {
 const DEFAULT_TZ = "America/New_York";
 
 interface IpLocateResponse {
-  asn: string;
-  city: string;
-  continent: string;
-  country: string;
-  country_code: string;
-  ip: string;
-  org: string;
-  latitude: number;
-  longitude: number;
-  postal_code: string;
-  subdivision: string;
-  time_zone: string;
+  asn: string | null;
+  city: string | null;
+  continent: string | null;
+  country: string | null;
+  country_code: string | null;
+  ip: string | null;
+  org: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  postal_code: string | null;
+  subdivision: string | null;
+  time_zone: string | null;
+}
+
+const headerNames = Object.freeze([
+  "X-NF-Client-Connection-IP",
+  "Client-IP",
+  "X-Client-IP",
+  "X-Forwarded-For",
+] as const);
+
+/**
+ * This is inspired by remix-utils but is tweaked to prioritize the headers I need prioritized and to reduce dependencies.
+ * @see https://github.com/sergiodxa/remix-utils/blob/v4.3.0/src/server/get-client-ip-address.ts
+ */
+function getClientIPAddress({ headers }: Request) {
+  const ipAddress = headerNames
+    .flatMap((headerName) => {
+      const value = headers.get(headerName);
+      return !value?.includes(", ") ? value : value.split(", ");
+    })
+    .find((ip) => ip !== null && ipRegex({ exact: true }).test(ip));
+  return ipAddress ?? null;
 }
 
 // TODO pull IP from cookie if present
-export async function getTimeZone(ip: unknown) {
+export async function getTimeZone(request: Request) {
+  const ip = getClientIPAddress(request);
   const fallbackTZ =
     process.env.NODE_ENV === "production" ? DEFAULT_TZ : "America/Chicago";
   // TODO use regex to check if ip address
@@ -46,7 +69,7 @@ export async function getTimeZone(ip: unknown) {
     return fetchJson<IpLocateResponse>(
       `https://www.iplocate.io/api/lookup/${ip}`
     )
-      .then(({ time_zone }) => time_zone)
+      .then(({ time_zone }) => (time_zone === null ? fallbackTZ : time_zone))
       .catch(() => fallbackTZ);
   }
   return Promise.resolve(fallbackTZ);

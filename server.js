@@ -28,7 +28,6 @@ function getLoadContext(event, context) {
     clientNetlifyGraphAccessToken: rawAuthorizationString,
     netlifyGraphToken: netlifyGraphToken,
     netlifyGraphSignature: graphSignatureHeader,
-    clientIp: event.headers["x-nf-client-connection-ip"],
   };
 
   // Remove keys with undefined values

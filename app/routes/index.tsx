@@ -8,10 +8,10 @@ import Header from "~/components/header";
 import { getTimeZone } from "~/utils";
 import { collectCommonTeams, groupGamesByDate } from "~/lib/ingest";
 
-export async function loader({ request, context: { clientIp } }: LoaderArgs) {
+export async function loader({ request }: LoaderArgs) {
   const [games, zone] = await Promise.all([
     getAllGames(),
-    getTimeZone(clientIp),
+    getTimeZone(request),
   ]);
   const teams = collectCommonTeams(games);
   const gamesByDate = groupGamesByDate(games);
