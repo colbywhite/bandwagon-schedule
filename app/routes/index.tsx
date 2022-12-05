@@ -9,9 +9,6 @@ import { getTimeZone } from "~/utils";
 import { collectCommonTeams, groupGamesByDate } from "~/lib/ingest";
 
 export async function loader({ request, context: { clientIp } }: LoaderArgs) {
-  request.headers.forEach((value, key, parent) => {
-    console.log('loader', 'request.headers', key, value)
-  })
   const [games, zone] = await Promise.all([
     getAllGames(),
     getTimeZone(clientIp),
