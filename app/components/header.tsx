@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ version }: { version?: string }) {
   return (
     <header className="flex flex-row items-center justify-between">
       <div className="flex flex-row items-center gap-4">
@@ -9,7 +9,7 @@ export default function Header() {
         />
         <h6 className="text-xl font-medium">Power schedules</h6>
       </div>
-      <p>Version: dev</p>
+      {version && <p>Version: {version}</p>}
     </header>
   );
 }

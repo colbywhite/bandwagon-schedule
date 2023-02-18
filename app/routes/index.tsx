@@ -17,7 +17,7 @@ export async function loader({ request }: LoaderArgs) {
   const gamesByDate = groupGamesByDate(games);
   const logos = teams.filter((t) => t.logoUrl).map((t) => t.logoUrl);
   const headers = new Headers({ "x-logos": JSON.stringify(logos) });
-  return json({ zone, gamesByDate }, { headers });
+  return json({ zone, gamesByDate, version: process.env.VERSION }, { headers });
 }
 
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
@@ -31,10 +31,10 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 };
 
 export default function Index() {
-  const { gamesByDate, zone } = useLoaderData<typeof loader>();
+  const { gamesByDate, zone, version } = useLoaderData<typeof loader>();
   return (
     <div className="flex w-full flex-col justify-around gap-1.5 p-2 focus-visible:outline-none md:p-3 lg:p-4">
-      <Header />
+      <Header version={version} />
       <main className="motion-safe:animate-fade-in my-3 flex flex-col gap-2">
         {Object.keys(gamesByDate)
           .map((date) => ({ date, games: gamesByDate[date] }))
