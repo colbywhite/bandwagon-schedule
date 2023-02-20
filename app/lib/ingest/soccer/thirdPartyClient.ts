@@ -41,7 +41,7 @@ const ABBREVIATION_MAP: Record<string, number> = {
   lag: 1230,
   san: 1131,
 };
-const CURRENT_SEASON = 2022;
+const CURRENT_SEASON = 2023;
 
 function getRankings(): Promise<number[]> {
   const source =
