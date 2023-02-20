@@ -1,23 +1,20 @@
 import type { HeadersFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { getAllGames } from "~/lib/ingest";
-import { DateTime } from "luxon";
+import {
+  collectCommonTeams,
+  getAllGames,
+  groupGamesByDate,
+} from "~/lib/ingest";
 import { useLoaderData } from "@remix-run/react";
 import SingleDaySchedule from "~/components/singleDaySchedule";
-import Header from "~/components/header";
-import { getTimeZone } from "~/utils";
-import { collectCommonTeams, groupGamesByDate } from "~/lib/ingest";
 
 export async function loader({ request }: LoaderArgs) {
-  const [games, zone] = await Promise.all([
-    getAllGames(),
-    getTimeZone(request),
-  ]);
+  const games = await getAllGames();
   const teams = collectCommonTeams(games);
   const gamesByDate = groupGamesByDate(games);
   const logos = teams.filter((t) => t.logoUrl).map((t) => t.logoUrl);
   const headers = new Headers({ "x-logos": JSON.stringify(logos) });
-  return json({ zone, gamesByDate, version: process.env.VERSION }, { headers });
+  return json({ gamesByDate }, { headers });
 }
 
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
@@ -31,21 +28,14 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 };
 
 export default function Index() {
-  const { gamesByDate, zone, version } = useLoaderData<typeof loader>();
+  const { gamesByDate } = useLoaderData<typeof loader>();
   return (
-    <div className="flex w-full flex-col justify-around gap-1.5 p-2 focus-visible:outline-none md:p-3 lg:p-4">
-      <Header version={version} />
-      <main className="motion-safe:animate-fade-in my-3 flex flex-col gap-2">
-        {Object.keys(gamesByDate)
-          .map((date) => ({ date, games: gamesByDate[date] }))
-          .map(({ date, games }) => (
-            <SingleDaySchedule
-              date={DateTime.fromISO(date).setZone(zone)}
-              games={games}
-              key={date}
-            />
-          ))}
-      </main>
-    </div>
+    <main className="motion-safe:animate-fade-in my-3 flex flex-col gap-2">
+      {Object.keys(gamesByDate)
+        .map((date) => ({ date, games: gamesByDate[date] }))
+        .map(({ date, games }) => (
+          <SingleDaySchedule date={date} games={games} key={date} />
+        ))}
+    </main>
   );
 }

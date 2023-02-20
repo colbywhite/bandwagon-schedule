@@ -1,34 +1,32 @@
 import type { Team } from "~/@types";
-import { Sport } from "~/@types";
 
-export type LogoProps = { team: Team; width?: number; height?: number };
-const DEFAULT_PROPS = { width: 50, height: 50 } as const;
-export default function TeamLogo({ team, ...props }: LogoProps) {
-  if (!team || !team.logoUrl) {
+function BasketballLogo({ src, alt }: { src: string; alt: string }) {
+  return <img loading="lazy" src={src} alt={alt} width={48} height={48} />;
+}
+
+function SoccerLogo({ src, alt }: { src: string; alt: string }) {
+  const format = "w_48,h_48";
+  return (
+    <img
+      src={src.replace(/\{formatInstructions\}/, format)}
+      alt={alt}
+      width={48}
+      height={48}
+      loading="lazy"
+    />
+  );
+}
+
+export default function TeamLogo({
+  team: { fullName, logoUrl, sport },
+}: {
+  team: Team;
+}) {
+  if (logoUrl === undefined) {
     return <></>;
+  } else if (sport === "soccer") {
+    return <SoccerLogo src={logoUrl} alt={fullName} />;
+  } else {
+    return <BasketballLogo src={logoUrl} alt={fullName} />;
   }
-  const { width, height } = { ...DEFAULT_PROPS, ...props };
-  if (team.sport === Sport.SOCCER) {
-    const format = `w_${width},h_${height}`;
-    return (
-      <img
-        src={team.logoUrl.replace(/\{formatInstructions\}/, format)}
-        alt={team.fullName}
-        loading="lazy"
-        width={width}
-        height={height}
-      />
-    );
-  } else if (team.sport === Sport.BASKETBALL) {
-    return (
-      <img
-        src={team.logoUrl}
-        alt={team.fullName}
-        loading="lazy"
-        width={width}
-        height={height}
-      />
-    );
-  }
-  return <></>;
 }

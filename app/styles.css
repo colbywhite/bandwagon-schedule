@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply link hover:no-underline;
+  }
+}
+
+@layer components {
+  /* these are the same as a standard daisy-ui .card-actions to give us a starting point*/
+  .card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* game-card component*/
+
+  .game-card {
+    @apply card-bordered card;
+  }
+
+  .game-card > .card-title,
+  .game-card > .card-footer {
+    @apply prose-xs my-1 font-light;
+  }
+
+  .game-card > .card-title {
+    @apply mx-auto italic;
+  }
+
+  .game-card > .card-body {
+    @apply gap-1 border-y border-base-200 p-0.5;
+  }
+
+  .game-card > .card-footer {
+    @apply flex flex-col gap-px;
+  }
+
+  .game-card > .card-footer > * {
+    @apply my-0 mx-auto;
+  }
+
+  /* team-card component*/
+
+  .team-card {
+    @apply card card-side items-center gap-4;
+  }
+
+  .team-card > figure > img,
+  .team-card > figure {
+    @apply w-[3rem];
+  }
+
+  .team-card > .card-body {
+    @apply prose-xs gap-px p-0;
+  }
+
+  .team-card > .card-body > .card-title {
+    @apply prose-lg;
+  }
+
+  .team-card > .card-body > p {
+    @apply m-0;
+  }
+
+  /* single-day-card component*/
+
+  .single-day-card {
+    @apply card gap-2;
+  }
+
+  .single-day-card > .card-title {
+    @apply prose-xl font-bold;
+  }
+
+  .single-day-card > .card-body {
+    @apply grid grid-cols-1 p-0 sm:grid-cols-2 md:grid-cols-3;
+  }
+}

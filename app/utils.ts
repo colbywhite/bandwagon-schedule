@@ -14,7 +14,7 @@ export function useMatchesData<T extends RouteData>(id: string) {
 }
 
 export function useTimezone() {
-  const indexRouteData = useMatchesData<{ zone: string }>("routes/index");
+  const indexRouteData = useMatchesData<{ zone: string }>("root");
   if (indexRouteData === undefined) {
     throw new Error("No route data found for 'routes/index'");
   }

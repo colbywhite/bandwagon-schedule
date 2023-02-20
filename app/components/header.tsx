@@ -1,15 +1,9 @@
-export default function Header({ version }: { version?: string }) {
+export default function Header() {
   return (
-    <header className="flex flex-row items-center justify-between">
-      <div className="flex flex-row items-center gap-4">
-        <img
-          src="https://raw.githubusercontent.com/jacob-ebey/remix-ecommerce/main/app/images/remix-glow.svg"
-          className="pointer-events-none h-10"
-          alt="logo"
-        />
-        <h6 className="text-xl font-medium">Power schedules</h6>
-      </div>
-      {version && <p>Version: {version}</p>}
+    <header className="border-b-2 border-primary pb-2">
+      <p className="text-center text-xl font-bold tracking-wider text-primary">
+        Power schedules
+      </p>
     </header>
   );
 }
