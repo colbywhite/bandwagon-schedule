@@ -1,11 +1,5 @@
 import path from "path";
-import { describe, expect, it } from "vitest";
-
-import { DateTime } from "luxon";
-import type { Game, Team } from "~/@types";
-import { Sport } from "~/@types";
-
-import getOriginalSchedule from "./";
+import { describe, expect, it, vi } from "vitest";
 import {
   FixtureHelper,
   jsonResponse,
@@ -13,14 +7,7 @@ import {
   SOCCER_URLS,
   textResponse,
 } from "../../test.utils";
-
-const gamesToIds = (games: Game[]) => games.map((g) => g.id);
-// Auto set a wide time frame since that's not what we're testing here
-const getSchedule = getOriginalSchedule.bind(
-  null,
-  DateTime.fromISO("2000-01-01"),
-  DateTime.fromISO("2100-01-01")
-);
+import { saveGames } from "~/lib/ingest/soccer/index";
 
 const fixtures = new FixtureHelper(path.join(__dirname, "fixtures"));
 const defaultRankingsResponse = () =>
@@ -29,106 +16,76 @@ const defaultStandingsResponse = () =>
   jsonResponse(SOCCER_URLS.standings, fixtures.json("defaultStanding.json"));
 
 describe("ingest/soccer", () => {
-  describe("Schedule#games", () => {
+  describe("saveGames", () => {
     const server = mockResponsesBeforeEach(
       defaultRankingsResponse(),
       defaultStandingsResponse()
     );
-    it("should parse english, national tv networks", async () => {
-      server.use(
-        jsonResponse(
-          SOCCER_URLS.schedule,
-          fixtures.json("scheduleWithDifferentNetworks.json")
-        )
-      );
-      const games = await getSchedule();
-      const [nationallyTelevisedGame, locallyTelevisedGame] = games;
-      expect(nationallyTelevisedGame.network).toEqual("FS1");
-      expect(locallyTelevisedGame.network).toBeUndefined();
-    });
 
-    it("should parse venue cities", async () => {
-      server.use(
-        jsonResponse(
-          SOCCER_URLS.schedule,
-          fixtures.json("scheduleWithDifferentLocations.json")
-        )
-      );
-      const games = await getSchedule();
-      const locations = games.map((g) => g.venue);
-      expect(locations).toEqual([
-        { name: "Estadio Nacional de Costa Rica", city: "San Jose" },
-        { name: "Dick's Sporting Goods Park", city: "Commerce City, CO" },
-        { name: "Exploria Stadium", city: "Orlando, Florida" },
-        { name: "Allianz Field", city: "Minnesota" },
-      ]);
-    });
-
-    it("should parse competition name", async () => {
-      server.use(
-        jsonResponse(
-          SOCCER_URLS.schedule,
-          fixtures.json("scheduleWithDifferentCompetitions.json")
-        )
-      );
-      const games = await getSchedule();
-      const competitions = games.map((g) => g.competition);
-      expect(competitions).toEqual([
-        "Concacaf Champions League",
-        "MLS Regular Season",
-        "US Open Cup",
-        "Canadian Championship",
-        "Campeones Cup",
-      ]);
-    });
-
-    it("should parse teams in and not in the standings", async () => {
-      server.use(
-        jsonResponse(
-          SOCCER_URLS.schedule,
-          fixtures.json("scheduleWithMlsVsNonMls.json")
-        )
-      );
-      const [game] = await getSchedule();
-      const cin: Team = {
-        id: 11504,
-        abbreviation: "CIN",
-        fullName: "FC Cincinnati",
-        powerRank: 18,
-        record: {
-          conference: "East",
-          conferenceRank: 9,
-          losses: 8,
-          ties: 10,
-          wins: 8,
-        },
-        logoUrl:
-          "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
-        shortName: "Cincinnati",
-        sport: Sport.SOCCER,
-      };
-      const pit: Team = {
-        id: 9908,
-        abbreviation: "PIT",
-        fullName: "Pittsburgh Riverhounds SC",
-        shortName: "Pittsburgh",
-        logoUrl:
-          "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645275/assets/competitions/united-soccer-league/pittsburgh-riverhounds-sc-480.png",
-        sport: Sport.SOCCER,
-      };
-      expect(game.home).toEqual(cin);
-      expect(game.away).toEqual(pit);
-    });
-
-    it("should parse game time", async () => {
+    it("should parse and save games", async () => {
+      vi.setSystemTime(new Date(2022, 3, 18));
       server.use(
         jsonResponse(
           SOCCER_URLS.schedule,
           fixtures.json("scheduleWithGameOnApr19.json")
         )
       );
-      const [game] = await getSchedule();
-      expect(game.gameTime).toEqual(new Date("2022-04-19T23:00:00.0000000Z"));
+      const expectedGame = {
+        id: "2022-04-19.pittsburgh-cincinnati.us-open-cup",
+        competition: "US Open Cup",
+        home: {
+          id: 11504,
+          abbreviation: "CIN",
+          shortName: "Cincinnati",
+          fullName: "FC Cincinnati",
+          powerRank: 18,
+          sport: "soccer",
+          record: {
+            wins: 8,
+            losses: 8,
+            ties: 10,
+            conference: "East",
+            conferenceRank: 9,
+          },
+          logoUrl:
+            "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1620997960/assets/logos/CIN-Logo-480px.png",
+        },
+        away: {
+          id: 9908,
+          abbreviation: "PIT",
+          shortName: "Pittsburgh",
+          fullName: "Pittsburgh Riverhounds SC",
+          powerRank: undefined,
+          sport: "soccer",
+          record: undefined,
+          logoUrl:
+            "https://images.mlssoccer.com/image/upload/{formatInstructions}/v1649645275/assets/competitions/united-soccer-league/pittsburgh-riverhounds-sc-480.png",
+        },
+        venue: { name: "TQL Stadium", city: "Cincinnati, OH" },
+        network: undefined,
+        gameTime: new Date("2022-04-19T23:00:00.000Z"),
+      };
+      await saveGames();
+      await expectSave("mls-games-2022-04-18", [expectedGame]);
     });
+
+    it.todo("should exclude irrelevant competitions");
+    it.todo("should exclude irrelevant networks");
+    it.todo("should include non-MLS teams");
   });
 });
+
+// TODO make custom matcher
+async function expectSave(name: string, data: any) {
+  const supabase = (await import("@supabase/supabase-js")) as any;
+  const client = supabase.createClient.results[0][1];
+  const bucket = client.storage.from.results[0][1];
+  expect(bucket.upload).toHaveBeenCalledWith(
+    name,
+    JSON.stringify(data), // TODO don't assert strings so order won't matter
+    {
+      contentType: "application/json",
+      upsert: true,
+    }
+  );
+}
