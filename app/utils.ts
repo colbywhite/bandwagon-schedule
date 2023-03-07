@@ -13,12 +13,21 @@ export function useMatchesData<T extends RouteData>(id: string) {
   return route ? (route.data as T) : undefined;
 }
 
-export function useTimezone() {
-  const indexRouteData = useMatchesData<{ zone: string }>("root");
+export function useRootData() {
+  const indexRouteData = useMatchesData<{
+    zone: string;
+    version: string | undefined;
+    buildTime: number;
+  }>("root");
   if (indexRouteData === undefined) {
     throw new Error("No route data found for 'routes/index'");
   }
-  return indexRouteData.zone;
+  return indexRouteData;
+}
+
+export function useTimezone() {
+  const { zone } = useRootData();
+  return zone;
 }
 
 const DEFAULT_TZ = "America/New_York";
@@ -93,4 +102,30 @@ export function toDateTime(val: string | Date): DateTime {
   return typeof val === "string"
     ? DateTime.fromISO(val)
     : DateTime.fromJSDate(val);
+}
+
+/**
+ * The next rebuild is defined as 10 am UTC the following day of the given time.
+ * This is when most US games should be finished, thus meaning we should rebuild the schedule.
+ * @returns the amount of seconds between the given time and the next time we should rebuild the site.
+ * @param msSinceEpoch An integer/string value representing the number of milliseconds since the UNIX epoch.
+ */
+export function secondsUntilNextRebuild(msSinceEpoch?: string | number) {
+  const ONE_HOUR_IN_MS = 60 * 60 * 1000;
+  const date = msSinceEpoch ? new Date(Number(msSinceEpoch)) : new Date();
+  const truncatedDate = truncateMS(date);
+  const startOfTomorrowInEpoch =
+    copyDate(truncatedDate).setUTCHours(23, 59, 59, 999) + 1;
+  const expirationDate = new Date(startOfTomorrowInEpoch + 10 * ONE_HOUR_IN_MS);
+  return Math.floor(
+    (expirationDate.getTime() - truncatedDate.getTime()) / 1000
+  );
+}
+
+function truncateMS(date: Date) {
+  return new Date(copyDate(date).setUTCMilliseconds(0));
+}
+
+function copyDate(date: Date) {
+  return new Date(date.getTime());
 }
