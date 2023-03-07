@@ -21,7 +21,7 @@ export async function loader({ request }: LoaderArgs) {
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
   const logoHeaderValue = loaderHeaders.get("x-logos");
   const cacheInit: HeadersInit = {
-    "Cache-Control": `max-age=${secondsUntilNextRebuild()}`,
+    "Cache-Control": `public, max-age=1800, s-maxage=${secondsUntilNextRebuild()}`,
   };
   if (logoHeaderValue) {
     const logos = JSON.parse(logoHeaderValue) as string[];
