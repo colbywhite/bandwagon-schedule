@@ -17,7 +17,8 @@ import { getTimeZone } from "~/utils";
 
 export async function loader({ request }: LoaderArgs) {
   const zone = await getTimeZone(request);
-  return json({ version: process.env.VERSION, zone });
+  const buildTime = new Date().getTime();
+  return json({ version: process.env.VERSION, zone, buildTime });
 }
 
 export const meta: MetaFunction = () => {
@@ -33,7 +34,7 @@ export const links: LinksFunction = () => {
 };
 
 export default function App() {
-  const { version } = useLoaderData<typeof loader>();
+  const { version, buildTime } = useLoaderData<typeof loader>();
   return (
     <html lang="en" className="h-full">
       <head>
@@ -43,7 +44,7 @@ export default function App() {
       <body className="mx-auto min-h-screen max-w-[65ch] p-2 md:max-w-[85ch]">
         <Header />
         <Outlet />
-        <Footer version={version} />
+        <Footer version={version} buildTime={new Date(buildTime)} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
