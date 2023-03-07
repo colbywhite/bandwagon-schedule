@@ -26,7 +26,7 @@ export default function Footer({
       </div>
       {version && (
         <div className="justify-self-center">
-          <p className="prose-sm prose">
+          <p className="prose-sm prose text-center">
             Version <span className="font-bold">{version}</span>
             {buildTime && (
               <>
