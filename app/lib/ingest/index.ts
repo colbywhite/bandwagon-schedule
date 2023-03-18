@@ -1,10 +1,10 @@
 import {
   getGames as getBasketballGames,
-  saveGames as saveBasketballGames,
+  saveGames as saveBasketballGames
 } from "~/lib/ingest/basketball";
 import {
   getGames as getSoccerGames,
-  saveGames as saveSoccerGames,
+  saveGames as saveSoccerGames
 } from "~/lib/ingest/soccer";
 import type { Game, Team } from "~/@types";
 import { toDateTime } from "~/utils";
@@ -54,10 +54,22 @@ export function groupByTeam(allGames: Game[]): Record<number, Game[]> {
   return Object.fromEntries(teamMap);
 }
 
+function gameSorter(a: Game, b: Game): number {
+  function toDate(val: string | Date) {
+    return typeof val === "string" ? new Date(val) : val;
+  }
+  const aGametime = toDate(a.gameTime);
+  const bGametime = toDate(b.gameTime);
+  return aGametime.getTime() - bGametime.getTime();
+}
+
 export async function getAllGames() {
   return Promise.all([getBasketballGames(), getSoccerGames()]).then((games) =>
     games.flat()
-  );
+  ).then(games => {
+    games.sort(gameSorter);
+    return games;
+  });
 }
 
 export async function saveAllGames() {
