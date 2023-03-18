@@ -39,7 +39,7 @@ const ABBREVIATION_MAP: Record<string, number> = {
   mnu: 6977,
   dcu: 1326,
   lag: 1230,
-  san: 1131,
+  san: 1131
 };
 const CURRENT_SEASON = 2023;
 
@@ -78,7 +78,7 @@ const VALID_COMPETITIONS = [
   CANADIAN_CUP_ID,
   CAMPEONES_CUP_ID,
   CHAMPIONS_LEAGUE_ID,
-  LEAGUES_CUP_ID,
+  LEAGUES_CUP_ID
 ];
 
 function isValidCompetition({ competition }: RawMLSGame): boolean {
@@ -94,22 +94,22 @@ function isGameWithinWeek(
   return date.isValid && min <= date && date <= max;
 }
 
-function aWeekAgo() {
+function now(){
   return DateTime.now()
     .setZone("America/New_York")
     .startOf("day")
-    .minus({ week: 1 });
+}
+
+function aWeekAgo() {
+  return now().minus({ week: 1 });
 }
 
 function aWeekFromNow() {
-  return DateTime.now()
-    .setZone("America/New_York")
-    .startOf("day")
-    .plus({ week: 1 });
+  return now().plus({ week: 1 });
 }
 
 function getMLSSchedule(
-  min: DateTime = aWeekAgo(),
+  min: DateTime = now(),
   max: DateTime = aWeekFromNow()
 ): Promise<RawMLSSchedule> {
   // since the API is not precise, add buffer and filter manually
@@ -140,5 +140,5 @@ function getMLSStandings(): Promise<RawMLSStandings> {
 export default {
   getRankings,
   getMLSSchedule,
-  getMLSStandings,
+  getMLSStandings
 };
