@@ -33,7 +33,7 @@ export interface RawMLSTeam {
   fullName: string;
   slug: string;
   shortName: string;
-  abbreviation: string;
+  abbreviation?: string;
   backgroundColor: string;
   logoBWSlug: string;
   logoColorSlug: string;

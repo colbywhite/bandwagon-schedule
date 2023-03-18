@@ -72,6 +72,7 @@ describe("ingest/soccer", () => {
     it.todo("should exclude irrelevant competitions");
     it.todo("should exclude irrelevant networks");
     it.todo("should include non-MLS teams");
+    it.todo("should handle teams without abbreviations");
   });
 });
 

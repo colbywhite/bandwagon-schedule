@@ -30,7 +30,7 @@ function parseRecord(
 ): TeamRecord | undefined {
   const entry: RawMLSStandingEntry | undefined = standings.find(
     (entry) =>
-      team.abbreviation.toLowerCase() === entry.club.abbreviation.toLowerCase()
+      team.abbreviation !== undefined && team.abbreviation.toLowerCase() === entry.club.abbreviation.toLowerCase()
   );
   if (entry === undefined) {
     return undefined;
@@ -51,7 +51,7 @@ function parseTeam(
 ): Team {
   return {
     id: team.optaId,
-    abbreviation: team.abbreviation,
+    abbreviation: team.abbreviation || abbreviationFromFullName(team.fullName),
     shortName: team.shortName,
     fullName: team.fullName,
     powerRank: findTeamRank(team.optaId, rankings),
@@ -59,6 +59,10 @@ function parseTeam(
     record: parseRecord(team, standings),
     logoUrl: team.logoColorUrl,
   };
+}
+
+function abbreviationFromFullName(name: string) {
+  return name.split(' ').map(segment => segment.charAt(0)).join()
 }
 
 function buildId(game: RawMLSGame) {
